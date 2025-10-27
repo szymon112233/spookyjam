@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cucm487dww55a"]
+[gd_scene load_steps=17 format=3 uid="uid://b2bkvellt3t20"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnxehnqppo36s" path="res://cubelib.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="2"]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uxnju"]
 _data = {
-"updown1": SubResource("2")
+&"updown1": SubResource("2")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xp3u"]
@@ -85,8 +85,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o6d7g"]
 _data = {
-"side": SubResource("3"),
-"updown1": SubResource("2")
+&"side": SubResource("3"),
+&"updown1": SubResource("2")
 }
 
 [sub_resource type="BoxShape3D" id="4"]
@@ -132,7 +132,7 @@ shape = SubResource("BoxShape3D_s7fhl")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Elevator1"]
 callback_mode_process = 0
 libraries = {
-"": SubResource("AnimationLibrary_uxnju")
+&"": SubResource("AnimationLibrary_uxnju")
 }
 autoplay = "updown1"
 
@@ -149,12 +149,12 @@ shape = SubResource("BoxShape3D_s7fhl")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Elevator2"]
 callback_mode_process = 0
 libraries = {
-"": SubResource("AnimationLibrary_o6d7g")
+&"": SubResource("AnimationLibrary_o6d7g")
 }
 autoplay = "side"
 
 [node name="Princess" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.25, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3432287, 1.3141155, 3)
 
 [node name="Mushroom" parent="Princess" instance=ExtResource("5")]
 
