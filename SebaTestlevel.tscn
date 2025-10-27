@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c0cwve705l1hi"]
+[gd_scene load_steps=19 format=3 uid="uid://1i3v0wsmung8"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnxehnqppo36s" path="res://cubelib.tres" id="1_7bhr2"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="2_jd7aa"]

@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=8 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
 [ext_resource type="Script" uid="uid://l6apichjao12" path="res://player/follow_camera.gd" id="3"]
+[ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6uh6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_orvbd"]
 
 [node name="Cubio" type="CharacterBody3D"]
 script = ExtResource("1_orvbd")
@@ -49,3 +52,8 @@ theme_override_font_sizes/font_size = 20
 text = "Thank You, Cubio! But the Princess is in Another Demo!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Nose" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.35, 0, 0, 0, -0.23825233, 0.25639, 0, -0.25639, -0.23825233, 0, 0.287, -0.48)
+material_override = ExtResource("4_t6uh6")
+mesh = SubResource("CapsuleMesh_orvbd")

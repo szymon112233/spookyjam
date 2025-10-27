@@ -27,6 +27,11 @@ public partial class PlayerController : CharacterBody3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		if(Input.IsActionJustPressed("fire1"))
+		{
+			Shoot();
+		}
+		
 		if (Input.IsActionJustPressed("exit"))
 		{
 			GetTree().Quit();
@@ -67,6 +72,11 @@ public partial class PlayerController : CharacterBody3D
 			acceleration = DECELERATION;
 
 		hvel = hvel.Lerp(target, acceleration * (float)delta);
+		
+		if(hvel.Length() > 0)
+		{
+			Transform = Transform.LookingAt(hvel+Transform.Origin, new Vector3(0,1,0));
+		}
 
 		//# Assign hvel's values back to velocity, and then move.
 		Velocity = new Vector3(hvel.X, Velocity.Y, hvel.Z);
@@ -84,5 +94,16 @@ public partial class PlayerController : CharacterBody3D
 			var canvasItem = (CanvasItem)GetNode("WinText");
 			canvasItem.Show();
 		}
+	}
+	
+	private void Shoot(){
+		var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
+		GD.Print("Fired1");
+		//var b = Bullet.instantiate()ö
+		Owner.AddChild(scene);
+		
+		//b.transform = $Muzzle.global_transform
+		GD.Print(((Node3D)scene).Transform);
+		((Node3D)scene).Transform = ((Node3D)(this)).GlobalTransform;
 	}
 }
