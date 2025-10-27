@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://qwiycs3856e6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17sms"]
+albedo_color = Color(0.870588, 0.623529, 0.278431, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf63e"]
+material = SubResource("StandardMaterial3D_17sms")
+size = Vector2(210000, 210000)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mf63e")
