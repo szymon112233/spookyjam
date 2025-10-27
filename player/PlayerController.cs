@@ -8,10 +8,21 @@ public partial class PlayerController : CharacterBody3D
 	float gravity;
 	Camera3D camera;
 	
-	const float MAX_SPEED = 3.5f;
-	const float JUMP_SPEED = 6.5f;
-	const float ACCELERATION = 4;
-	const float DECELERATION = 4;
+	[Export()]
+	float MAX_SPEED = 3.5f;
+	[Export()]
+	float JUMP_SPEED = 6.5f;
+	[Export()]
+	float ACCELERATION = 4;
+	[Export()]
+	float DECELERATION = 4;
+	[Export()]
+	float SPRINT_MAX_SPEED_MULTIPLIER = 1.5f;
+	
+
+	[Export()] 
+	private Marker3D marker3D;
+
 	//var camera;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -43,6 +54,8 @@ public partial class PlayerController : CharacterBody3D
 			Velocity = new Vector3();
 		}
 		
+		bool isSprinting= Input.IsActionPressed("sprint");
+		
 		var dir = new Vector3();
 		dir.X = Input.GetAxis("move_left", "move_right");
 		dir.Z = Input.GetAxis("move_forward", "move_back");
@@ -65,6 +78,12 @@ public partial class PlayerController : CharacterBody3D
 		hvel.Y = 0;
 
 		var target = dir * MAX_SPEED;
+
+		if (isSprinting)
+		{
+			target *= SPRINT_MAX_SPEED_MULTIPLIER;
+		}
+			
 		float acceleration = 0;
 		if (dir.Dot(hvel) > 0)
 			acceleration = ACCELERATION;
@@ -99,11 +118,10 @@ public partial class PlayerController : CharacterBody3D
 	private void Shoot(){
 		var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
 		GD.Print("Fired1");
-		//var b = Bullet.instantiate()ö
 		Owner.AddChild(scene);
 		
-		//b.transform = $Muzzle.global_transform
-		GD.Print(((Node3D)scene).Transform);
-		((Node3D)scene).Transform = ((Node3D)(this)).GlobalTransform;
+		Fireball fireball = (Fireball)scene;
+		fireball.SetTransform(marker3D.GlobalTransform);
+
 	}
 }
