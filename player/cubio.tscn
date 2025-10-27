@@ -11,11 +11,11 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_orvbd"]
 
-[node name="Cubio" type="CharacterBody3D"]
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("marker3D")]
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_orvbd")
-MAX_SPEED = 7.0
+marker3D = NodePath("CastingPointMarker3D")
 
 [node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 _import_path = NodePath("cube-col")
@@ -60,3 +60,6 @@ vertical_alignment = 1
 transform = Transform3D(0.35, 0, 0, 0, -0.23825233, 0.25639, 0, -0.25639, -0.23825233, 0, 0.287, -0.48)
 material_override = ExtResource("4_t6uh6")
 mesh = SubResource("CapsuleMesh_orvbd")
+
+[node name="CastingPointMarker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7637711)

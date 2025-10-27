@@ -16,6 +16,9 @@ public partial class PlayerController : CharacterBody3D
 	float ACCELERATION = 4;
 	[Export()]
 	float DECELERATION = 4;
+
+	[Export()] 
+	private Marker3D marker3D;
 	//var camera;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -103,18 +106,10 @@ public partial class PlayerController : CharacterBody3D
 	private void Shoot(){
 		var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
 		GD.Print("Fired1");
-		//var b = Bullet.instantiate()ö
 		Owner.AddChild(scene);
 		
-		//b.transform = $Muzzle.global_transform
-		//GD.Print(((Node3D)scene).Transform);
-		Transform3D trans = ((Node3D)this).GlobalTransform;
-		trans.Origin += -trans.Basis.Z;
-		// RigidBody3D sceneRb = scene.GetNode<RigidBody3D>(""
-		//sceneRb.LinearVelocity += -trans.Basis.Z;
-		// RigidBody3D sceneRb = (RigidBody3D)scene;
-		//((Node3D)scene).Transform = ((Node3D)(this)).GlobalTransform;
-		((Node3D)scene).Transform = trans;
-		
+		Fireball fireball = (Fireball)scene;
+		fireball.SetTransform(marker3D.GlobalTransform);
+
 	}
 }
