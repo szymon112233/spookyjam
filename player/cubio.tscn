@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1j6vfe3s2bq8"]
 
-[ext_resource type="Script" uid="uid://bcv6gkmchs7vs" path="res://player/cubio.gd" id="1"]
+[ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
 [ext_resource type="Script" uid="uid://l6apichjao12" path="res://player/follow_camera.gd" id="3"]
 
@@ -9,7 +9,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6uh6"]
 
 [node name="Cubio" type="CharacterBody3D"]
-script = ExtResource("1")
+script = ExtResource("1_orvbd")
 
 [node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 _import_path = NodePath("cube-col")

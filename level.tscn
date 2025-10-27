@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cucm487dww55a"]
+[gd_scene load_steps=17 format=3 uid="uid://b2bkvellt3t20"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnxehnqppo36s" path="res://cubelib.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="2"]
@@ -154,7 +154,7 @@ libraries = {
 autoplay = "side"
 
 [node name="Princess" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.25, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3432287, 1.3141155, 3)
 
 [node name="Mushroom" parent="Princess" instance=ExtResource("5")]
 
