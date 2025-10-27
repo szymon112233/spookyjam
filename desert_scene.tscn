@@ -1,3 +1,116 @@
-[gd_scene format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=12 format=3 uid="uid://ddfrla0niav7c"]
+
+[ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
+[ext_resource type="Material" uid="uid://bhhh4tdxd2idt" path="res://materials/0.tres" id="2_1nrcf"]
+[ext_resource type="Material" uid="uid://cujipr1dc6e5v" path="res://materials/2.tres" id="3_ieddu"]
+[ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="3_qwtje"]
+[ext_resource type="Material" uid="uid://b1m4kr3ffwk74" path="res://materials/4.tres" id="4_qwtje"]
+[ext_resource type="PackedScene" uid="uid://guuwcgtogcs7" path="res://Prefabs/npc.tscn" id="6_p06u6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbyy0"]
+albedo_color = Color(0.9490196, 0.72156864, 0.53333336, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1nrcf"]
+material = SubResource("StandardMaterial3D_xbyy0")
+size = Vector2(5000, 5000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwtje"]
+size = Vector3(5000, 1, 5000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x2qou"]
+material = ExtResource("2_1nrcf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbyy0"]
 
 [node name="DesertScene" type="Node3D"]
+
+[node name="Cubio" parent="." instance=ExtResource("1_x2qou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3984768, 10)
+collision_mask = 3
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+layers = 2
+mesh = SubResource("PlaneMesh_1nrcf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_qwtje")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.766045, 0.45452, -0.45452, 0, 0.707107, 0.707107, 0.642788, 0.541676, -0.541675, 0, 5, 0)
+light_energy = 1.3
+shadow_enabled = true
+shadow_bias = 0.032
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.05
+directional_shadow_split_2 = 0.1
+directional_shadow_split_3 = 0.2
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 24.0
+
+[node name="Blockout" type="Node3D" parent="."]
+
+[node name="Building" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(1.369, 0, 0, 0, 3, 0, 0, 0, 3.337, -1.7750304, 1.7836182, 6.4004564)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building"]
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building6" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(1.369, 0, 0, 0, 3, 0, 0, 0, 3.337, -0.11524606, 1.4297948, -6.270562)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building6"]
+material_override = ExtResource("3_ieddu")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building6"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building5" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(3.2004552, 0, 0, 0, 4.5, 0, 0, 0, 5.006, -1.9355149, 2.1247075, -3.3890467)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building5"]
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building5"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building2" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(0.975, 0, 0, 0, 1.5, 0, 0, 0, 1.1660867, 0.24584591, 0.7414684, -8.126968)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building2"]
+material_override = ExtResource("4_qwtje")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building2"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building3" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(9.919332, 0, 0, 0, 6.12461, 0, 0, 0, 17.640274, -7.982005, 2.8584018, 1.7926629)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building3"]
+material_override = ExtResource("3_qwtje")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building3"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building4" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(18.271494, 0, 0, 0, 16.348013, 0, 0, 0, 17.640274, 1.2037001, 2.8584018, 26.010448)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building4"]
+material_override = ExtResource("4_qwtje")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building4"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="NPC" parent="." instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94608474, 0)

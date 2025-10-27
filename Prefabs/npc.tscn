@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://guuwcgtogcs7"]
+
+[ext_resource type="Material" uid="uid://cdc0exiu5yafl" path="res://materials/16.tres" id="1_kd6ta"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieddu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
+
+[node name="NPC" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_ieddu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+material_override = ExtResource("1_kd6ta")
+mesh = SubResource("CapsuleMesh_ieddu")
