@@ -110,8 +110,8 @@ public partial class PlayerController : CharacterBody3D
 		//GD.Print(((Node3D)scene).Transform);
 		Transform3D trans = ((Node3D)this).GlobalTransform;
 		trans.Origin += -trans.Basis.Z;
-		RigidBody3D sceneRb = scene.GetNode<RigidBody3D>(""
-		sceneRb.LinearVelocity += -trans.Basis.Z;
+		// RigidBody3D sceneRb = scene.GetNode<RigidBody3D>(""
+		//sceneRb.LinearVelocity += -trans.Basis.Z;
 		// RigidBody3D sceneRb = (RigidBody3D)scene;
 		//((Node3D)scene).Transform = ((Node3D)(this)).GlobalTransform;
 		((Node3D)scene).Transform = trans;

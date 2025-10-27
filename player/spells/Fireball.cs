@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Fireball : RigidBody3D
+public partial class Fireball : Node3D
 {
 	
 	// Called when the node enters the scene tree for the first time.
