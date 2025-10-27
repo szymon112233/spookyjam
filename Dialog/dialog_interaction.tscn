@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://be7liaivbjwjl"]
+
+[ext_resource type="Script" uid="uid://3lt0xirdv0y6" path="res://Dialog/SimpleDialogInteraction.cs" id="1_v8ail"]
+[ext_resource type="Texture2D" uid="uid://x1rx1easseqh" path="res://Dialog/Dialog box .png" id="2_g1r0f"]
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(1.6566772, 1, 1.9055176)
+
+[node name="DialogInteraction" type="Area3D" node_paths=PackedStringArray("Billboard", "TextLabel")]
+script = ExtResource("1_v8ail")
+StartingText = "This is testing text for the game WOHOHOH."
+CompletedText = "We are done here :( "
+Billboard = NodePath("TextBox")
+TextLabel = NodePath("TextBox/Label3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033843994, 0.5382471, -0.008911133)
+shape = SubResource("4")
+debug_color = Color(0.8703127, 0.8697032, 0.9890539, 1)
+
+[node name="TextBox" type="Sprite3D" parent="."]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0.9894836, 1.7249534, 0.07788885)
+visible = false
+pixel_size = 1.0
+billboard = 2
+texture = ExtResource("2_g1r0f")
+
+[node name="Label3D" type="Label3D" parent="TextBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 251.78412, -0.09515381)
+sorting_offset = 0.415
+sorting_use_aabb_center = false
+pixel_size = 0.8
+billboard = 2
+modulate = Color(0.078431375, 0.13725491, 0.22745098, 1)
+text = "OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA "
+font_size = 64
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[connection signal="body_entered" from="." to="." method="OnPlayerEnter"]
+[connection signal="body_exited" from="." to="." method="OnPlayerExit"]
