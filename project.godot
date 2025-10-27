@@ -11,9 +11,19 @@ config_version=5
 [application]
 
 config/name="ChaoticJesus"
-run/main_scene="uid://b2bkvellt3t20"
+config/description="Kinematic character demo for 3D using a cube for the character.
+This is similar to the 3D platformer demo."
+config/tags=PackedStringArray("3d", "demo", "official", "physics")
+run/main_scene="uid://c0cwve705l1hi"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
