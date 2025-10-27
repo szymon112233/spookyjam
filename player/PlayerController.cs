@@ -16,6 +16,9 @@ public partial class PlayerController : CharacterBody3D
 	float ACCELERATION = 4;
 	[Export()]
 	float DECELERATION = 4;
+	[Export()]
+	float SPRINT_MAX_SPEED_MULTIPLIER = 1.5f;
+	
 	//var camera;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -47,6 +50,8 @@ public partial class PlayerController : CharacterBody3D
 			Velocity = new Vector3();
 		}
 		
+		bool isSprinting= Input.IsActionPressed("sprint");
+		
 		var dir = new Vector3();
 		dir.X = Input.GetAxis("move_left", "move_right");
 		dir.Z = Input.GetAxis("move_forward", "move_back");
@@ -69,6 +74,12 @@ public partial class PlayerController : CharacterBody3D
 		hvel.Y = 0;
 
 		var target = dir * MAX_SPEED;
+
+		if (isSprinting)
+		{
+			target *= SPRINT_MAX_SPEED_MULTIPLIER;
+		}
+			
 		float acceleration = 0;
 		if (dir.Dot(hvel) > 0)
 			acceleration = ACCELERATION;
