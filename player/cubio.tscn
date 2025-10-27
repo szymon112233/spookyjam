@@ -15,6 +15,7 @@
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_orvbd")
+MAX_SPEED = 7.0
 
 [node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 _import_path = NodePath("cube-col")

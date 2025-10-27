@@ -8,10 +8,14 @@ public partial class PlayerController : CharacterBody3D
 	float gravity;
 	Camera3D camera;
 	
-	const float MAX_SPEED = 3.5f;
-	const float JUMP_SPEED = 6.5f;
-	const float ACCELERATION = 4;
-	const float DECELERATION = 4;
+	[Export()]
+	float MAX_SPEED = 3.5f;
+	[Export()]
+	float JUMP_SPEED = 6.5f;
+	[Export()]
+	float ACCELERATION = 4;
+	[Export()]
+	float DECELERATION = 4;
 	//var camera;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
