@@ -8,6 +8,9 @@ public partial class Map : Node3D
     [Export]
     public Node3D[] PointsOfInterest;
 
+    [Signal]
+    public delegate void TESTEventHandler();
+
     public override void _EnterTree()
     {
         if (Instance != null)

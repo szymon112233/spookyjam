@@ -11,10 +11,9 @@ config_version=5
 [application]
 
 config/name="ChaoticJesus"
-config/description="Kinematic character demo for 3D using a cube for the character.
-This is similar to the 3D platformer demo."
+config/description="a game abot helping people I think"
 config/tags=PackedStringArray("3d", "demo", "official", "physics")
-run/main_scene="uid://c0cwve705l1hi"
+run/main_scene="uid://ddfrla0niav7c"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -105,7 +104,7 @@ interact={
 3d_physics/layer_1="Default"
 3d_physics/layer_2="Ground"
 3d_physics/layer_3="NPC"
-3d_physics/layer_4="Bullets"
+3d_physics/layer_4="Spells"
 3d_physics/layer_5="Player"
 3d_physics/layer_6="PlayerDetector"
 

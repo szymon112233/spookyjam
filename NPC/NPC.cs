@@ -28,6 +28,9 @@ public partial class NPC : CharacterBody3D
 	[Export]
 	protected float RunSpeed;
 
+	[Export] 
+	private HealthStatus _healthStatus = HealthStatus.Healthy;
+
 	public override void _Ready()
 	{
 		PlayerCast.Enabled = false;
@@ -72,5 +75,21 @@ public partial class NPC : CharacterBody3D
 	public void SetDebugPos()
 	{
 		SetTarget(DebugPosPoint.Position);
+	}
+
+	public void ChangeHealthStatus(HealthStatus status)
+	{
+		switch (status)
+		{
+			case HealthStatus.Healthy:
+				Rotation = new Vector3(0, 0, 0);
+				break;
+			case HealthStatus.Sick:
+				Rotation = new Vector3(45, 0, 0);
+				break;
+			case HealthStatus.Dead:
+				Rotation = new Vector3(90, 0, 0);
+				break;
+		}
 	}
 }
