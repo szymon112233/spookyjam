@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://cwufkp6q8iuqo"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_yh70b"]
+
+[resource]
+script = ExtResource("1_yh70b")
+Speaker = "Judas"
+StartingText = "What? Why would I betray you?"
+CompletedHappyText = "I really need those thirty silver pieces."
+CompletedSadText = "Forgive me!"

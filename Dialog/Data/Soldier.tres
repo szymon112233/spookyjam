@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_4b8bf")
-Speaker = "people"
-StartingText = "Plese heal us"
-CompletedHappyText = "myyy maaaan"
-CompletedSadText = "ioqehiufaefug"
+Speaker = "Soldier"
+StartingText = "Carry on, citizen."
+CompletedHappyText = "You are under arrest!"
+CompletedSadText = "You will pay for that!"

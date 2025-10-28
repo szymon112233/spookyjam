@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ehe5i")
-Speaker = "ded person"
-StartingText = "Revive pls, My spawn is too far."
-CompletedHappyText = "MYYYY MAAAAAAN"
-CompletedSadText = "X_X"
+Speaker = "Moneylender"
+StartingText = "Best deals right here!"
+CompletedHappyText = "Forgive me!"
+CompletedSadText = "It hurts!"
