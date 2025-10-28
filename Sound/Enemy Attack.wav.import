@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qp4cji5al4ob"
+path="res://.godot/imported/Enemy Attack.wav-407c9679767ed6a8e904bb802b9145a9.sample"
+
+[deps]
+
+source_file="res://Sound/Enemy Attack.wav"
+dest_files=["res://.godot/imported/Enemy Attack.wav-407c9679767ed6a8e904bb802b9145a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
