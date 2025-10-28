@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1m3h4ey3uoq0"]
+
+[ext_resource type="Script" uid="uid://w6aviajjmnbc" path="res://Interaction/PlayerTrigger.cs" id="1_3ydde"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ap3w5"]
+size = Vector3(3.2023926, 1, 2.730957)
+
+[node name="Generic Interaction" type="Area3D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_3ydde")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7142334, 0, 1.0339355)
+shape = SubResource("BoxShape3D_ap3w5")

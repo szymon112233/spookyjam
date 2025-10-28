@@ -14,7 +14,7 @@ config/name="ChaoticJesus"
 config/description="Kinematic character demo for 3D using a cube for the character.
 This is similar to the 3D platformer demo."
 config/tags=PackedStringArray("3d", "demo", "official", "physics")
-run/main_scene="uid://c0cwve705l1hi"
+run/main_scene="uid://ddfrla0niav7c"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
