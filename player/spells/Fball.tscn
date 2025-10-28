@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcffn1fdbskyq"]
+[gd_scene load_steps=4 format=3 uid="uid://d07j45hg1bunw"]
 
-[ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/Fireball.cs" id="1_2pvnd"]
+[ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/Fireball.cs" id="1_hjxgr"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cj6wo"]
 
@@ -9,11 +9,9 @@
 [node name="Fireball" type="RigidBody3D"]
 collision_layer = 8
 collision_mask = 2147483631
-gravity_scale = 0.0
-script = ExtResource("1_2pvnd")
+script = ExtResource("1_hjxgr")
 SPEED = 15.0
 ManaCost = 1.0
-HealthStatusEffect = 2
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_cj6wo")
@@ -21,6 +19,3 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_cj6wo")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered_yeah_boi"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

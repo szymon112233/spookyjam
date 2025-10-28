@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Reflection;
 
 public partial class PlayerController : CharacterBody3D
 {
@@ -152,7 +151,7 @@ public override void _PhysicsProcess(double delta)
 	
 	private void Shoot(){
 		var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
-		GD.Print("Fired1");
+		// GD.Print("Fired1");
 		Owner.AddChild(scene);
 		
 		Fireball fireball = (Fireball)scene;
