@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://db725efuwsv5j"]
+
+[ext_resource type="Material" uid="uid://cfwrqb2aiw4xn" path="res://player/spells/fireball/SmokeMat.tres" id="1_u733b"]
+
+[sub_resource type="Curve" id="Curve_7ffcb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6635514, 0.93516207), -0.5058704, -0.5058704, 0, 0, Vector2(0.98442364, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ap3w5"]
+curve = SubResource("Curve_7ffcb")
+
+[sub_resource type="Gradient" id="Gradient_7ffcb"]
+offsets = PackedFloat32Array(0, 0.61694914, 0.94237286)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.09998604, 0.099985994, 0.09998598, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ap3w5"]
+gradient = SubResource("Gradient_7ffcb")
+
+[sub_resource type="Curve" id="Curve_8vsgl"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_22ngd"]
+curve = SubResource("Curve_8vsgl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bjslr"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -179.99998
+angle_max = 180.00002
+inherit_velocity_ratio = 0.2
+gravity = Vector3(0, 1.5, 0)
+damping_min = 0.4
+damping_max = 0.6
+scale_min = 0.9
+scale_max = 1.1
+scale_curve = SubResource("CurveTexture_22ngd")
+color_ramp = SubResource("GradientTexture1D_ap3w5")
+alpha_curve = SubResource("CurveTexture_ap3w5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ffcb"]
+
+[node name="Smoke particles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018807411, 0, 0)
+material_override = ExtResource("1_u733b")
+amount = 200
+lifetime = 2.5
+randomness = 0.1
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_bjslr")
+draw_pass_1 = SubResource("QuadMesh_7ffcb")

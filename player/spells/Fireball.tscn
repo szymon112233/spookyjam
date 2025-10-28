@@ -1,25 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcffn1fdbskyq"]
+[gd_scene load_steps=13 format=3 uid="uid://dcffn1fdbskyq"]
 
-[ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/Fireball.cs" id="1_2pvnd"]
-[ext_resource type="Material" path="res://player/spells/FireballMaterial.tres" id="2_1hhah"]
+[ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/fireball/Fireball.cs" id="1_pl5wf"]
+[ext_resource type="Material" path="res://materials/3.tres" id="2_ergpa"]
+[ext_resource type="PackedScene" uid="uid://db725efuwsv5j" path="res://player/spells/fireball/smoke_particles.tscn" id="3_ergpa"]
+[ext_resource type="Material" uid="uid://civ1au1v0k7v6" path="res://player/spells/fireball/FireballMat.tres" id="4_ergpa"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cj6wo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cj6wo"]
 
+[sub_resource type="Curve" id="Curve_ergpa"]
+_data = [Vector2(0, 0.69201994), 0.0, 0.55185866, 0, 0, Vector2(0.6760124, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gvjhf"]
+curve = SubResource("Curve_ergpa")
+
+[sub_resource type="Curve" id="Curve_3svfh"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0.18380064, 1.3223193), 0.0, 1.8984804, 0, 0, Vector2(0.9937695, 2.1003742), 0.9605986, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qgern"]
+curve = SubResource("Curve_3svfh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvjhf"]
+emission_shape = 2
+emission_sphere_radius = 0.6
+inherit_velocity_ratio = 1.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_qgern")
+color = Color(0.7708395, 0.77083945, 0.77083945, 1)
+alpha_curve = SubResource("CurveTexture_gvjhf")
+anim_offset_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3svfh"]
+
 [node name="Fireball" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17865235, -0.2646857, 0)
 collision_layer = 8
 collision_mask = 2147483599
 gravity_scale = 0.2
-script = ExtResource("1_2pvnd")
+script = ExtResource("1_pl5wf")
 SPEED = 15.0
 ManaCost = 1.0
 HealthStatusEffect = 2
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-material_override = ExtResource("2_1hhah")
+visible = false
+material_override = ExtResource("2_ergpa")
 mesh = SubResource("SphereMesh_cj6wo")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_cj6wo")
+
+[node name="Smoke particles" parent="." instance=ExtResource("3_ergpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057861567, 0, 0.03843236)
+preprocess = 1.08
+fixed_fps = 60
+
+[node name="Fire ball" type="GPUParticles3D" parent="."]
+material_override = ExtResource("4_ergpa")
+amount = 350
+lifetime = 0.5
+preprocess = 1.0
+speed_scale = 2.0
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_gvjhf")
+draw_pass_1 = SubResource("QuadMesh_3svfh")
