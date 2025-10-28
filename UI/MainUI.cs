@@ -18,6 +18,10 @@ public partial class MainUI : Node
 		gameManager.DivineApprovalChanged += OnDivineApprovalChanged;
 		gameManager.ManaChanged += OnManaChanged;
 		gameManager.NotorietyChanged += OnNotorietyChanged;
+		
+		OnDivineApprovalChanged(gameManager.DivineApproval);
+		OnManaChanged(gameManager.Mana);
+		OnNotorietyChanged(gameManager.Notoriety);
 	}
 
 	private void OnNotorietyChanged(int newValue)
