@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d07j45hg1bunw"]
 
-[ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/Fireball.cs" id="1_hjxgr"]
+[ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/fireball/Fireball.cs" id="1_hjxgr"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cj6wo"]
 
