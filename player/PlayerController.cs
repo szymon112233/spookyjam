@@ -7,6 +7,8 @@ public partial class PlayerController : CharacterBody3D
 	Vector3 start_position;
 	float gravity;
 	Camera3D camera;
+	private Node3D cameraPivot;
+	private Node3D body;
 	
 	[Export()]
 	float MAX_SPEED = 3.5f;
@@ -18,6 +20,13 @@ public partial class PlayerController : CharacterBody3D
 	float DECELERATION = 4;
 	[Export()]
 	float SPRINT_MAX_SPEED_MULTIPLIER = 1.5f;
+	
+	// 	@export_range(0.0, 1.0) var mouse_sensitivity = 0.01
+	// 	@export var tilt_limit = deg_to_rad(75)
+	[Export()]
+	float tilt_limit = 1;
+	[Export()]
+	float MouseSensitivity = 0.01f;
 	
 
 	[Export()] 
@@ -32,11 +41,36 @@ public partial class PlayerController : CharacterBody3D
 		
 		start_position = Position;
 		gravity = -(float)ProjectSettings.GetSetting("physics/3d/default_gravity");
+		
+		// @onready var _camera := %Camera3D as Camera3D
+		cameraPivot = GetNode<Node3D>("CameraPivot");
+		body = GetNode<Node3D>("BodyCapsuleMesh");
 	}
 	
 
-	
-	public override void _PhysicsProcess(double delta)
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+
+		if(@event is InputEventMouseMotion)
+		{
+			InputEventMouseMotion mEvent = @event as InputEventMouseMotion;
+			Vector3 rotation = cameraPivot.Rotation;
+			
+			// rotation.X -= mEvent.Relative.Y * MouseSensitivity;
+			rotation.X -= mEvent.Relative.Y * MouseSensitivity;
+			rotation.X = float.Clamp(rotation.X, -tilt_limit, tilt_limit);
+			//GD.Print(rotation.X);
+			rotation.Y += -mEvent.Relative.X * MouseSensitivity;;
+			// cameraPivot.rotation.y += -event.relative.x * mouse_sensitivity
+			//GD.Print(@event);
+			cameraPivot.Rotation = rotation;
+		}
+		base._UnhandledInput(@event);
+	}
+
+
+public override void _PhysicsProcess(double delta)
 	{
 		if(Input.IsActionJustPressed("fire1"))
 		{
@@ -94,7 +128,8 @@ public partial class PlayerController : CharacterBody3D
 		
 		if(hvel.Length() > 0)
 		{
-			Transform = Transform.LookingAt(hvel+Transform.Origin, new Vector3(0,1,0));
+			//Transform = Transform.LookingAt(hvel+Transform.Origin, new Vector3(0,1,0));
+			body.Transform = body.Transform.LookingAt(hvel+body.Transform.Origin, new Vector3(0,1,0));
 		}
 
 		//# Assign hvel's values back to velocity, and then move.
@@ -121,7 +156,9 @@ public partial class PlayerController : CharacterBody3D
 		Owner.AddChild(scene);
 		
 		Fireball fireball = (Fireball)scene;
-		fireball.SetTransform(marker3D.GlobalTransform);
-
+		//fireball.SetTransform(marker3D.GlobalTransform);
+		Transform3D trans = cameraPivot.GlobalTransform;
+		trans.Origin = Transform.Origin;
+		fireball.SetTransform(trans);
 	}
 }

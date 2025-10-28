@@ -10,6 +10,7 @@
 collision_layer = 8
 collision_mask = 2147483631
 script = ExtResource("1_2pvnd")
+SPEED = 15.0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_cj6wo")
