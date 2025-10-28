@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7trqkec77wcp"]
+
+[ext_resource type="Script" uid="uid://brcsscb5nunn" path="res://Sound/MusicManager.cs" id="1_d57xr"]
+[ext_resource type="AudioStream" uid="uid://cxe53fdxuu3wv" path="res://Sound/Music/Low Notoriety.wav" id="2_d1x3f"]
+[ext_resource type="AudioStream" uid="uid://cxw1qvlwd3l5n" path="res://Sound/Music/High Notoriety.wav" id="3_24yun"]
+
+[node name="MusicManager" type="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource("1_d57xr")
+notorietyTracks = Array[AudioStream]([ExtResource("2_d1x3f"), ExtResource("3_24yun")])
