@@ -16,7 +16,17 @@ public partial class SimpleDialogInteraction : Area3D
     public bool IsCompleted = false;
     
     [Export]
+    public bool IsEnabled = true;
+    
+    [Export]
     public bool PositiveOutput = true;
+    
+    [Signal]
+    public delegate void CompletedEventHandler(bool isPositive);
+    [Signal]
+    public delegate void CompletedPositiveEventHandler();
+    [Signal]
+    public delegate void CompletedNegativeEventHandler();
 
     private int debugState = 0;
     private bool isPlayerInsideArea = false;
@@ -35,6 +45,11 @@ public partial class SimpleDialogInteraction : Area3D
 
     public new void Show()
     {
+        if (!IsEnabled)
+        {
+            return;
+        }
+        
         Refresh();
         Billboard.Visible = true;
     }
@@ -60,6 +75,15 @@ public partial class SimpleDialogInteraction : Area3D
     {
         IsCompleted = true;
         PositiveOutput = isPositiveOutput;
+        EmitSignalCompleted(isPositiveOutput);
+        if (isPositiveOutput)
+        {
+            EmitSignalCompletedPositive();
+        }
+        else
+        {
+            EmitSignalCompletedNegative();
+        }
         Refresh();
     }
     
@@ -73,7 +97,7 @@ public partial class SimpleDialogInteraction : Area3D
     
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("interact") && isPlayerInsideArea)
+        if (Input.IsActionJustPressed("swtich_dialogue") && isPlayerInsideArea)
         {
             //DEBUG SHIT
             switch (debugState)
@@ -91,6 +115,15 @@ public partial class SimpleDialogInteraction : Area3D
                     debugState = 0;
                     break;
             }
+        }
+    }
+
+    public void SetEnabled(bool isEnabled)
+    {
+        this.IsEnabled = isEnabled;
+        if (isEnabled && isPlayerInsideArea)
+        {
+            Show();
         }
     }
 

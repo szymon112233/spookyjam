@@ -11,6 +11,9 @@ public partial class PlayerTrigger : Area3D
 
 	[Signal]
 	public delegate void InteractionPressedEventHandler();
+	
+	[Export]
+	public bool isOneShot = false;
 
 	private PlayerController playerInside;
 	private bool isPlayerInside = false;
@@ -27,6 +30,10 @@ public partial class PlayerTrigger : Area3D
 		if(Input.IsActionJustPressed("interact") && isPlayerInside)
 		{
 			EmitSignalInteractionPressed();
+			if (isOneShot)
+			{
+				QueueFree();
+			}
         }
     }
 
