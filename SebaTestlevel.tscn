@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0cwve705l1hi"]
+[gd_scene load_steps=23 format=3 uid="uid://c0cwve705l1hi"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnxehnqppo36s" path="res://cubelib.tres" id="1_7bhr2"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="2_jd7aa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1qfd7mgvhrgu" path="res://models/white_wood.png" id="4_fdq8s"]
 [ext_resource type="PackedScene" uid="uid://d1q53hmtxcdgn" path="res://models/mushroom.glb" id="5_hw2lk"]
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="6_fdq8s"]
+[ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/TestDialogue.tres" id="6_h2vim"]
 [ext_resource type="PackedScene" uid="uid://be7liaivbjwjl" path="res://Dialog/dialog_interaction.tscn" id="6_jd7aa"]
 [ext_resource type="PackedScene" uid="uid://guuwcgtogcs7" path="res://NPC/npc.tscn" id="7_ghrwt"]
 [ext_resource type="PackedScene" uid="uid://crglnyjkdymh5" path="res://NPC/Roman/soldier.tscn" id="8_hw2lk"]
@@ -119,9 +120,11 @@ directional_shadow_split_3 = 0.2
 directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 24.0
 
-[node name="Cubio" parent="." instance=ExtResource("2_jd7aa")]
+[node name="Cubio" parent="." node_paths=PackedStringArray("marker3D") instance=ExtResource("2_jd7aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1226792, 2, 8.8675995)
 collision_mask = 131
+MAX_SPEED = 3.5
+marker3D = NodePath("BodyCapsuleMesh/CastingPointMarker3D")
 
 [node name="Elevator1" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 4.5, -2.5)
@@ -171,6 +174,7 @@ debug_color = Color(0.8703127, 0.8697032, 0.9890539, 1)
 [node name="DialogInteraction" parent="." instance=ExtResource("6_jd7aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9656334, 1.223414)
 collision_layer = 0
+HandledDialog = ExtResource("6_h2vim")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." node_paths=PackedStringArray("PointsOfInterest")]
 navigation_mesh = SubResource("NavigationMesh_jd7aa")
