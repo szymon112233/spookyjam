@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
-[ext_resource type="Material" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
+[ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
 
@@ -12,7 +12,7 @@
 
 [node name="Cubio" type="CharacterBody3D"]
 collision_layer = 16
-collision_mask = 7
+collision_mask = 39
 script = ExtResource("1_orvbd")
 MAX_SPEED = 7.0
 

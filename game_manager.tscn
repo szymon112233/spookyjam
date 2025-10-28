@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd5tbh6gqm6q"]
+
+[ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="1_70yv6"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_70yv6")
+DivineApproval = 40
