@@ -3,11 +3,14 @@ using System;
 
 public partial class Fireball : RigidBody3D, IBaseSpell
 {
+
 	[Export]
 	public string Name { get; set; }
 
 	[Export]
 	public SpellType SpellType { get; set; }
+
+
 	
 	[Export()]
 	float SPEED = 10f;
@@ -24,6 +27,8 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 	{
 		BodyEntered += _on_body_entered;
 		GD.Print("Spawned");
+		ContactMonitor = true;
+		SetMaxContactsReported(1);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,18 +50,21 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 
 	private void _on_body_entered(Node node)
 	{
-		GD.Print("OasdanBodyEntered");
+		if (node is NPC npc)
+		{
+			GD.Print("Hit NPC");
+			npc.ChangeHealthStatus(HealthStatusEffect);
+		}
+		HitEffect();
 	}
 	
-	private void _on_body_entered_yeah_boi(Node3D node)
+	private void HitEffect()
 	{
-		GD.Print("Oasdaasdasdasdred");
+		//do something fancy here and destroy the projectile
+		QueueFree();
 	}
 	
-	private void _on_tcube_body_entered(Node3D body)
-	{
-		GD.Print("Some shit22");
-	}
+	
 	
 	
 	
