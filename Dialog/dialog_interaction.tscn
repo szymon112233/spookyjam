@@ -7,6 +7,7 @@
 size = Vector3(1.6566772, 1, 1.9055176)
 
 [node name="DialogInteraction" type="Area3D" node_paths=PackedStringArray("Billboard", "TextLabel")]
+collision_mask = 16
 script = ExtResource("1_v8ail")
 StartingText = "This is testing text for the game WOHOHOH."
 CompletedText = "We are done here :( "

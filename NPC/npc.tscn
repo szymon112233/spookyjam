@@ -17,7 +17,6 @@ NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-navigation_layers = 128
 
 [node name="Player Detector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2184697, 5.039946)

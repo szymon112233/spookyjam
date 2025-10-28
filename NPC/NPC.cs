@@ -22,8 +22,6 @@ public partial class NPC : CharacterBody3D
 	[Export]
 	protected float RunSpeed;
 
-	// private double time = 0.0f; 
-
 	public override void _Ready()
 	{
 		PlayerCast.Enabled = false;
@@ -62,13 +60,7 @@ public partial class NPC : CharacterBody3D
 
 	public virtual void Idle(double delta)
 	{
-		// time += delta;
 
-		// if(time >= 5)
-		// {
-		// 	SetDebugPos();
-		// 	time = -9999999999999999f;
-		// }
 	}
 
 	public void SetDebugPos()
