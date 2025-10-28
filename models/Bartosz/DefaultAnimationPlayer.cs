@@ -11,16 +11,23 @@ public partial class DefaultAnimationPlayer : Node
 	{
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-		if (_animationPlayer != null && _animationPlayer.HasAnimation(AnimationName))
+		if (_animationPlayer == null)
 		{
-			float animationLength = _animationPlayer.GetAnimation(AnimationName).Length;
-			float randomStartTime = GD.Randf() * animationLength;
-			_animationPlayer.Play(AnimationName);
-			_animationPlayer.Seek(randomStartTime, true);
+			GD.PrintErr($"AnimationPlayer is missing.");
+			
+			return;
 		}
-		else
+		
+		if (_animationPlayer.HasAnimation(AnimationName) == false)
 		{
-			GD.PrintErr($"Animation '{AnimationName}' not found or AnimationPlayer is missing.");
+			GD.PrintErr($"Animation '{AnimationName}' is missing.");
+			
+			return;
 		}
+		
+		float animationLength = _animationPlayer.GetAnimation(AnimationName).Length;
+		float randomStartTime = GD.Randf() * animationLength;
+		_animationPlayer.Play(AnimationName);
+		_animationPlayer.Seek(randomStartTime, true);
 	}
 }

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://4qqdpuj04b6q"
-path="res://.godot/imported/Breathing Idle.fbx-f4034cfdb344e5911938c49cb923e827.scn"
+uid="uid://dwwnsmatnp35s"
+path="res://.godot/imported/Breakdance Footwork 2.fbx-56a5ca2d05c0d686ebfef4b8ee5edc02.scn"
 
 [deps]
 
-source_file="res://models/Bartosz/Breathing Idle.fbx"
-dest_files=["res://.godot/imported/Breathing Idle.fbx-f4034cfdb344e5911938c49cb923e827.scn"]
+source_file="res://models/Bartosz/Breakdance Footwork 2.fbx"
+dest_files=["res://.godot/imported/Breakdance Footwork 2.fbx-56a5ca2d05c0d686ebfef4b8ee5edc02.scn"]
 
 [params]
 
@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 "mixamo_com": {
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://models/Bartosz/BreakdanceExport.res",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "",
+"save_to_file/path": "uid://hrm11ee33xfr",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2094,6 +2094,11 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"nodes": {
+"PATH:Skeleton3D": {
+"retarget/bone_map": Resource("uid://ddq3a8hrglahj", "res://models/Bartosz/MixamoBoneMap.tres")
 }
 }
 }

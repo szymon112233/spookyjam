@@ -12,9 +12,9 @@
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/TestDialogue.tres" id="9_6fjt0"]
 [ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/TestDialogue2.tres" id="9_31pye"]
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/TestDialogue3.tres" id="9_uvdaf"]
-[ext_resource type="Resource" uid="uid://ofkwmqbelhju" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
-[ext_resource type="Resource" uid="uid://bj6dvldkx2p01" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
+[ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
+[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="16_22ngd"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 
@@ -366,6 +366,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, -0.10120034, 20.885
 [node name="NPC16" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8375797, 0.25834632, 4.4361715)
 
+[node name="Breathing Idle (1)" parent="ppl/NPC16" index="4"]
+AnimationName = "Idle"
+
 [node name="Soldier" parent="ppl" instance=ExtResource("8_bjslr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
 
@@ -392,7 +395,6 @@ HandledDialog = ExtResource("9_31pye")
 [node name="TutorialDialogInteraction2" parent="dialogues" instance=ExtResource("8_31pye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.549386, 0.45313025, 42.06244)
 HandledDialog = ExtResource("13_ap3w5")
-IsEnabled = false
 
 [node name="CollisionShape3D" parent="dialogues/TutorialDialogInteraction2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1402416, 0.15253091, -0.37735748)
@@ -434,11 +436,9 @@ DivineApproval = 40
 
 [node name="UI" parent="." instance=ExtResource("17_rr8d8")]
 
-[connection signal="CompletedPositive" from="dialogues/TootorialDialogInteraction" to="GameManager" method="ChangeDivineApproval" binds= [2]]
-[connection signal="CompletedPositive" from="dialogues/TootorialDialogInteraction" to="GameManager" method="ChangeNotoriety" binds= [1]]
-[connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TutorialDialogInteraction2" method="SetEnabled" binds= [true]]
 [connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 
+[editable path="ppl/NPC16"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
