@@ -1,11 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=18 format=3 uid="uid://ddfrla0niav7c"]
 
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
 [ext_resource type="Material" uid="uid://bhhh4tdxd2idt" path="res://materials/0.tres" id="2_1nrcf"]
 [ext_resource type="Material" uid="uid://cujipr1dc6e5v" path="res://materials/2.tres" id="3_ieddu"]
 [ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="3_qwtje"]
 [ext_resource type="Material" uid="uid://b1m4kr3ffwk74" path="res://materials/4.tres" id="4_qwtje"]
-[ext_resource type="PackedScene" uid="uid://guuwcgtogcs7" path="res://Prefabs/npc.tscn" id="6_p06u6"]
+[ext_resource type="PackedScene" uid="uid://guuwcgtogcs7" path="res://NPC/npc.tscn" id="6_p06u6"]
+[ext_resource type="PackedScene" uid="uid://be7liaivbjwjl" path="res://Dialog/dialog_interaction.tscn" id="8_31pye"]
+[ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/TestDialogue.tres" id="9_6fjt0"]
+[ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/TestDialogue2.tres" id="9_31pye"]
+[ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/TestDialogue3.tres" id="9_uvdaf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbyy0"]
 albedo_color = Color(0.9490196, 0.72156864, 0.53333336, 1)
@@ -249,46 +253,74 @@ shape = SubResource("CylinderShape3D_gq0e1")
 [node name="ppl" type="Node3D" parent="."]
 
 [node name="NPC" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94608474, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877594, 0.94608474, -9.129321)
 
 [node name="NPC2" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.834171, 0.94608474, 5.635614)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.834171, 0.01925683, 5.635614)
 
 [node name="NPC3" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.470001, 0.94608474, 1.788753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.470001, 0.01925683, 1.788753)
 
 [node name="NPC4" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.392328, 0.94608474, 3.350119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.392328, 0.01925683, 3.350119)
 
 [node name="NPC5" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.345625, 0.94608474, 3.7379184)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.345625, 0.01925683, 3.7379184)
 
 [node name="NPC6" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.314604, 0.94608474, 5.491474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.314604, 0.01925683, 5.491474)
+
+[node name="NPC17" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.6308703, 0.01925683, 12.987628)
 
 [node name="NPC7" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.735765, 0.94608474, 1.3767519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.735765, 0.01925683, 1.3767519)
 
 [node name="NPC8" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.62264, 0.94608474, 7.261383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.62264, 0.01925683, 7.261383)
 
 [node name="NPC9" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.730574, 0.94608474, 26.74358)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.730574, -0.101201296, 26.74358)
 
 [node name="NPC10" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.386465, 0.94608474, 22.805887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.386465, -0.101201296, 22.805887)
 
 [node name="NPC11" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.669401, 0.94608474, 22.625776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.669401, -0.101201296, 22.625776)
 
 [node name="NPC12" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.669401, 0.94608474, 24.56941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.669401, -0.101201296, 24.56941)
 
 [node name="NPC13" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.564924, 0.94608474, 20.317705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.564924, -0.101201296, 20.317705)
 
 [node name="NPC14" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.861525, 0.9460857, 22.682632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.861525, -0.10120034, 22.682632)
 
 [node name="NPC15" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, 0.9460857, 20.885157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, -0.10120034, 20.885157)
+
+[node name="NPC16" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8375797, 0.25834632, 4.4361715)
+
+[node name="dialogues" type="Node3D" parent="."]
+
+[node name="DialogInteraction" parent="dialogues" instance=ExtResource("8_31pye")]
+transform = Transform3D(1.5823267, 0, 0, 0, 1.5621723, 0, 0, 0, 1.3737533, 0.88903755, 4.7683716e-07, 4.42396)
+HandledDialog = ExtResource("9_6fjt0")
+
+[node name="CollisionShape3D" parent="dialogues/DialogInteraction" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1.0000095, 0, 0, 0, 1.0000095, 0.13153839, 0.53824776, 0.06570339)
+
+[node name="TextBox" parent="dialogues/DialogInteraction" index="1"]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0.27137882, 2.1945212, -0.09157079)
+
+[node name="DialogInteraction2" parent="dialogues" instance=ExtResource("8_31pye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.760308, 0, 4.6406755)
+HandledDialog = ExtResource("9_uvdaf")
+
+[node name="DialogInteraction3" parent="dialogues" instance=ExtResource("8_31pye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9448228, 0, 11.763197)
+HandledDialog = ExtResource("9_31pye")
+
+[editable path="dialogues/DialogInteraction"]

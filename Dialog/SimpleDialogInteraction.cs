@@ -3,11 +3,8 @@ using System;
 
 public partial class SimpleDialogInteraction : Area3D
 {
-    [Export]
-    public string StartingText;
-
-    [Export]
-    public string CompletedText;
+    [Export] 
+    public DialogData HandledDialog;
 
     [Export]
     public Sprite3D Billboard;
@@ -17,20 +14,28 @@ public partial class SimpleDialogInteraction : Area3D
 
     [Export]
     public bool IsCompleted = false;
+    
+    [Export]
+    public bool PositiveOutput = true;
+
+    private int debugState = 0;
+    private bool isPlayerInsideArea = false;
 
     public override void _Ready()
     {
-        TextLabel.Text = StartingText;
+        TextLabel.Text = HandledDialog.StartingText;
         IsCompleted = false;
     }
 
     public void Refresh()
     {
-        TextLabel.Text = !IsCompleted ? StartingText : CompletedText;
+        TextLabel.Text = !IsCompleted ? HandledDialog.StartingText : PositiveOutput 
+            ? HandledDialog.CompletedHappyText: HandledDialog.CompletedSadText;
     }
 
     public new void Show()
     {
+        Refresh();
         Billboard.Visible = true;
     }
 
@@ -42,17 +47,51 @@ public partial class SimpleDialogInteraction : Area3D
     public void OnPlayerEnter(Node3D player)
     {
         Show();
+        isPlayerInsideArea = true;
     }
 
     public void OnPlayerExit(Node3D player)
     {
         Hide();
+        isPlayerInsideArea = false;
     }
-
-    public void Complete()
+    
+    public void Complete(bool isPositiveOutput)
     {
         IsCompleted = true;
+        PositiveOutput = isPositiveOutput;
         Refresh();
+    }
+    
+    public void UnComplete()
+    {
+        IsCompleted = false;
+        PositiveOutput = true;
+        Refresh();
+    }
+    
+    
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("interact") && isPlayerInsideArea)
+        {
+            //DEBUG SHIT
+            switch (debugState)
+            {
+                case 0:
+                    Complete(true);
+                    debugState++;
+                    break;
+                case 1:
+                    Complete(false);
+                    debugState++;
+                    break;
+                case 2:
+                    UnComplete();
+                    debugState = 0;
+                    break;
+            }
+        }
     }
 
 }
