@@ -3,6 +3,12 @@ using System;
 
 public partial class Fireball : RigidBody3D, IBaseSpell
 {
+	[Export]
+	public string Name { get; set; }
+
+	[Export]
+	public SpellType SpellType { get; set; }
+	
 	[Export()]
 	float SPEED = 10f;
 	
@@ -11,6 +17,7 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 	
 	[Export()]
 	public NPC.HealthStatus HealthStatusEffect { get; set; }
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
