@@ -3,6 +3,12 @@ using System;
 
 public partial class NPC : CharacterBody3D
 {
+	public enum HealthStatus
+	{
+		Healthy = 0,
+		Sick = 1,
+		Dead = 2
+	}
 
 	[Export]
 	protected NavigationAgent3D NavAgent3D;
