@@ -9,8 +9,6 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 
 	[Export]
 	public SpellType SpellType { get; set; }
-
-
 	
 	[Export()]
 	float SPEED = 10f;

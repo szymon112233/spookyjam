@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhsbdwa2w45g7"]
+
+[ext_resource type="Script" uid="uid://bbl3aqwxrj6u5" path="res://Interaction/SpellTrigger.cs" id="1_q4rp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ap3w5"]
+size = Vector3(2.1717987, 1.2979126, 1.6611328)
+
+[node name="SpellTrigger" type="Area3D"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_q4rp8")
+IsOneShot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.080391, 0.53518677, -0.3305664)
+shape = SubResource("BoxShape3D_ap3w5")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

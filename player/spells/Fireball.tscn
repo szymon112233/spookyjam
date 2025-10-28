@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcffn1fdbskyq"]
 
 [ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/Fireball.cs" id="1_2pvnd"]
-[ext_resource type="Material" uid="uid://dk6i7ddblulmh" path="res://player/spells/FireballMaterial.tres" id="2_1hhah"]
+[ext_resource type="Material" path="res://player/spells/FireballMaterial.tres" id="2_1hhah"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cj6wo"]
 
@@ -9,7 +9,7 @@
 
 [node name="Fireball" type="RigidBody3D"]
 collision_layer = 8
-collision_mask = 2147483631
+collision_mask = 2147483599
 gravity_scale = 0.2
 script = ExtResource("1_2pvnd")
 SPEED = 15.0
