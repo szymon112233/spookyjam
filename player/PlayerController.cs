@@ -44,6 +44,8 @@ public partial class PlayerController : CharacterBody3D
 		// @onready var _camera := %Camera3D as Camera3D
 		cameraPivot = GetNode<Node3D>("CameraPivot");
 		body = GetNode<Node3D>("BodyCapsuleMesh");
+		
+		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 	
 
