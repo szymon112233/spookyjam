@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6n4nrnt2lhp1"]
+[gd_scene load_steps=7 format=3 uid="uid://b6n4nrnt2lhp1"]
 
 [ext_resource type="PackedScene" uid="uid://dbuwb4y7usgp3" path="res://models/Bartosz/Breathing Idle (1).fbx" id="1_3fihi"]
 [ext_resource type="Script" uid="uid://dm7qti2fai4ji" path="res://models/Bartosz/DefaultAnimationPlayer.cs" id="2_03hwq"]
 [ext_resource type="AnimationLibrary" uid="uid://dsjws6w8j4i27" path="res://models/Bartosz/Imported.res" id="2_u4t8q"]
+[ext_resource type="Script" uid="uid://vinmoghxld5t" path="res://models/Bartosz/NPCColourPicker.cs" id="3_e8mtp"]
 
 [sub_resource type="Animation" id="Animation_uykgs"]
 resource_name = "mixamo_com"
@@ -409,6 +410,9 @@ bones/52/rotation = Quaternion(-0.20772232, 0.2633204, 0.91303146, -0.23213656)
 bones/53/rotation = Quaternion(0.04198459, 0.70564455, -0.69860363, -0.11070748)
 bones/54/rotation = Quaternion(-0.17107637, 0.7129244, -0.67879206, -0.041388165)
 bones/55/rotation = Quaternion(-6.9147186e-09, 0.95773405, 0.28765532, -9.976951e-08)
+
+[node name="Body" parent="GeneralSkeleton" index="0"]
+script = ExtResource("3_e8mtp")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

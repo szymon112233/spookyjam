@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/TestDialogue3.tres" id="9_uvdaf"]
 [ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
 [ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="16_22ngd"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 
@@ -414,7 +414,6 @@ transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, -3.2738068, 2.871
 
 [node name="Generic Interaction" parent="dialogues" instance=ExtResource("15_8vsgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.655445, 0.89006186, 43.526703)
-isOneShot = true
 
 [node name="Label3D" parent="dialogues/Generic Interaction" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.504941, 1.1003367, -1.0607872)
@@ -444,6 +443,7 @@ DivineApproval = 40
 [connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 
 [editable path="ppl/NPC16"]
+[editable path="ppl/NPC16/Breathing Idle (1)"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
