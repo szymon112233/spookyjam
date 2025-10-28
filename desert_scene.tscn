@@ -1,15 +1,24 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=21 format=3 uid="uid://ddfrla0niav7c"]
 
+[ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_uvdaf"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
-[ext_resource type="Material" uid="uid://bhhh4tdxd2idt" path="res://materials/0.tres" id="2_1nrcf"]
-[ext_resource type="Material" uid="uid://cujipr1dc6e5v" path="res://materials/2.tres" id="3_ieddu"]
-[ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="3_qwtje"]
-[ext_resource type="Material" uid="uid://b1m4kr3ffwk74" path="res://materials/4.tres" id="4_qwtje"]
+[ext_resource type="Material" path="res://materials/0.tres" id="2_1nrcf"]
+[ext_resource type="Material" path="res://materials/2.tres" id="3_ieddu"]
+[ext_resource type="Material" path="res://materials/5.tres" id="3_qwtje"]
+[ext_resource type="Material" path="res://materials/4.tres" id="4_qwtje"]
 [ext_resource type="PackedScene" uid="uid://guuwcgtogcs7" path="res://NPC/npc.tscn" id="6_p06u6"]
 [ext_resource type="PackedScene" uid="uid://be7liaivbjwjl" path="res://Dialog/dialog_interaction.tscn" id="8_31pye"]
+[ext_resource type="PackedScene" uid="uid://crglnyjkdymh5" path="res://NPC/Roman/soldier.tscn" id="8_bjslr"]
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/TestDialogue.tres" id="9_6fjt0"]
 [ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/TestDialogue2.tres" id="9_31pye"]
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/TestDialogue3.tres" id="9_uvdaf"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_bjslr"]
+vertices = PackedVector3Array(-35, 0.26038933, 12.5, -32.5, 0.26038933, 2.5, -35, 0.26038933, -7.5, -2497.5, 0.26038933, 37.5, -45, 0.26038933, 15, -35, 0.26038933, 25, -30, 0.26038933, 25, -25, 0.26038933, 10, -22.5, 0.26038933, 0, -50, 0.26038933, 37.5, -50, 0.26038933, 27.5, -27.5, 0.26038933, -10, -10, 0.26038933, -20, -5, 0.26038933, -2497.5, -2497.5, 0.26038933, -2497.5, -5, 0.26038933, -22.5, -17.5, 0.26038933, 7.5, -17.5, 0.26038933, -7.5, -7.5, 0.26038933, -10, -42.5, 0.26038933, 25, 5, 0.26038933, -5, 17.5, 0.26038933, -2.5, 20, 0.26038933, -7.5, 2.5, 0.26038933, -20, 27.5, 0.26038933, -7.5, 2497.5, 0.26038933, 22.5, 2497.5, 0.26038933, -2497.5, 30, 0.26038933, 2.5, 35, 0.26038933, 17.5, 42.5, 0.26038933, 22.5, -12.5, 6.2603893, -5, -12.5, 6.2603893, 10, -5, 6.2603893, 10, -5, 6.2603893, -5, -17.5, 0.26038933, 32.5, -25, 0.26038933, 32.5, -17.5, 0.26038933, 45, -7.5, 0.26038933, 50, -2.5, 0.26038933, 45, 27.5, 0.26038933, 42.5, 35, 0.26038933, 30, 30, 0.26038933, 27.5, 20, 0.26038933, 37.5, 17.5, 0.26038933, 42.5, 0, 0.26038933, 0, 2.5, 0.26038933, 10, 30, 0.26038933, 20, 20, 0.26038933, 5, -32.5, 0.26038933, 50, -35, 0.26038933, 2497.5, -2.5, 0.26038933, 2497.5, -2.5, 0.26038933, 57.5, -10, 0.26038933, 15, 32.5, 23.01039, 25, 37.5, 23.01039, 25, 27.5, 23.01039, 0, 20, 23.01039, -2.5, -20, 7.7603893, 12.5, -20, 7.7603893, 17.5, -15, 7.7603893, 17.5, -15, 7.7603893, 12.5, -35, 22.51039, 32.5, -22.5, 22.51039, 45, -35, 22.51039, 17.5, -40, 22.51039, 17.5, -25, 9.010389, 22.5, -25, 9.010389, 27.5, -20, 9.010389, 27.5, -20, 9.010389, 22.5, 40, 0.26038933, 30, 25, 0.26038933, 52.5, 7.5, 0.26038933, 2497.5, 2497.5, 0.26038933, 2497.5, 5, 0.26038933, 55, -45, 11.510389, 30, -45, 11.510389, 45, -30, 11.510389, 45, -30, 11.510389, 30, -42.5, 0.26038933, 32.5, -42.5, 0.26038933, 42.5, -32.5, 0.26038933, 42.5, -32.5, 0.26038933, 32.5, -47.5, 0.26038933, 50, -2497.5, 0.26038933, 2497.5)
+polygons = [PackedInt32Array(0, 4, 1), PackedInt32Array(1, 4, 2), PackedInt32Array(2, 4, 3), PackedInt32Array(5, 0, 6), PackedInt32Array(6, 0, 7), PackedInt32Array(7, 0, 1), PackedInt32Array(7, 1, 8), PackedInt32Array(10, 9, 3), PackedInt32Array(11, 2, 12), PackedInt32Array(12, 2, 3), PackedInt32Array(12, 3, 13), PackedInt32Array(13, 3, 14), PackedInt32Array(12, 13, 15), PackedInt32Array(7, 8, 16), PackedInt32Array(16, 8, 17), PackedInt32Array(18, 17, 12), PackedInt32Array(12, 17, 11), PackedInt32Array(17, 8, 11), PackedInt32Array(19, 10, 4), PackedInt32Array(4, 10, 3), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 13), PackedInt32Array(25, 13, 26), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 24), PackedInt32Array(29, 24, 25), PackedInt32Array(24, 22, 23), PackedInt32Array(23, 15, 13), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 34), PackedInt32Array(34, 36, 35), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 43, 38), PackedInt32Array(44, 20, 45), PackedInt32Array(45, 20, 47), PackedInt32Array(45, 47, 46), PackedInt32Array(28, 46, 27), PackedInt32Array(27, 46, 47), PackedInt32Array(37, 51, 36), PackedInt32Array(36, 51, 48), PackedInt32Array(48, 51, 50), PackedInt32Array(48, 50, 49), PackedInt32Array(20, 21, 47), PackedInt32Array(52, 45, 34), PackedInt32Array(34, 45, 38), PackedInt32Array(38, 45, 42), PackedInt32Array(42, 45, 46), PackedInt32Array(46, 41, 42), PackedInt32Array(54, 53, 55), PackedInt32Array(55, 53, 56), PackedInt32Array(60, 59, 57), PackedInt32Array(57, 59, 58), PackedInt32Array(64, 63, 61), PackedInt32Array(61, 63, 62), PackedInt32Array(68, 67, 65), PackedInt32Array(65, 67, 66), PackedInt32Array(39, 40, 69), PackedInt32Array(39, 69, 70), PackedInt32Array(70, 69, 71), PackedInt32Array(71, 69, 25), PackedInt32Array(71, 25, 72), PackedInt32Array(71, 73, 70), PackedInt32Array(69, 29, 25), PackedInt32Array(77, 76, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(81, 80, 78), PackedInt32Array(78, 80, 79), PackedInt32Array(82, 48, 49), PackedInt32Array(9, 82, 3), PackedInt32Array(3, 82, 83), PackedInt32Array(83, 82, 49), PackedInt32Array(50, 51, 71), PackedInt32Array(71, 51, 73)]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 4278190083
+cell_size = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbyy0"]
 albedo_color = Color(0.9490196, 0.72156864, 0.53333336, 1)
@@ -30,7 +39,10 @@ material = ExtResource("2_1nrcf")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gq0e1"]
 
-[node name="DesertScene" type="Node3D"]
+[node name="DesertScene" type="NavigationRegion3D" node_paths=PackedStringArray("PointsOfInterest")]
+navigation_mesh = SubResource("NavigationMesh_bjslr")
+script = ExtResource("1_uvdaf")
+PointsOfInterest = [NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"), NodePath("Point 4"), NodePath("Point 5")]
 
 [node name="Cubio" parent="." instance=ExtResource("1_x2qou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3984768, 10)
@@ -82,7 +94,7 @@ mesh = SubResource("BoxMesh_x2qou")
 shape = SubResource("BoxShape3D_xbyy0")
 
 [node name="Building5" type="StaticBody3D" parent="Blockout"]
-transform = Transform3D(3.2004552, 0, 0, 0, 4.5, 0, 0, 0, 5.006, -1.9355149, 2.1247075, -3.3890467)
+transform = Transform3D(3.2004552, 0, 0, 0, 4.5, 0, 0, 0, 5.006, -1.8701844, 2.1247075, -3.3890467)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building5"]
 mesh = SubResource("BoxMesh_x2qou")
@@ -303,6 +315,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, -0.10120034, 20.885
 [node name="NPC16" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8375797, 0.25834632, 4.4361715)
 
+[node name="Soldier" parent="ppl" instance=ExtResource("8_bjslr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
+
 [node name="dialogues" type="Node3D" parent="."]
 
 [node name="DialogInteraction" parent="dialogues" instance=ExtResource("8_31pye")]
@@ -322,5 +337,20 @@ HandledDialog = ExtResource("9_uvdaf")
 [node name="DialogInteraction3" parent="dialogues" instance=ExtResource("8_31pye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9448228, 0, 11.763197)
 HandledDialog = ExtResource("9_31pye")
+
+[node name="Point 1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2351074, 0, 15.976931)
+
+[node name="Point 2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.02078, 0, 7.3284473)
+
+[node name="Point 3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.600744, 0, 27.126436)
+
+[node name="Point 4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8755407, 0, 40.11895)
+
+[node name="Point 5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.85617, 0, 35.483555)
 
 [editable path="dialogues/DialogInteraction"]

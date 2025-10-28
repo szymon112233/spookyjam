@@ -3,16 +3,18 @@ using System;
 
 public partial class PlayerTrigger : Area3D
 {
-	
 	[Signal]
-	public delegate void PLayerEnteredEventHandler();
-	
+	public delegate void PlayerEnteredEventHandler();
+
 	[Signal]
-	public delegate void PLayerExitedEventHandler();
+	public delegate void PlayerExitedEventHandler();
+
+	[Signal]
+	public delegate void InteractionPressedEventHandler();
 
 	private PlayerController playerInside;
-	private bool isPLayerInside = false;
-	
+	private bool isPlayerInside = false;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,23 +22,31 @@ public partial class PlayerTrigger : Area3D
 		BodyExited += OnBodyExited;
 	}
 
+    public override void _Process(double delta)
+    {
+		if(Input.IsActionJustPressed("interact") && isPlayerInside)
+		{
+			EmitSignalInteractionPressed();
+        }
+    }
+
 	private void OnBodyEntered(Node3D body)
 	{
-		if (body.GetParentNode3D() is PlayerController player)
+		if (body is PlayerController player)
 		{
 			playerInside = player;
-			isPLayerInside = true;
-			EmitSignalPLayerEntered();
+			isPlayerInside = true;
+			EmitSignalPlayerEntered();
 		}
 	}
 	
 	private void OnBodyExited(Node3D body)
 	{
-		if (body.GetParentNode3D() is PlayerController player)
+		if (body is PlayerController player)
 		{
 			playerInside = null;
-			isPLayerInside = false;
-			EmitSignalPLayerExited();
+			isPlayerInside = false;
+			EmitSignalPlayerExited();
 		}
 	}
 	
