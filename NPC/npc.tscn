@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://guuwcgtogcs7"]
+[gd_scene load_steps=7 format=3 uid="uid://guuwcgtogcs7"]
 
 [ext_resource type="Script" uid="uid://d4npgftnhjete" path="res://NPC/NPC.cs" id="1_056qb"]
-[ext_resource type="Material" path="res://materials/16.tres" id="1_kd6ta"]
+[ext_resource type="Material" uid="uid://cdc0exiu5yafl" path="res://materials/16.tres" id="1_kd6ta"]
+[ext_resource type="PackedScene" uid="uid://bcs5vcw62omue" path="res://models/Bartosz/breathing_idle.tscn" id="3_3etx6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_056qb"]
 height = 9.09
@@ -28,8 +29,11 @@ debug_shape_custom_color = Color(0, 0.5686275, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0021904, 0)
 shape = SubResource("CapsuleShape3D_ieddu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="CapsuleMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0021904, 0)
+visible = false
 material_override = ExtResource("1_kd6ta")
 mesh = SubResource("CapsuleMesh_ieddu")
 skeleton = NodePath("")
+
+[node name="Breathing Idle" parent="." instance=ExtResource("3_3etx6")]
