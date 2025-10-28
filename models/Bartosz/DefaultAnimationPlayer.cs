@@ -13,7 +13,10 @@ public partial class DefaultAnimationPlayer : Node
 
 		if (_animationPlayer != null && _animationPlayer.HasAnimation(AnimationName))
 		{
+			float animationLength = _animationPlayer.GetAnimation(AnimationName).Length;
+			float randomStartTime = GD.Randf() * animationLength;
 			_animationPlayer.Play(AnimationName);
+			_animationPlayer.Seek(randomStartTime, true);
 		}
 		else
 		{
