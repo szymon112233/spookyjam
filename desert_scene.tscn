@@ -412,6 +412,11 @@ transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, -3.2738068, 2.871
 
 [node name="Generic Interaction" parent="dialogues" instance=ExtResource("15_8vsgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.655445, 0.89006186, 43.526703)
+isOneShot = true
+
+[node name="Label3D" parent="dialogues/Generic Interaction" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.504941, 1.1003367, -1.0607872)
+visible = false
 
 [node name="Point 1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2351074, 0, 15.976931)
@@ -442,3 +447,4 @@ DivineApproval = 40
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
+[editable path="dialogues/Generic Interaction"]

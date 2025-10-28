@@ -13,3 +13,13 @@ script = ExtResource("1_3ydde")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ap3w5")
 debug_color = Color(0.9882353, 0, 0.2901961, 1)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9611925, 0)
+billboard = 1
+text = "[E] Interact
+"
+
+[connection signal="PlayerEntered" from="." to="Label3D" method="show"]
+[connection signal="PlayerExited" from="." to="Label3D" method="hide"]
+[connection signal="ready" from="." to="Label3D" method="hide"]
