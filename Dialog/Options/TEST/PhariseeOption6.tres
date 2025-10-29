@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OptionData" load_steps=2 format=3 uid="uid://kdp3w6vbatdl"]
+
+[ext_resource type="Script" uid="uid://cbq18xciyraqx" path="res://Dialog/Options/OptionData.cs" id="1_2p1so"]
+
+[resource]
+script = ExtResource("1_2p1so")
+OptionTexts = PackedStringArray("Yes. Kill her.", "Let he who is without sin cast the first stone.", "There\'s nothing wrong with a little cheating.")
+OptionsCorrectness = PackedInt32Array(0, 1, 0)
+NotorietyEffects = PackedInt32Array(0, 0, 1)
+ApprovalEffects = PackedInt32Array(-5, 10, -5)

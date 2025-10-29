@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://d2mc2jn21u8e2"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_r55n8"]
+
+[resource]
+script = ExtResource("1_r55n8")
+Speaker = "Pharisee"
+StartingText = "I saw you healing a man in the temple."
+InprogressText = "Why are you healing on the sabbath?"
+CompletedHappyText = "I guess that's true..."
+CompletedSadText = "How disappointing..."

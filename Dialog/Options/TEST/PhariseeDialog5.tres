@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://d4ewtodgc6pwa"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_5lvul"]
+
+[resource]
+script = ExtResource("1_5lvul")
+Speaker = "Pharisee"
+StartingText = "Tell me, Jesus..."
+InprogressText = "Should we take up swords against the Romans?"
+CompletedHappyText = "Absolutely correct!"
+CompletedSadText = "You can't be serious."
