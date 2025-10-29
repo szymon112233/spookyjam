@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://q0a2leh16q6r"]
+[gd_scene load_steps=53 format=3 uid="uid://q0a2leh16q6r"]
 
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_5iixg"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="2_1x5do"]
@@ -6,12 +6,15 @@
 [ext_resource type="Material" uid="uid://cujipr1dc6e5v" path="res://materials/2.tres" id="4_lpxa0"]
 [ext_resource type="Material" uid="uid://b1m4kr3ffwk74" path="res://materials/4.tres" id="5_2wwur"]
 [ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="6_gtjb0"]
+[ext_resource type="Material" uid="uid://qnipsdce1lfs" path="res://materials/8.tres" id="7_2wwur"]
 [ext_resource type="Material" uid="uid://cawkf6jvtppwi" path="res://materials/18.tres" id="7_6kya0"]
 [ext_resource type="PackedScene" uid="uid://guuwcgtogcs7" path="res://NPC/npc.tscn" id="7_y4n2q"]
 [ext_resource type="Material" uid="uid://3cedcdvqp2ws" path="res://materials/25.tres" id="8_lpxa0"]
 [ext_resource type="PackedScene" uid="uid://be7liaivbjwjl" path="res://Dialog/dialog_interaction.tscn" id="8_t45ec"]
+[ext_resource type="Material" uid="uid://nbtabwi4c0lq" path="res://materials/7.tres" id="8_y4n2q"]
 [ext_resource type="Resource" uid="uid://2gl4fh4kta5f" path="res://Dialog/Data/DrugDealerDialogue.tres" id="9_kec0v"]
 [ext_resource type="Material" uid="uid://b58jscyg08x1c" path="res://materials/13.tres" id="9_lpxa0"]
+[ext_resource type="Material" uid="uid://cm7pg8gto7yw" path="res://materials/28.tres" id="9_t45ec"]
 [ext_resource type="PackedScene" uid="uid://bhsbdwa2w45g7" path="res://Interaction/spell_trigger.tscn" id="10_k2giu"]
 [ext_resource type="Material" uid="uid://cko1imbruweoh" path="res://materials/14.tres" id="11_0f7da"]
 [ext_resource type="Material" uid="uid://cev0qj5upcp0b" path="res://materials/26.tres" id="12_fpjtg"]
@@ -69,13 +72,13 @@ material = ExtResource("3_6kya0")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gq0e1"]
 
 [node name="DesertScene" type="NavigationRegion3D" node_paths=PackedStringArray("PointsOfInterest")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2086296, -0.7885971, -4.7788277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3547478, -0.7885971, -4.593479)
 navigation_mesh = SubResource("NavigationMesh_bjslr")
 script = ExtResource("1_5iixg")
 PointsOfInterest = [NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"), NodePath("Point 4"), NodePath("Point 5")]
 
 [node name="Cubio" parent="." instance=ExtResource("2_1x5do")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.690933, 1.0230136, 51.708225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.683798, 1.0230136, 53.76239)
 
 [node name="DesertPlane" type="StaticBody3D" parent="."]
 collision_layer = 3
@@ -172,6 +175,46 @@ mesh = SubResource("BoxMesh_x2qou")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building10"]
 shape = SubResource("BoxShape3D_xbyy0")
 
+[node name="Building17" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(5.565606, 0, 0.36603585, 0, 15.561395, 0, -0.045850545, 0, 44.43234, 14.83078, 6.627489, -41.30411)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building17"]
+material_override = ExtResource("6_gtjb0")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building17"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building19" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(0.49299195, 0, -107.24092, 0, 15.561395, 0, 4.7086844, 0, 11.227942, -45.811066, 6.627489, -78.10843)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building19"]
+material_override = ExtResource("7_2wwur")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building19"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building20" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(4.037794, 0, -56.300995, 0, 24.152199, 0, 2.4720376, 0, 91.96131, 49.19215, 10.341932, 86.04779)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building20"]
+material_override = ExtResource("8_y4n2q")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building20"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building18" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(5.477055, 0, -7.9029036, 0, 15.561395, 0, 0.989919, 0, 43.7254, 30.837372, 6.627489, -113.71457)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building18"]
+material_override = ExtResource("6_gtjb0")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building18"]
+shape = SubResource("BoxShape3D_xbyy0")
+
 [node name="Building11" type="StaticBody3D" parent="Blockout"]
 transform = Transform3D(4.7619805, 0, 16.892014, 0, 3.7480845, 0, -2.9142604, 0, 27.60202, -31.312029, 20.30233, 30.884367)
 
@@ -190,6 +233,76 @@ material_override = ExtResource("5_2wwur")
 mesh = SubResource("BoxMesh_x2qou")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building4"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building23" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(28.747885, 0, 0, 0, 41.135822, 0, 0, 0, 17.640274, -64.303665, 2.8584018, 3.2340126)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building23"]
+material_override = ExtResource("9_t45ec")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building23"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building24" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(21.880253, 0, 11.441918, 0, 41.135822, 0, -18.646591, 0, 13.42616, -106.94586, 2.8584018, 18.804985)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building24"]
+material_override = ExtResource("9_t45ec")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building24"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building25" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(4.3335476, 0, 17.438698, 0, 41.135822, 0, -28.41938, 0, 2.659152, -122.72328, 2.8584018, 55.945023)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building25"]
+material_override = ExtResource("9_t45ec")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building25"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building22" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(29.074654, 0, 0, 0, 16.348022, 0, 0, 0, 11.018434, -32.73217, 2.858398, 87.7899)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building22"]
+material_override = ExtResource("8_y4n2q")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building22"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building26" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(52.415283, 0, 0, 0, 44.260796, 0, 0, 0, 11.018434, -88.49733, 2.858398, -32.67687)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building26"]
+material_override = ExtResource("8_y4n2q")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building26"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building21" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(17.274374, 0, -5.747769, 0, 23.4994, 0, 5.9534416, 0, 16.677605, -7.3076477, 7.03899, 111.801926)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building21"]
+material_override = ExtResource("13_pdw63")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building21"]
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="Building27" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(31.424454, 0, -4.1251297, 0, 23.4994, 0, 10.830127, 0, 11.96939, -92.89319, 7.03899, 106.63841)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building27"]
+material_override = ExtResource("13_pdw63")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building27"]
 shape = SubResource("BoxShape3D_xbyy0")
 
 [node name="Building7" type="StaticBody3D" parent="Blockout"]
@@ -236,7 +349,7 @@ shape = SubResource("BoxShape3D_xbyy0")
 transform = Transform3D(-4.1663574e-07, 0, -0.9706707, 0, 7.72558, 0, 9.531515, 0, -4.2429363e-08, -20.077322, 2.9727674, 48.241714)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building14"]
-material_override = ExtResource("4_lpxa0")
+material_override = ExtResource("3_6kya0")
 mesh = SubResource("BoxMesh_x2qou")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/Building14"]
@@ -570,6 +683,46 @@ mesh = SubResource("CylinderMesh_p06u6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/BuildingRound2"]
 shape = SubResource("CylinderShape3D_gq0e1")
 
+[node name="BuildingRound10" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(5.455946, 0, 0, 0, 16.348013, 0, 0, 0, 5.2674613, -58.61507, 2.8584018, 28.190578)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/BuildingRound10"]
+material_override = ExtResource("5_2wwur")
+mesh = SubResource("CylinderMesh_p06u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/BuildingRound10"]
+shape = SubResource("CylinderShape3D_gq0e1")
+
+[node name="BuildingRound11" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(5.455946, 0, 0, 0, 16.348013, 0, 0, 0, 5.2674613, -53.226406, 2.8584018, 77.77612)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/BuildingRound11"]
+material_override = ExtResource("5_2wwur")
+mesh = SubResource("CylinderMesh_p06u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/BuildingRound11"]
+shape = SubResource("CylinderShape3D_gq0e1")
+
+[node name="BuildingRound12" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(5.455946, 0, 0, 0, 16.348013, 0, 0, 0, 5.2674613, -53.04917, 2.8584018, 96.95204)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/BuildingRound12"]
+material_override = ExtResource("5_2wwur")
+mesh = SubResource("CylinderMesh_p06u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/BuildingRound12"]
+shape = SubResource("CylinderShape3D_gq0e1")
+
+[node name="BuildingRound9" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(-7.709346, 0, 0, 0, 16.34802, 0, 0, 0, 8.503001, -29.356936, 2.8584018, -39.127415)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/BuildingRound9"]
+material_override = ExtResource("5_2wwur")
+mesh = SubResource("CylinderMesh_p06u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/BuildingRound9"]
+shape = SubResource("CylinderShape3D_gq0e1")
+
 [node name="BuildingRound3" type="StaticBody3D" parent="Blockout"]
 transform = Transform3D(5.455946, 0, 0, 0, 16.348013, 0, 0, 0, 5.2674613, -38.83162, 2.8584018, 19.727444)
 
@@ -641,26 +794,26 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.
 [node name="TutorialNPC_waiting" parent="ppl" instance=ExtResource("7_y4n2q")]
 transform = Transform3D(0.60128516, 0, 0.7990345, 0, 1, 0, -0.7990345, 0, 0.60128516, -12.219477, 0.020284414, 42.39377)
 
-[node name="NPC2" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.834171, 0.01925683, 5.635614)
+[node name="SickVillager1" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3011513, 0.01925683, 41.277054)
 
-[node name="NPC3" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.470001, 0.01925683, 1.788753)
+[node name="SickVillager2" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9282904, 0.01925683, -25.849201)
 
-[node name="NPC4" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.392328, 0.01925683, 3.350119)
+[node name="SickVillager3" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.77008, 0.01925683, 52.842506)
 
-[node name="NPC5" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.345625, 0.01925683, 3.7379184)
+[node name="SickVillager4" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.16458, 0.0192492, -25.81137)
 
-[node name="NPC6" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.314604, 0.01925683, 5.491474)
+[node name="Moneylender1" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.602356, 0.01925683, -45.592613)
 
-[node name="NPC17" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.6308703, 0.01925683, 12.987628)
+[node name="Moneylender2" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 96.80409, 0.01925683, -46.931038)
 
-[node name="NPC7" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.735765, 0.01925683, 1.3767519)
+[node name="Moneylender3" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.29738, 0.01925683, -21.443909)
 
 [node name="NPC8" parent="ppl" instance=ExtResource("7_y4n2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.62264, 0.01925683, 7.261383)
@@ -686,8 +839,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.861525, -0.10120034, 22.68
 [node name="NPC15" parent="ppl" instance=ExtResource("7_y4n2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, -0.10120034, 20.885157)
 
-[node name="NPC16" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8375797, 0.25834632, 4.4361715)
+[node name="Judas" parent="ppl" instance=ExtResource("7_y4n2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.666558, 0.25834632, 50.376343)
 
 [node name="drug dealer" parent="ppl" instance=ExtResource("7_y4n2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.73238, 0.24562073, 18.487236)
@@ -760,6 +913,15 @@ shape = SubResource("BoxShape3D_xbyy0")
 [node name="Soldier" parent="ppl" instance=ExtResource("15_5hcox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
 
+[node name="Soldier2" parent="ppl" instance=ExtResource("15_5hcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7910404, 0.36977148, 28.093935)
+
+[node name="Soldier3" parent="ppl" instance=ExtResource("15_5hcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.98262, 0.36976957, 11.260455)
+
+[node name="Soldier4" parent="ppl" instance=ExtResource("15_5hcox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.12988, 0.3697734, 60.060585)
+
 [node name="Pharisee1" parent="ppl" instance=ExtResource("7_y4n2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3852696, 0.0019677512, 38.5777)
 
@@ -791,7 +953,7 @@ HandledOption = ExtResource("21_uh8bv")
 HandledDialog = ExtResource("22_8767i")
 
 [node name="Pharisee4" parent="ppl" instance=ExtResource("7_y4n2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.545336, 0.0019686818, 29.729258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.68631, 0.0019686818, 4.1421604)
 
 [node name="Breathing Idle (1)" parent="ppl/Pharisee4" index="4"]
 AnimationName = "Imported/Idle"
@@ -905,8 +1067,6 @@ ManaRange = null
 
 [node name="UI" parent="." instance=ExtResource("38_wfwmc")]
 
-[connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeDivineApproval" binds= [-5]]
-[connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeNotoriety" binds= [5]]
 [connection signal="CorrectSpellHit" from="ppl/drug dealer/SpellTrigger" to="ppl/drug dealer/SpellTrigger/Props" method="queue_free"]
 [connection signal="CorrectSpellHit" from="ppl/drug dealer/SpellTrigger" to="ppl/drug dealer/DrugdealerDialogInteraction4" method="Complete" binds= [true]]
 [connection signal="InteractionPressed" from="dialogues/Tutorial Action Interaction" to="dialogues/TutorialDialogInteraction2" method="SetEnabled" binds= [true]]
