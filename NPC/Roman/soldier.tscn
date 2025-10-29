@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://crglnyjkdymh5"]
+[gd_scene load_steps=7 format=3 uid="uid://crglnyjkdymh5"]
 
 [ext_resource type="Script" uid="uid://c7u6u6j3v6udm" path="res://NPC/Roman/Soldier.cs" id="1_dka42"]
-[ext_resource type="Material" path="res://materials/5.tres" id="2_h4i1q"]
+[ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="2_h4i1q"]
+[ext_resource type="PackedScene" uid="uid://dosgd5q3bu63r" path="res://models/Bartosz/Soldier/soldier_idle.tscn" id="3_h4i1q"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_056qb"]
 height = 9.09
@@ -11,13 +12,12 @@ radius = 0.64
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
 
-[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "DebugPosPoint")]
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast")]
 script = ExtResource("1_dka42")
 MinimumIdelTime = 2.0
 MaximumIdleTime = 15.0
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
-DebugPosPoint = NodePath("")
 MoveSpeed = 3.0
 RunSpeed = 4.5
 
@@ -35,6 +35,9 @@ shape = SubResource("CapsuleShape3D_ieddu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0021904, 0)
+visible = false
 material_override = ExtResource("2_h4i1q")
 mesh = SubResource("CapsuleMesh_ieddu")
 skeleton = NodePath("")
+
+[node name="SoldierIdle" parent="." instance=ExtResource("3_h4i1q")]
