@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd5tbh6gqm6q"]
+[gd_scene load_steps=3 format=3 uid="uid://bd5tbh6gqm6q"]
 
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="1_70yv6"]
+[ext_resource type="PackedScene" uid="uid://c7trqkec77wcp" path="res://Sound/MusicManager.tscn" id="2_smx3j"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_70yv6")
 DivineApproval = 40
+
+[node name="MusicManager" parent="." instance=ExtResource("2_smx3j")]
