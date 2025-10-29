@@ -478,10 +478,9 @@ HandledOption = ExtResource("17_nm2cg")
 HandledDialog = ExtResource("18_dwck8")
 
 [node name="Pharisee2" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5569253, 0.0019677512, 35.132782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8531113, 0.0019677281, 36.086845)
 
 [node name="Breathing Idle (1)" parent="ppl/Pharisee2" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.733843, 0, -0.019130707)
 AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Pharisee2" instance=ExtResource("10_y5u4b")]
