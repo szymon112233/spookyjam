@@ -15,6 +15,9 @@ public partial class PlayerTrigger : Area3D
 	[Export]
 	public bool isOneShot = false;
 
+	[Export]
+	public bool isEnabled = true;
+
 	private PlayerController playerInside;
 	private bool isPlayerInside = false;
 
@@ -27,7 +30,7 @@ public partial class PlayerTrigger : Area3D
 
     public override void _Process(double delta)
     {
-		if(Input.IsActionJustPressed("interact") && isPlayerInside)
+		if(Input.IsActionJustPressed("interact") && isPlayerInside && isEnabled)
 		{
 			EmitSignalInteractionPressed();
 			if (isOneShot)
@@ -39,7 +42,7 @@ public partial class PlayerTrigger : Area3D
 
 	private void OnBodyEntered(Node3D body)
 	{
-		if (body is PlayerController player)
+		if (body is PlayerController player && isEnabled)
 		{
 			playerInside = player;
 			isPlayerInside = true;
@@ -49,7 +52,7 @@ public partial class PlayerTrigger : Area3D
 	
 	private void OnBodyExited(Node3D body)
 	{
-		if (body is PlayerController player)
+		if (body is PlayerController player && isEnabled)
 		{
 			playerInside = null;
 			isPlayerInside = false;

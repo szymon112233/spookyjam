@@ -1,34 +1,48 @@
+using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 
 public partial class NPCColourPicker : MeshInstance3D
 {
+	[Export] private ColorPalette _colorPalette;
+	[Export] private Array<int> _skinColorsWhitelist;
+
+	private List<Color> _usableColorsBuffer = new();
+
 	public override void _Ready()
 	{
 		Mesh = (Mesh)Mesh.Duplicate();
+		
+		SetMaterialColor(0, _skinColorsWhitelist, true);
+		SetMaterialColor(1, _skinColorsWhitelist, false);
+		SetMaterialColor(2, _skinColorsWhitelist, false);
+		SetMaterialColor(3, _skinColorsWhitelist, false);
+	}
 
-		// Apply random colors to all materials
-		for (int i = 0; i < Mesh.GetSurfaceCount(); i++)
+	private void SetMaterialColor(int materialIndex, Array<int> colorArray, bool useItAsAWhitelist)
+	{
+		Material material = Mesh.SurfaceGetMaterial(materialIndex);
+
+		if (material is not StandardMaterial3D standardMaterial)
 		{
-			var material = Mesh.SurfaceGetMaterial(i);
+			GD.PrintErr($"Surface {materialIndex} does not have a StandardMaterial3D.");
+			return;
+		}
+		
+		_usableColorsBuffer.Clear();
 
-			if (material is StandardMaterial3D standardMaterial)
+		for (int i = 0; i < _colorPalette.Colors.Length; i++)
+		{
+			if (colorArray.Contains(i) == useItAsAWhitelist)
 			{
-				// Duplicate the material to avoid shared references
-				var uniqueMaterial = (StandardMaterial3D)standardMaterial.Duplicate();
-
-				// Generate a random color
-				Color randomColor = new Color(GD.Randf(), GD.Randf(), GD.Randf());
-
-				// Assign the random color to the duplicated material
-				uniqueMaterial.AlbedoColor = randomColor;
-
-				// Apply the unique material back to the surface
-				Mesh.SurfaceSetMaterial(i, uniqueMaterial);
-			}
-			else
-			{
-				GD.PrintErr($"Surface {i} does not have a StandardMaterial3D.");
+				_usableColorsBuffer.Add(_colorPalette.Colors[i]);
 			}
 		}
+
+		StandardMaterial3D uniqueMaterial = (StandardMaterial3D)standardMaterial.Duplicate();
+		int randomIndex = (int)(GD.Randi() % (uint)_usableColorsBuffer.Count);
+		Color randomColor = _usableColorsBuffer[randomIndex];
+		uniqueMaterial.AlbedoColor = randomColor;
+		Mesh.SurfaceSetMaterial(materialIndex, uniqueMaterial);
 	}
 }

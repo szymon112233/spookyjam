@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6n4nrnt2lhp1"]
+[gd_scene load_steps=8 format=3 uid="uid://b6n4nrnt2lhp1"]
 
 [ext_resource type="PackedScene" uid="uid://dbuwb4y7usgp3" path="res://models/Bartosz/Breathing Idle (1).fbx" id="1_3fihi"]
 [ext_resource type="Script" uid="uid://dm7qti2fai4ji" path="res://models/Bartosz/DefaultAnimationPlayer.cs" id="2_03hwq"]
 [ext_resource type="AnimationLibrary" uid="uid://dsjws6w8j4i27" path="res://models/Bartosz/Imported.res" id="2_u4t8q"]
 [ext_resource type="Script" uid="uid://vinmoghxld5t" path="res://models/Bartosz/NPCColourPicker.cs" id="3_e8mtp"]
+[ext_resource type="ColorPalette" uid="uid://e6k7u37burv3" path="res://GameColorPallette.tres" id="4_voe7j"]
 
 [sub_resource type="Animation" id="Animation_uykgs"]
 resource_name = "mixamo_com"
@@ -360,7 +361,7 @@ _data = {
 
 [node name="Breathing Idle (1)" instance=ExtResource("1_3fihi")]
 script = ExtResource("2_03hwq")
-AnimationName = "Imported/Breakdance"
+AnimationName = "Idle"
 
 [node name="GeneralSkeleton" parent="." index="0"]
 bones/0/position = Vector3(0.051212206, 0.26094663, 0.06469605)
@@ -413,6 +414,8 @@ bones/55/rotation = Quaternion(-6.9147186e-09, 0.95773405, 0.28765532, -9.976951
 
 [node name="Body" parent="GeneralSkeleton" index="0"]
 script = ExtResource("3_e8mtp")
+_colorPalette = ExtResource("4_voe7j")
+_skinColorsWhitelist = Array[int]([3, 4, 6, 7, 8, 9, 10, 12, 13])
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
