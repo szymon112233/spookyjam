@@ -58,5 +58,23 @@ vertical_alignment = 0
 autowrap_mode = 3
 width = 800.0
 
+[node name="TalkInteractionLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2576776, 1.977, 0)
+visible = false
+sorting_offset = 0.415
+sorting_use_aabb_center = false
+billboard = 2
+modulate = Color(0.73333335, 0.7647059, 0.8156863, 1)
+text = "[E] Talk"
+font_size = 64
+vertical_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[connection signal="ChoiceStarted" from="." to="TalkInteractionLabel3D" method="hide"]
+[connection signal="Completed" from="." to="TalkInteractionLabel3D" method="hide"]
+[connection signal="PlayerEntered" from="." to="TalkInteractionLabel3D" method="show"]
+[connection signal="PlayerExited" from="." to="TalkInteractionLabel3D" method="hide"]
 [connection signal="body_entered" from="." to="." method="OnPlayerEnter"]
 [connection signal="body_exited" from="." to="." method="OnPlayerExit"]
+[connection signal="ready" from="." to="TalkInteractionLabel3D" method="hide"]
