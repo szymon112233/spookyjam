@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=37 format=3 uid="uid://ddfrla0niav7c"]
 
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_uvdaf"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://be7liaivbjwjl" path="res://Dialog/dialog_interaction.tscn" id="8_31pye"]
 [ext_resource type="PackedScene" uid="uid://crglnyjkdymh5" path="res://NPC/Roman/soldier.tscn" id="8_bjslr"]
 [ext_resource type="Resource" uid="uid://2gl4fh4kta5f" path="res://Dialog/Data/DrugDealerDialogue.tres" id="9_0shv6"]
-[ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/TestDialogue.tres" id="9_6fjt0"]
-[ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/TestDialogue2.tres" id="9_31pye"]
-[ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/TestDialogue3.tres" id="9_uvdaf"]
+[ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/Judas.tres" id="9_6fjt0"]
+[ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/Moneylender.tres" id="9_31pye"]
+[ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/Soldier.tres" id="9_uvdaf"]
 [ext_resource type="Material" uid="uid://cko1imbruweoh" path="res://materials/14.tres" id="10_5myj6"]
-[ext_resource type="PackedScene" path="res://Interaction/spell_trigger.tscn" id="10_wb7md"]
+[ext_resource type="PackedScene" uid="uid://bhsbdwa2w45g7" path="res://Interaction/spell_trigger.tscn" id="10_wb7md"]
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
 [ext_resource type="Material" uid="uid://cev0qj5upcp0b" path="res://materials/26.tres" id="11_wb7md"]
 [ext_resource type="Material" uid="uid://cnfud5oht4ofy" path="res://materials/11.tres" id="12_871se"]
@@ -23,7 +23,11 @@
 [ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="13_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="16_22ngd"]
+[ext_resource type="Resource" uid="uid://daattouychpn6" path="res://Dialog/Options/TEST/PhariseeOption1.tres" id="17_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
+[ext_resource type="Resource" uid="uid://bswc6mesqt0tn" path="res://Dialog/Options/TEST/PhariseeDialog1.tres" id="18_dwck8"]
+[ext_resource type="Resource" uid="uid://buwq8hpwotqlu" path="res://Dialog/Options/TEST/PhariseeOption2.tres" id="19_7iif4"]
+[ext_resource type="Resource" uid="uid://d23bdbycvj2mb" path="res://Dialog/Options/TEST/PhariseeDialog2.tres" id="20_5rruw"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_bjslr"]
 vertices = PackedVector3Array(-35, 0.26038933, 12.5, -32.5, 0.26038933, 2.5, -35, 0.26038933, -7.5, -2497.5, 0.26038933, 37.5, -45, 0.26038933, 15, -35, 0.26038933, 25, -30, 0.26038933, 25, -25, 0.26038933, 10, -22.5, 0.26038933, 0, -50, 0.26038933, 37.5, -50, 0.26038933, 27.5, -27.5, 0.26038933, -10, -10, 0.26038933, -20, -5, 0.26038933, -2497.5, -2497.5, 0.26038933, -2497.5, -5, 0.26038933, -22.5, -17.5, 0.26038933, 7.5, -17.5, 0.26038933, -7.5, -7.5, 0.26038933, -10, -42.5, 0.26038933, 25, 5, 0.26038933, -5, 17.5, 0.26038933, -2.5, 20, 0.26038933, -7.5, 2.5, 0.26038933, -20, 27.5, 0.26038933, -7.5, 2497.5, 0.26038933, 22.5, 2497.5, 0.26038933, -2497.5, 30, 0.26038933, 2.5, 35, 0.26038933, 17.5, 42.5, 0.26038933, 22.5, -12.5, 6.2603893, -5, -12.5, 6.2603893, 10, -5, 6.2603893, 10, -5, 6.2603893, -5, -17.5, 0.26038933, 32.5, -25, 0.26038933, 32.5, -17.5, 0.26038933, 45, -7.5, 0.26038933, 50, -2.5, 0.26038933, 45, 27.5, 0.26038933, 42.5, 35, 0.26038933, 30, 30, 0.26038933, 27.5, 20, 0.26038933, 37.5, 17.5, 0.26038933, 42.5, 0, 0.26038933, 0, 2.5, 0.26038933, 10, 30, 0.26038933, 20, 20, 0.26038933, 5, -32.5, 0.26038933, 50, -35, 0.26038933, 2497.5, -2.5, 0.26038933, 2497.5, -2.5, 0.26038933, 57.5, -10, 0.26038933, 15, 32.5, 23.01039, 25, 37.5, 23.01039, 25, 27.5, 23.01039, 0, 20, 23.01039, -2.5, -20, 7.7603893, 12.5, -20, 7.7603893, 17.5, -15, 7.7603893, 17.5, -15, 7.7603893, 12.5, -35, 22.51039, 32.5, -22.5, 22.51039, 45, -35, 22.51039, 17.5, -40, 22.51039, 17.5, -25, 9.010389, 22.5, -25, 9.010389, 27.5, -20, 9.010389, 27.5, -20, 9.010389, 22.5, 40, 0.26038933, 30, 25, 0.26038933, 52.5, 7.5, 0.26038933, 2497.5, 2497.5, 0.26038933, 2497.5, 5, 0.26038933, 55, -45, 11.510389, 30, -45, 11.510389, 45, -30, 11.510389, 45, -30, 11.510389, 30, -42.5, 0.26038933, 32.5, -42.5, 0.26038933, 42.5, -32.5, 0.26038933, 42.5, -32.5, 0.26038933, 32.5, -47.5, 0.26038933, 50, -2497.5, 0.26038933, 2497.5)
@@ -445,12 +449,32 @@ shape = SubResource("BoxShape3D_xbyy0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
 
 [node name="Dialog man" parent="ppl" instance=ExtResource("6_p06u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.645149, 0.001968228, 43.645832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.060293, 0.0019677512, 42.40215)
 
 [node name="Breathing Idle (1)" parent="ppl/Dialog man" index="4"]
 AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Dialog man" instance=ExtResource("10_y5u4b")]
+
+[node name="Pharisee1" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3852696, 0.0019677512, 38.5777)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee1" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee1" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("17_nm2cg")
+HandledDialog = ExtResource("18_dwck8")
+
+[node name="Pharisee2" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5569253, 0.0019677512, 35.132782)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee2" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee2" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("19_7iif4")
+HandledDialog = ExtResource("20_5rruw")
 
 [node name="dialogues" type="Node3D" parent="."]
 
@@ -522,8 +546,8 @@ DivineApproval = 40
 
 [node name="UI" parent="." instance=ExtResource("17_rr8d8")]
 
-[connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeNotoriety" binds= [5]]
 [connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeDivineApproval" binds= [-5]]
+[connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeNotoriety" binds= [5]]
 [connection signal="CorrectSpellHit" from="ppl/drug dealer/SpellTrigger" to="ppl/drug dealer/SpellTrigger/Props" method="queue_free"]
 [connection signal="CorrectSpellHit" from="ppl/drug dealer/SpellTrigger" to="ppl/drug dealer/DrugdealerDialogInteraction4" method="Complete" binds= [true]]
 [connection signal="InteractionPressed" from="dialogues/Tutorial Action Interaction" to="dialogues/TutorialDialogInteraction2" method="SetEnabled" binds= [true]]
@@ -532,6 +556,8 @@ DivineApproval = 40
 [editable path="ppl/drug dealer/DrugdealerDialogInteraction4"]
 [editable path="ppl/drug dealer/SpellTrigger"]
 [editable path="ppl/Dialog man"]
+[editable path="ppl/Pharisee1"]
+[editable path="ppl/Pharisee2"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
