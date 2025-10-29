@@ -41,7 +41,7 @@ autowrap_mode = 3
 width = 800.0
 
 [node name="SpeakerLabel3D" type="Label3D" parent="TextBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 203.46407, 187.31631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 203.464, 0)
 sorting_offset = 0.415
 sorting_use_aabb_center = false
 pixel_size = 0.8
