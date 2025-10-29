@@ -8,6 +8,9 @@ public partial class SimpleDialogInteraction : Area3D
 
     [Export]
     public Sprite3D Billboard;
+    
+    [Export]
+    public Label3D SpeakerNameLabel;
 
     [Export]
     public Label3D TextLabel;
@@ -46,6 +49,8 @@ public partial class SimpleDialogInteraction : Area3D
     {
         TextLabel.Text = !IsCompleted ? dialogData.StartingText : PositiveOutput
             ? dialogData.CompletedHappyText : dialogData.CompletedSadText;
+        
+        SpeakerNameLabel.Text = dialogData.Speaker;
     }
 
     public new void Show()

@@ -8,13 +8,14 @@
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(3.993948, 1, 4.2425995)
 
-[node name="OptionDialog" type="Area3D" node_paths=PackedStringArray("Billboard", "TextLabel")]
+[node name="OptionDialog" type="Area3D" node_paths=PackedStringArray("Billboard", "SpeakerNameLabel", "TextLabel")]
 collision_layer = 32
 collision_mask = 16
 script = ExtResource("1_0y4ik")
 HandledOption = ExtResource("2_nfa6w")
 HandledDialog = ExtResource("3_lnq1t")
 Billboard = NodePath("TextBox")
+SpeakerNameLabel = NodePath("TextBox/SpeakerLabel3D")
 TextLabel = NodePath("TextBox/Label3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -30,13 +31,27 @@ billboard = 2
 texture = ExtResource("4_gksyl")
 
 [node name="Label3D" type="Label3D" parent="TextBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 183.93216, 5.301096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 153.12, 0)
 sorting_offset = 0.415
 sorting_use_aabb_center = false
 pixel_size = 0.8
 billboard = 2
 modulate = Color(0.078431375, 0.13725491, 0.22745098, 1)
 text = "OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA "
+font_size = 64
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 800.0
+
+[node name="SpeakerLabel3D" type="Label3D" parent="TextBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 203.464, 0)
+sorting_offset = 0.415
+sorting_use_aabb_center = false
+pixel_size = 0.8
+billboard = 2
+modulate = Color(0.078431375, 0.13725491, 0.22745098, 1)
+text = "Speaker"
 font_size = 64
 outline_size = 0
 vertical_alignment = 0

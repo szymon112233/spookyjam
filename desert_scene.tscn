@@ -401,6 +401,7 @@ HandledDialog = ExtResource("9_31pye")
 [node name="TutorialDialogInteraction2" parent="dialogues" instance=ExtResource("8_31pye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.549386, 0.45313025, 42.06244)
 HandledDialog = ExtResource("13_ap3w5")
+IsEnabled = false
 
 [node name="CollisionShape3D" parent="dialogues/TutorialDialogInteraction2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1402416, 0.15253091, -0.37735748)
@@ -418,11 +419,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30192947, 0.5382471, -0.008
 [node name="TextBox" parent="dialogues/TootorialDialogInteraction" index="1"]
 transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, -3.2738068, 2.8714907, 0.07788885)
 
-[node name="Generic Interaction" parent="dialogues" instance=ExtResource("15_8vsgl")]
+[node name="Tutorial Action Interaction" parent="dialogues" instance=ExtResource("15_8vsgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.655445, 0.89006186, 43.526703)
 isOneShot = true
 
-[node name="Label3D" parent="dialogues/Generic Interaction" index="1"]
+[node name="Label3D" parent="dialogues/Tutorial Action Interaction" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.504941, 1.1003367, -1.0607872)
 visible = false
 
@@ -447,10 +448,11 @@ DivineApproval = 40
 
 [node name="UI" parent="." instance=ExtResource("17_rr8d8")]
 
-[connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
+[connection signal="InteractionPressed" from="dialogues/Tutorial Action Interaction" to="dialogues/TutorialDialogInteraction2" method="SetEnabled" binds= [true]]
+[connection signal="InteractionPressed" from="dialogues/Tutorial Action Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 
 [editable path="ppl/Dialog man"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
-[editable path="dialogues/Generic Interaction"]
+[editable path="dialogues/Tutorial Action Interaction"]

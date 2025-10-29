@@ -51,7 +51,7 @@ public partial class MainUI : Node
 
 	private void OnDivineApprovalChanged(int newValue)
 	{
-		DivinieApprovalLabel.Text = $"Divinie Approval: {newValue}";
+		DivinieApprovalLabel.Text = $"Divine Approval: {newValue}";
 		
 		Tween tween = GetTree().CreateTween();
 		tween.TweenProperty(DivinieApprovalLabel, "theme_override_colors/font_color", Colors.Yellow, 0.1f);
