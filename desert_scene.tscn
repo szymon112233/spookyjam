@@ -379,13 +379,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.645149, 0.001968228, 43.64
 [node name="Breathing Idle (1)" parent="ppl/NPC18" index="4"]
 AnimationName = "Imported/Idle"
 
-[node name="Dialog Interaction" parent="ppl/NPC18" instance=ExtResource("15_8vsgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.010296, 0.88809365, -0.11912918)
-
-[node name="Label3D" parent="ppl/NPC18/Dialog Interaction" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.504941, 1.1003367, -1.0607872)
-visible = false
-
 [node name="OptionDialog" parent="ppl/NPC18" instance=ExtResource("10_y5u4b")]
 
 [node name="dialogues" type="Node3D" parent="."]
@@ -456,13 +449,11 @@ DivineApproval = 40
 
 [node name="UI" parent="." instance=ExtResource("17_rr8d8")]
 
-[connection signal="InteractionPressed" from="ppl/NPC18/Dialog Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 [connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 
 [editable path="ppl/NPC16"]
 [editable path="ppl/NPC16/Breathing Idle (1)"]
 [editable path="ppl/NPC18"]
-[editable path="ppl/NPC18/Dialog Interaction"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
