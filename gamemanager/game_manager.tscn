@@ -7,7 +7,7 @@
 [node name="GameManager" type="Node" node_paths=PackedStringArray("GameTimer")]
 script = ExtResource("1_70yv6")
 GameTimer = NodePath("Timer")
-GameDurationInSeconds = 10.0
+GameDurationInSeconds = 600.0
 DivineApproval = 40
 NotorietyRange = Vector2i(0, 500)
 GameEndingsData = ExtResource("2_0kugl")
