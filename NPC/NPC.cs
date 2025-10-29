@@ -31,10 +31,20 @@ public partial class NPC : CharacterBody3D
 	[Export] 
 	private HealthStatus _healthStatus = HealthStatus.Healthy;
 
+	private bool _diedThisFrame = false;
+
 	public override void _Ready()
 	{
 		PlayerCast.Enabled = false;
 		NavAgent3D.TargetPosition = Position;
+	}
+
+	public override void _Process(double delta)
+	{
+		if (_diedThisFrame)
+		{
+			Die();
+		}
 	}
 
 	public virtual void SetTarget(Vector3 position)
@@ -88,8 +98,30 @@ public partial class NPC : CharacterBody3D
 				Rotation = new Vector3(45, 0, 0);
 				break;
 			case HealthStatus.Dead:
-				Rotation = new Vector3(90, 0, 0);
+				//Rotation = new Vector3(90, 0, 0);
+				_diedThisFrame = true;
+
+				
 				break;
 		}
 	}
+
+	private void Die()
+	{
+		PhysicalBoneSimulator3D ragdoll = GetNodeOrNull<PhysicalBoneSimulator3D>("Breathing Idle (1)/GeneralSkeleton/PhysicalBoneSimulator3D");
+		if (ragdoll != null)
+		{
+			CollisionShape3D defaultColShape = GetNode<CollisionShape3D>("CollisionShape3D");
+			defaultColShape.SetDisabled(true);
+
+			ragdoll.SetActive(true);
+			ragdoll.PhysicalBonesStartSimulation();
+		}
+		else
+		{
+			Rotation = new Vector3(90, 0, 0);
+		}
+
+	}
+
 }
