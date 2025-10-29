@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://2gl4fh4kta5f"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_tiy18"]
+
+[resource]
+script = ExtResource("1_tiy18")
+Speaker = "Suspicious trader"
+StartingText = "Hey, can you help me get rid of my stasth? I think the Romans are coming!"
+CompletedHappyText = "Phew, thanks Jesus!"
+CompletedSadText = "I now will face 10 yers in dungeon for drug dealing and smuggling :("
+metadata/_custom_type_script = "uid://30swhaou3de0"
