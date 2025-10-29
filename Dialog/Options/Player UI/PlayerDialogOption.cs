@@ -62,8 +62,8 @@ public partial class PlayerDialogOption : Node3D
 
     public void OptionChosen(int id)
     {
-        GameManager.Instance.Notoriety += BoundData.NotorietyEffects[id];
-        GameManager.Instance.DivineApproval += BoundData.NotorietyEffects[id];
+        GameManager.Instance.ChangeNotoriety(BoundData.NotorietyEffects[id]);
+        GameManager.Instance.ChangeDivineApproval(BoundData.ApprovalEffects[id]);
         Callback?.Invoke(BoundData.OptionsCorrectness[id] > 0);
 
         Hide();
