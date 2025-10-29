@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://nihto6fx8hcc"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_mikya"]
+
+[resource]
+script = ExtResource("1_mikya")
+Speaker = "Pharisee"
+StartingText = "I have a question for you."
+InprogressText = "If a Roman soldier slaps me, should I hit back?"
+CompletedHappyText = "Interesting..."
+CompletedSadText = "I expected something better."

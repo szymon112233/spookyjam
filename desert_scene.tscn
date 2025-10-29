@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=47 format=3 uid="uid://ddfrla0niav7c"]
 
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_uvdaf"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
@@ -28,6 +28,16 @@
 [ext_resource type="Resource" uid="uid://bswc6mesqt0tn" path="res://Dialog/Options/TEST/PhariseeDialog1.tres" id="18_dwck8"]
 [ext_resource type="Resource" uid="uid://buwq8hpwotqlu" path="res://Dialog/Options/TEST/PhariseeOption2.tres" id="19_7iif4"]
 [ext_resource type="Resource" uid="uid://d23bdbycvj2mb" path="res://Dialog/Options/TEST/PhariseeDialog2.tres" id="20_5rruw"]
+[ext_resource type="Resource" uid="uid://dfnpvyt0oe33g" path="res://Dialog/Options/TEST/PhariseeOption3.tres" id="21_u6fa1"]
+[ext_resource type="Resource" uid="uid://dltqsg1edtpef" path="res://Dialog/Options/TEST/PhariseeDialog3.tres" id="22_tymm3"]
+[ext_resource type="Resource" uid="uid://badabhxcmmsoc" path="res://Dialog/Options/TEST/PhariseeOption4.tres" id="23_bbvs8"]
+[ext_resource type="Resource" uid="uid://d2mc2jn21u8e2" path="res://Dialog/Options/TEST/PhariseeDialog4.tres" id="24_gwv0j"]
+[ext_resource type="Resource" uid="uid://dqxptufn716db" path="res://Dialog/Options/TEST/PhariseeOption5.tres" id="25_vpmn1"]
+[ext_resource type="Resource" uid="uid://d4ewtodgc6pwa" path="res://Dialog/Options/TEST/PhariseeDialog5.tres" id="26_3nr5a"]
+[ext_resource type="Resource" uid="uid://kdp3w6vbatdl" path="res://Dialog/Options/TEST/PhariseeOption6.tres" id="27_qqntk"]
+[ext_resource type="Resource" uid="uid://b8ktoihg184fx" path="res://Dialog/Options/TEST/PhariseeDialog6.tres" id="28_iy8q6"]
+[ext_resource type="Resource" uid="uid://baq1f18fhwbg0" path="res://Dialog/Options/TEST/PhariseeOption7.tres" id="29_6p3tp"]
+[ext_resource type="Resource" uid="uid://nihto6fx8hcc" path="res://Dialog/Options/TEST/PhariseeDialog7.tres" id="30_amjb2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_bjslr"]
 vertices = PackedVector3Array(-35, 0.26038933, 12.5, -32.5, 0.26038933, 2.5, -35, 0.26038933, -7.5, -2497.5, 0.26038933, 37.5, -45, 0.26038933, 15, -35, 0.26038933, 25, -30, 0.26038933, 25, -25, 0.26038933, 10, -22.5, 0.26038933, 0, -50, 0.26038933, 37.5, -50, 0.26038933, 27.5, -27.5, 0.26038933, -10, -10, 0.26038933, -20, -5, 0.26038933, -2497.5, -2497.5, 0.26038933, -2497.5, -5, 0.26038933, -22.5, -17.5, 0.26038933, 7.5, -17.5, 0.26038933, -7.5, -7.5, 0.26038933, -10, -42.5, 0.26038933, 25, 5, 0.26038933, -5, 17.5, 0.26038933, -2.5, 20, 0.26038933, -7.5, 2.5, 0.26038933, -20, 27.5, 0.26038933, -7.5, 2497.5, 0.26038933, 22.5, 2497.5, 0.26038933, -2497.5, 30, 0.26038933, 2.5, 35, 0.26038933, 17.5, 42.5, 0.26038933, 22.5, -12.5, 6.2603893, -5, -12.5, 6.2603893, 10, -5, 6.2603893, 10, -5, 6.2603893, -5, -17.5, 0.26038933, 32.5, -25, 0.26038933, 32.5, -17.5, 0.26038933, 45, -7.5, 0.26038933, 50, -2.5, 0.26038933, 45, 27.5, 0.26038933, 42.5, 35, 0.26038933, 30, 30, 0.26038933, 27.5, 20, 0.26038933, 37.5, 17.5, 0.26038933, 42.5, 0, 0.26038933, 0, 2.5, 0.26038933, 10, 30, 0.26038933, 20, 20, 0.26038933, 5, -32.5, 0.26038933, 50, -35, 0.26038933, 2497.5, -2.5, 0.26038933, 2497.5, -2.5, 0.26038933, 57.5, -10, 0.26038933, 15, 32.5, 23.01039, 25, 37.5, 23.01039, 25, 27.5, 23.01039, 0, 20, 23.01039, -2.5, -20, 7.7603893, 12.5, -20, 7.7603893, 17.5, -15, 7.7603893, 17.5, -15, 7.7603893, 12.5, -35, 22.51039, 32.5, -22.5, 22.51039, 45, -35, 22.51039, 17.5, -40, 22.51039, 17.5, -25, 9.010389, 22.5, -25, 9.010389, 27.5, -20, 9.010389, 27.5, -20, 9.010389, 22.5, 40, 0.26038933, 30, 25, 0.26038933, 52.5, 7.5, 0.26038933, 2497.5, 2497.5, 0.26038933, 2497.5, 5, 0.26038933, 55, -45, 11.510389, 30, -45, 11.510389, 45, -30, 11.510389, 45, -30, 11.510389, 30, -42.5, 0.26038933, 32.5, -42.5, 0.26038933, 42.5, -32.5, 0.26038933, 42.5, -32.5, 0.26038933, 32.5, -47.5, 0.26038933, 50, -2497.5, 0.26038933, 2497.5)
@@ -56,6 +66,7 @@ material = ExtResource("2_1nrcf")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gq0e1"]
 
 [node name="DesertScene" type="NavigationRegion3D" node_paths=PackedStringArray("PointsOfInterest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2086296, -0.7885971, -4.7788277)
 navigation_mesh = SubResource("NavigationMesh_bjslr")
 script = ExtResource("1_uvdaf")
 PointsOfInterest = [NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"), NodePath("Point 4"), NodePath("Point 5")]
@@ -470,11 +481,62 @@ HandledDialog = ExtResource("18_dwck8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5569253, 0.0019677512, 35.132782)
 
 [node name="Breathing Idle (1)" parent="ppl/Pharisee2" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.733843, 0, -0.019130707)
 AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Pharisee2" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("19_7iif4")
 HandledDialog = ExtResource("20_5rruw")
+
+[node name="Pharisee3" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.905771, 0.0019679666, 26.377523)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee3" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee3" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("21_u6fa1")
+HandledDialog = ExtResource("22_tymm3")
+
+[node name="Pharisee4" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.545336, 0.0019686818, 29.729258)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee4" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee4" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("23_bbvs8")
+HandledDialog = ExtResource("24_gwv0j")
+
+[node name="Pharisee5" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.985565, 0.0019677281, 7.850689)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee5" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee5" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("25_vpmn1")
+HandledDialog = ExtResource("26_3nr5a")
+
+[node name="Pharisee6" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.981115, 0.0019677281, 28.855585)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee6" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee6" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("27_qqntk")
+HandledDialog = ExtResource("28_iy8q6")
+
+[node name="Pharisee7" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.560304, 0.0019639134, -5.6921806)
+
+[node name="Breathing Idle (1)" parent="ppl/Pharisee7" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="OptionDialog" parent="ppl/Pharisee7" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("29_6p3tp")
+HandledDialog = ExtResource("30_amjb2")
 
 [node name="dialogues" type="Node3D" parent="."]
 
@@ -558,6 +620,11 @@ DivineApproval = 40
 [editable path="ppl/Dialog man"]
 [editable path="ppl/Pharisee1"]
 [editable path="ppl/Pharisee2"]
+[editable path="ppl/Pharisee3"]
+[editable path="ppl/Pharisee4"]
+[editable path="ppl/Pharisee5"]
+[editable path="ppl/Pharisee6"]
+[editable path="ppl/Pharisee7"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
