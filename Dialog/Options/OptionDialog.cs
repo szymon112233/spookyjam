@@ -5,7 +5,9 @@ public partial class OptionDialog : SimpleDialogInteraction
 {
     [Export]
     public OptionData HandledOption;
-
+    
+    [Signal]
+    public delegate void ChoiceStartedEventHandler();
 
     protected bool IsOptionActive;
 
@@ -42,6 +44,7 @@ public partial class OptionDialog : SimpleDialogInteraction
     {
         TextLabel.Text = HandledDialog.InprogressText;
         BoundController.PlayerDialogOptionHandler.BindOptions(HandledOption, PlayerMadeChoice);
+        EmitSignalChoiceStarted();
     }
 
     protected void PlayerMadeChoice(bool correct)

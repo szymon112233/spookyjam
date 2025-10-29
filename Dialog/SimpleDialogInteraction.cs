@@ -30,6 +30,12 @@ public partial class SimpleDialogInteraction : Area3D
     public delegate void CompletedPositiveEventHandler();
     [Signal]
     public delegate void CompletedNegativeEventHandler();
+    
+    [Signal]
+    public delegate void PlayerEnteredEventHandler();
+
+    [Signal]
+    public delegate void PlayerExitedEventHandler();
 
     protected int debugState = 0;
     protected bool isPlayerInsideArea = false;
@@ -73,12 +79,14 @@ public partial class SimpleDialogInteraction : Area3D
     {
         Show();
         isPlayerInsideArea = true;
+        EmitSignalPlayerEntered();
     }
 
     public void OnPlayerExit(Node3D player)
     {
         Hide();
         isPlayerInsideArea = false;
+        EmitSignalPlayerExited();
     }
     
     public void Complete(bool isPositiveOutput)
