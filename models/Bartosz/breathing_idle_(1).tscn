@@ -361,7 +361,7 @@ _data = {
 
 [node name="Breathing Idle (1)" instance=ExtResource("1_3fihi")]
 script = ExtResource("2_03hwq")
-AnimationName = "Imported/Breakdance"
+AnimationName = "Idle"
 
 [node name="GeneralSkeleton" parent="." index="0"]
 bones/0/position = Vector3(0.051212206, 0.26094663, 0.06469605)

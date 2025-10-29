@@ -367,9 +367,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, -0.10120034, 20.885
 [node name="NPC16" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8375797, 0.25834632, 4.4361715)
 
-[node name="Breathing Idle (1)" parent="ppl/NPC16" index="4"]
-AnimationName = "Idle"
-
 [node name="Soldier" parent="ppl" instance=ExtResource("8_bjslr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
 
@@ -451,8 +448,6 @@ DivineApproval = 40
 
 [connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 
-[editable path="ppl/NPC16"]
-[editable path="ppl/NPC16/Breathing Idle (1)"]
 [editable path="ppl/Dialog man"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
