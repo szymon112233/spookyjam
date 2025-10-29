@@ -9,6 +9,12 @@ public partial class NPC : CharacterBody3D
 		Sick = 1,
 		Dead = 2
 	}
+	
+	[Signal]
+	public delegate void OnDeathEventHandler();
+	
+	[Signal]
+	public delegate void OnStatusChangedEventHandler(HealthStatus status);
 
 	[Export]
 	protected NavigationAgent3D NavAgent3D;
@@ -79,6 +85,8 @@ public partial class NPC : CharacterBody3D
 
 	public void ChangeHealthStatus(HealthStatus status)
 	{
+		_healthStatus = status;
+		EmitSignalOnStatusChanged(status);
 		switch (status)
 		{
 			case HealthStatus.Healthy:
@@ -89,6 +97,7 @@ public partial class NPC : CharacterBody3D
 				break;
 			case HealthStatus.Dead:
 				Rotation = new Vector3(90, 0, 0);
+				EmitSignalOnDeath();
 				break;
 		}
 	}
