@@ -502,6 +502,42 @@ mesh = SubResource("BoxMesh_x2qou")
 transform = Transform3D(0.67712396, 0, 0, 0, 0.6767952, 0, 0, 0, 0.75144124, -1.1717635, 0.009314252, 1.930786)
 shape = SubResource("BoxShape3D_xbyy0")
 
+[node name="TempleRoof1" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(89.91932, 0, 0, 0, 12.262267, 0, 0, 0, 48.857533, 204.78424, 51.872204, -155.67163)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/TempleRoof1"]
+transform = Transform3D(0.59362614, 0, 0, 0, 0.6767949, 0, 0, 0, 0.6922212, -1.1717632, 0.009314537, 1.6914309)
+material_override = ExtResource("13_pdw63")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/TempleRoof1"]
+transform = Transform3D(0.67712396, 0, 0, 0, 0.6767952, 0, 0, 0, 0.75144124, -1.1717635, 0.009314252, 1.930786)
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="TempleRoof2" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(52.54828, 0, 0, 0, 12.262267, 0, 0, 0, 61.81044, 195.89728, 51.872204, -87.94145)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/TempleRoof2"]
+transform = Transform3D(0.5024725, 0, 0, 0, 0.6697718, 0, 0, 0, 1.1740792, -1.1717632, 0.009314537, 0.21242726)
+material_override = ExtResource("13_pdw63")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/TempleRoof2"]
+transform = Transform3D(0.67712396, 0, 0, 0, 0.67679524, 0, 0, 0, 0.75144124, -1.1788778, 0.00931406, 0.34661925)
+shape = SubResource("BoxShape3D_xbyy0")
+
+[node name="TempleDoor" type="StaticBody3D" parent="Blockout"]
+transform = Transform3D(2.5101542, 0, 0, 0, 26.361975, 0, 0, 0, 9.838988, 149.47025, 8.566244, -76.14758)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/TempleDoor"]
+transform = Transform3D(0.5024725, 0, 0, 0, 0.6697718, 0, 0, 0, 1.1740792, -1.1717632, 0.009314537, 0.21242726)
+material_override = ExtResource("13_pdw63")
+mesh = SubResource("BoxMesh_x2qou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blockout/TempleDoor"]
+transform = Transform3D(0.67712396, 0, 0, 0, 0.6767952, 0, 0, 0, 0.75144124, -1.1717635, 0.009314252, 1.930786)
+shape = SubResource("BoxShape3D_xbyy0")
+
 [node name="InnerTemple2" type="StaticBody3D" parent="Blockout"]
 transform = Transform3D(35.66004, 0, 0, 0, 138.1289, 0, 0, 0, 90.72178, 243.80739, 3.9057493, -153.9772)
 
