@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd5tbh6gqm6q"]
+[gd_scene load_steps=4 format=3 uid="uid://bd5tbh6gqm6q"]
 
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://gamemanager/GameManager.cs" id="1_70yv6"]
 [ext_resource type="Resource" uid="uid://bnhs8iuu2idg3" path="res://gamemanager/GameEndingData.tres" id="2_0kugl"]
+[ext_resource type="PackedScene" uid="uid://c7trqkec77wcp" path="res://Sound/MusicManager.tscn" id="3_iojjc"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("GameTimer")]
 script = ExtResource("1_70yv6")
@@ -12,3 +13,6 @@ NotorietyRange = Vector2i(0, 500)
 GameEndingsData = ExtResource("2_0kugl")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="MusicManager" parent="." instance=ExtResource("3_iojjc")]
+volume_db = -9.571
