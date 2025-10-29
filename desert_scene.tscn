@@ -373,13 +373,13 @@ AnimationName = "Idle"
 [node name="Soldier" parent="ppl" instance=ExtResource("8_bjslr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
 
-[node name="NPC18" parent="ppl" instance=ExtResource("6_p06u6")]
+[node name="Dialog man" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.645149, 0.001968228, 43.645832)
 
-[node name="Breathing Idle (1)" parent="ppl/NPC18" index="4"]
+[node name="Breathing Idle (1)" parent="ppl/Dialog man" index="4"]
 AnimationName = "Imported/Idle"
 
-[node name="OptionDialog" parent="ppl/NPC18" instance=ExtResource("10_y5u4b")]
+[node name="OptionDialog" parent="ppl/Dialog man" instance=ExtResource("10_y5u4b")]
 
 [node name="dialogues" type="Node3D" parent="."]
 
@@ -453,7 +453,7 @@ DivineApproval = 40
 
 [editable path="ppl/NPC16"]
 [editable path="ppl/NPC16/Breathing Idle (1)"]
-[editable path="ppl/NPC18"]
+[editable path="ppl/Dialog man"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
