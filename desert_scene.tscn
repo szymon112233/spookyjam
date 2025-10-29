@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
 [ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
 [ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="16_22ngd"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 
