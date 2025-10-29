@@ -8,6 +8,7 @@ public partial class PlayerController : CharacterBody3D
 	Camera3D camera;
 	private Node3D cameraPivot;
 	private Node3D body;
+    
 	
 	[Export()]
 	float MAX_SPEED = 3.5f;
@@ -19,6 +20,10 @@ public partial class PlayerController : CharacterBody3D
 	float DECELERATION = 4;
 	[Export()]
 	float SPRINT_MAX_SPEED_MULTIPLIER = 1.5f;
+    
+    [Export()]
+    private PackedScene[] spells;
+    private int spellIndex = 0;
 	
 	// 	@export_range(0.0, 1.0) var mouse_sensitivity = 0.01
 	// 	@export var tilt_limit = deg_to_rad(75)
@@ -88,6 +93,17 @@ public override void _PhysicsProcess(double delta)
 			Position = start_position;
 			Velocity = new Vector3();
 		}
+        if(Input.IsActionJustPressed("spell_change_increase")){
+            spellIndex = (spellIndex + 1)%spells.Length;
+        }
+        
+        if(Input.IsActionJustPressed("spell_change_decrease")){
+	        spellIndex = Math.Abs(spellIndex - 1)%spells.Length;
+	        if (spellIndex < 0)
+	        {
+		        spellIndex = spells.Length - 1;
+	        }
+        }
 		
 		bool isSprinting= Input.IsActionPressed("sprint");
 		
@@ -152,11 +168,12 @@ public override void _PhysicsProcess(double delta)
 	}
 	
 	private void Shoot(){
-		var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
+		//var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
+        var spell = spells[spellIndex].Instantiate();
 		// GD.Print("Fired1");
-		Owner.AddChild(scene);
+		Owner.AddChild(spell);
 		
-		Fireball fireball = (Fireball)scene;
+		Fireball fireball = (Fireball)spell;
 		//fireball.SetTransform(marker3D.GlobalTransform);
 		Transform3D trans = cameraPivot.GlobalTransform;
 		trans.Origin = Transform.Origin;

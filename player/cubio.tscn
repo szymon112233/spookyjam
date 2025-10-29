@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=12 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
+[ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
+[ext_resource type="PackedScene" uid="uid://dcffn1fdbskyq" path="res://player/spells/Fireball.tscn" id="3_35ted"]
 [ext_resource type="Script" uid="uid://cbfpd7b47wj52" path="res://Dialog/Options/Player UI/PlayerDialogOption.cs" id="4_d4xeg"]
 [ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="4_rg78b"]
-[ext_resource type="Material" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
+[ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
 [ext_resource type="Script" uid="uid://12eyse56rte6" path="res://Dialog/Options/Player UI/OptionNode.cs" id="5_rg78b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
@@ -18,6 +20,7 @@ collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
 MAX_SPEED = 7.0
+spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted")])
 PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
 
 [node name="BodyCapsuleMesh" type="MeshInstance3D" parent="."]
