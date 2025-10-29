@@ -22,7 +22,6 @@
 [ext_resource type="Resource" uid="uid://bj6dvldkx2p01" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
 [ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="13_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
-[ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="16_22ngd"]
 [ext_resource type="Resource" uid="uid://daattouychpn6" path="res://Dialog/Options/TEST/PhariseeOption1.tres" id="17_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 [ext_resource type="Resource" uid="uid://bswc6mesqt0tn" path="res://Dialog/Options/TEST/PhariseeDialog1.tres" id="18_dwck8"]
@@ -38,6 +37,7 @@
 [ext_resource type="Resource" uid="uid://b8ktoihg184fx" path="res://Dialog/Options/TEST/PhariseeDialog6.tres" id="28_iy8q6"]
 [ext_resource type="Resource" uid="uid://baq1f18fhwbg0" path="res://Dialog/Options/TEST/PhariseeOption7.tres" id="29_6p3tp"]
 [ext_resource type="Resource" uid="uid://nihto6fx8hcc" path="res://Dialog/Options/TEST/PhariseeDialog7.tres" id="30_amjb2"]
+[ext_resource type="PackedScene" uid="uid://bd5tbh6gqm6q" path="res://gamemanager/game_manager.tscn" id="37_qqntk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_bjslr"]
 vertices = PackedVector3Array(-35, 0.26038933, 12.5, -32.5, 0.26038933, 2.5, -35, 0.26038933, -7.5, -2497.5, 0.26038933, 37.5, -45, 0.26038933, 15, -35, 0.26038933, 25, -30, 0.26038933, 25, -25, 0.26038933, 10, -22.5, 0.26038933, 0, -50, 0.26038933, 37.5, -50, 0.26038933, 27.5, -27.5, 0.26038933, -10, -10, 0.26038933, -20, -5, 0.26038933, -2497.5, -2497.5, 0.26038933, -2497.5, -5, 0.26038933, -22.5, -17.5, 0.26038933, 7.5, -17.5, 0.26038933, -7.5, -7.5, 0.26038933, -10, -42.5, 0.26038933, 25, 5, 0.26038933, -5, 17.5, 0.26038933, -2.5, 20, 0.26038933, -7.5, 2.5, 0.26038933, -20, 27.5, 0.26038933, -7.5, 2497.5, 0.26038933, 22.5, 2497.5, 0.26038933, -2497.5, 30, 0.26038933, 2.5, 35, 0.26038933, 17.5, 42.5, 0.26038933, 22.5, -12.5, 6.2603893, -5, -12.5, 6.2603893, 10, -5, 6.2603893, 10, -5, 6.2603893, -5, -17.5, 0.26038933, 32.5, -25, 0.26038933, 32.5, -17.5, 0.26038933, 45, -7.5, 0.26038933, 50, -2.5, 0.26038933, 45, 27.5, 0.26038933, 42.5, 35, 0.26038933, 30, 30, 0.26038933, 27.5, 20, 0.26038933, 37.5, 17.5, 0.26038933, 42.5, 0, 0.26038933, 0, 2.5, 0.26038933, 10, 30, 0.26038933, 20, 20, 0.26038933, 5, -32.5, 0.26038933, 50, -35, 0.26038933, 2497.5, -2.5, 0.26038933, 2497.5, -2.5, 0.26038933, 57.5, -10, 0.26038933, 15, 32.5, 23.01039, 25, 37.5, 23.01039, 25, 27.5, 23.01039, 0, 20, 23.01039, -2.5, -20, 7.7603893, 12.5, -20, 7.7603893, 17.5, -15, 7.7603893, 17.5, -15, 7.7603893, 12.5, -35, 22.51039, 32.5, -22.5, 22.51039, 45, -35, 22.51039, 17.5, -40, 22.51039, 17.5, -25, 9.010389, 22.5, -25, 9.010389, 27.5, -20, 9.010389, 27.5, -20, 9.010389, 22.5, 40, 0.26038933, 30, 25, 0.26038933, 52.5, 7.5, 0.26038933, 2497.5, 2497.5, 0.26038933, 2497.5, 5, 0.26038933, 55, -45, 11.510389, 30, -45, 11.510389, 45, -30, 11.510389, 45, -30, 11.510389, 30, -42.5, 0.26038933, 32.5, -42.5, 0.26038933, 42.5, -32.5, 0.26038933, 42.5, -32.5, 0.26038933, 32.5, -47.5, 0.26038933, 50, -2497.5, 0.26038933, 2497.5)
@@ -601,14 +601,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8755407, 0, 40.11895)
 [node name="Point 5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.85617, 0, 35.483555)
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("16_22ngd")
-DivineApproval = 40
+[node name="GameManager" parent="." instance=ExtResource("37_qqntk")]
 
 [node name="UI" parent="." instance=ExtResource("17_rr8d8")]
 
-[connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeDivineApproval" binds= [-5]]
-[connection signal="CompletedPositive" from="ppl/drug dealer/DrugdealerDialogInteraction4" to="GameManager" method="ChangeNotoriety" binds= [5]]
 [connection signal="CorrectSpellHit" from="ppl/drug dealer/SpellTrigger" to="ppl/drug dealer/SpellTrigger/Props" method="queue_free"]
 [connection signal="CorrectSpellHit" from="ppl/drug dealer/SpellTrigger" to="ppl/drug dealer/DrugdealerDialogInteraction4" method="Complete" binds= [true]]
 [connection signal="InteractionPressed" from="dialogues/Tutorial Action Interaction" to="dialogues/TutorialDialogInteraction2" method="SetEnabled" binds= [true]]

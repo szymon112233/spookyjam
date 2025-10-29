@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameEndingsData" load_steps=2 format=3 uid="uid://bnhs8iuu2idg3"]
+
+[ext_resource type="Script" uid="uid://cmbyonba8ig8y" path="res://gamemanager/GameEndingsData.cs" id="1_0gkra"]
+
+[resource]
+script = ExtResource("1_0gkra")
+TrueEndingTitle = "True Ending"
+TrueEndingDescription = "As Jesus suffered on the cross, he cried out “My God, my God, why have You forsaken me?” and then he died. But God had not forsaken Jesus. On the third day, Jesus came back to life. Now he clearly saw the whole picture. He walked the Earth with his disciples a little longer before he ascended to Heaven to sit at God’s right-hand side."
+BadEndingTitle = "Bad Ending"
+BadEndingDescription = "As Jesus suffered on the cross, he cried out “My God, my God, why have You forsaken me?” In response, he heard God’s voice, “Because you suck.” Jesus died and was forgotten just like all the other criminals who were crucified that day."
+JapaneseEndingTitle = "Japanese Ending"
+JapaneseEndingDescription = "Jesus abandoned his Father’s plan and avoided dying on a cross. Instead he moved to Japan. He settled down in a village called Shingō, got married, had some kids, and died at the age of 106."
+GoldenEndingTitle = "Golden Ending"
+GoldenEndingDescription = "While things didn’t go entirely according to God’s plan, Jesus remained in his Father’s good grace. He avoided being crucified at the age of 33, and kept preaching for many more years. Eventually, his followers overthrew the Roman Empire and created a paradise on Earth."
+metadata/_custom_type_script = "uid://cmbyonba8ig8y"
