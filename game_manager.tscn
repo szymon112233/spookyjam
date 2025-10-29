@@ -5,3 +5,4 @@
 [node name="GameManager" type="Node"]
 script = ExtResource("1_70yv6")
 DivineApproval = 40
+NotorietyRange = Vector2i(0, 500)
