@@ -1,29 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://be7liaivbjwjl"]
+[gd_scene load_steps=6 format=3 uid="uid://botnclf4tvwq6"]
 
-[ext_resource type="Script" uid="uid://3lt0xirdv0y6" path="res://Dialog/SimpleDialogInteraction.cs" id="1_v8ail"]
-[ext_resource type="Texture2D" uid="uid://x1rx1easseqh" path="res://Dialog/Dialog box .png" id="2_g1r0f"]
+[ext_resource type="Script" uid="uid://qj101s58gbqa" path="res://Dialog/Options/OptionDialog.cs" id="1_0y4ik"]
+[ext_resource type="Resource" uid="uid://fkoku8xibdge" path="res://Dialog/Options/TEST/testOption.tres" id="2_nfa6w"]
+[ext_resource type="Resource" uid="uid://dqy40j0avsi8s" path="res://Dialog/Options/TEST/testDialog.tres" id="3_lnq1t"]
+[ext_resource type="Texture2D" uid="uid://x1rx1easseqh" path="res://Dialog/Dialog box .png" id="4_gksyl"]
 
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(3.993948, 1, 4.2425995)
 
-[node name="DialogInteraction" type="Area3D" node_paths=PackedStringArray("Billboard", "TextLabel")]
+[node name="OptionDialog" type="Area3D" node_paths=PackedStringArray("Billboard", "TextLabel")]
 collision_layer = 32
 collision_mask = 16
-script = ExtResource("1_v8ail")
+script = ExtResource("1_0y4ik")
+HandledOption = ExtResource("2_nfa6w")
+HandledDialog = ExtResource("3_lnq1t")
 Billboard = NodePath("TextBox")
 TextLabel = NodePath("TextBox/Label3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033843994, 0.5382471, -0.008911133)
+transform = Transform3D(1, 0, 0, 0, 1.0000095, 0, 0, 0, 1.0000095, 0.13153839, 0.53824776, 0.06570339)
 shape = SubResource("4")
 debug_color = Color(0.8703127, 0.8697032, 0.9890539, 1)
 
 [node name="TextBox" type="Sprite3D" parent="."]
-transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0.9894836, 1.7249534, 0.07788885)
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0.27137882, 2.1945212, -0.09157079)
 visible = false
 pixel_size = 1.0
 billboard = 2
-texture = ExtResource("2_g1r0f")
+texture = ExtResource("4_gksyl")
 
 [node name="Label3D" type="Label3D" parent="TextBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 183.93216, 5.301096)

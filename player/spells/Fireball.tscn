@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dcffn1fdbskyq"]
 
 [ext_resource type="Script" uid="uid://dyabpp0juadj4" path="res://player/spells/fireball/Fireball.cs" id="1_pl5wf"]
-[ext_resource type="Material" path="res://materials/3.tres" id="2_ergpa"]
+[ext_resource type="Material" uid="uid://kppplhrcnntr" path="res://materials/3.tres" id="2_ergpa"]
 [ext_resource type="PackedScene" uid="uid://db725efuwsv5j" path="res://player/spells/fireball/smoke_particles.tscn" id="3_ergpa"]
 [ext_resource type="Material" uid="uid://civ1au1v0k7v6" path="res://player/spells/fireball/FireballMat.tres" id="4_ergpa"]
 

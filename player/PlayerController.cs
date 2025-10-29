@@ -26,7 +26,9 @@ public partial class PlayerController : CharacterBody3D
 	float tilt_limit = 1;
 	[Export()]
 	float MouseSensitivity = 0.01f;
-	
+
+	[Export]
+	public PlayerDialogOption PlayerDialogOptionHandler;
 
 	[Export()] 
 	private Marker3D marker3D;
@@ -48,8 +50,6 @@ public partial class PlayerController : CharacterBody3D
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 	
-
-
 	public override void _UnhandledInput(InputEvent @event)
 	{
 

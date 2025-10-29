@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=10 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
-[ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
+[ext_resource type="Script" uid="uid://cbfpd7b47wj52" path="res://Dialog/Options/Player UI/PlayerDialogOption.cs" id="4_d4xeg"]
+[ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="4_rg78b"]
+[ext_resource type="Material" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
+[ext_resource type="Script" uid="uid://12eyse56rte6" path="res://Dialog/Options/Player UI/OptionNode.cs" id="5_rg78b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
 
@@ -10,11 +13,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6uh6"]
 
-[node name="Cubio" type="CharacterBody3D"]
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("PlayerDialogOptionHandler")]
 collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
 MAX_SPEED = 7.0
+PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
 
 [node name="BodyCapsuleMesh" type="MeshInstance3D" parent="."]
 _import_path = NodePath("cube-col")
@@ -46,6 +50,68 @@ transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.939
 fov = 74.0
 near = 0.1
 far = 100.0
+
+[node name="PlayerOptionRoot" type="Node3D" parent="CameraPivot" node_paths=PackedStringArray("Options")]
+visible = false
+script = ExtResource("4_d4xeg")
+Options = [NodePath("Option 1"), NodePath("Option 2"), NodePath("Option 3")]
+
+[node name="Option 1" type="Sprite3D" parent="CameraPivot/PlayerOptionRoot" node_paths=PackedStringArray("TextLabel")]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, -2.8014114, 0.32528043, 0)
+pixel_size = 1.0
+texture = ExtResource("4_rg78b")
+script = ExtResource("5_rg78b")
+TextLabel = NodePath("Option Text")
+
+[node name="Option Text" type="Label3D" parent="CameraPivot/PlayerOptionRoot/Option 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 113.023926, 0)
+sorting_offset = 0.4
+pixel_size = 0.8
+modulate = Color(0, 0, 0, 1)
+text = "OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH kurwa"
+font_size = 64
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 750.0
+
+[node name="Option 2" type="Sprite3D" parent="CameraPivot/PlayerOptionRoot" node_paths=PackedStringArray("TextLabel")]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0.16214967, 0.32528043, 0)
+pixel_size = 1.0
+texture = ExtResource("4_rg78b")
+script = ExtResource("5_rg78b")
+TextLabel = NodePath("Option Text")
+
+[node name="Option Text" type="Label3D" parent="CameraPivot/PlayerOptionRoot/Option 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 113.023926, 0)
+sorting_offset = 0.4
+pixel_size = 0.8
+modulate = Color(0, 0, 0, 1)
+text = "OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH kurwa"
+font_size = 64
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 750.0
+
+[node name="Option 3" type="Sprite3D" parent="CameraPivot/PlayerOptionRoot" node_paths=PackedStringArray("TextLabel")]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 3.0721695, 0.32528043, 0)
+pixel_size = 1.0
+texture = ExtResource("4_rg78b")
+script = ExtResource("5_rg78b")
+TextLabel = NodePath("Option Text")
+
+[node name="Option Text" type="Label3D" parent="CameraPivot/PlayerOptionRoot/Option 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 113.023926, 0)
+sorting_offset = 0.4
+pixel_size = 0.8
+modulate = Color(0, 0, 0, 1)
+text = "OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH KURWA OH kurwa"
+font_size = 64
+outline_size = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 750.0
 
 [node name="WinText" type="CenterContainer" parent="."]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=27 format=3 uid="uid://ddfrla0niav7c"]
 
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_uvdaf"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
@@ -12,9 +12,10 @@
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/TestDialogue.tres" id="9_6fjt0"]
 [ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/TestDialogue2.tres" id="9_31pye"]
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/TestDialogue3.tres" id="9_uvdaf"]
+[ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
 [ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
 [ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Script" uid="uid://cjc3fxoe6ee57" path="res://GameManager.cs" id="16_22ngd"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 
@@ -372,6 +373,21 @@ AnimationName = "Idle"
 [node name="Soldier" parent="ppl" instance=ExtResource("8_bjslr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
 
+[node name="NPC18" parent="ppl" instance=ExtResource("6_p06u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.645149, 0.001968228, 43.645832)
+
+[node name="Breathing Idle (1)" parent="ppl/NPC18" index="4"]
+AnimationName = "Imported/Idle"
+
+[node name="Dialog Interaction" parent="ppl/NPC18" instance=ExtResource("15_8vsgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.010296, 0.88809365, -0.11912918)
+
+[node name="Label3D" parent="ppl/NPC18/Dialog Interaction" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.504941, 1.1003367, -1.0607872)
+visible = false
+
+[node name="OptionDialog" parent="ppl/NPC18" instance=ExtResource("10_y5u4b")]
+
 [node name="dialogues" type="Node3D" parent="."]
 
 [node name="DialogInteraction" parent="dialogues" instance=ExtResource("8_31pye")]
@@ -440,10 +456,13 @@ DivineApproval = 40
 
 [node name="UI" parent="." instance=ExtResource("17_rr8d8")]
 
+[connection signal="InteractionPressed" from="ppl/NPC18/Dialog Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 [connection signal="InteractionPressed" from="dialogues/Generic Interaction" to="dialogues/TootorialDialogInteraction" method="Complete" binds= [true]]
 
 [editable path="ppl/NPC16"]
 [editable path="ppl/NPC16/Breathing Idle (1)"]
+[editable path="ppl/NPC18"]
+[editable path="ppl/NPC18/Dialog Interaction"]
 [editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]

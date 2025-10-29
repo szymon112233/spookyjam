@@ -6,12 +6,16 @@ public partial class DialogData : Resource
 {
     [Export] 
     public String Speaker;
-    
-    
+
     [Export]
     public String StartingText;
+
+    [Export]
+    public String InprogressText;
+
     [Export]
     public String CompletedHappyText;
+    
     [Export]
     public String CompletedSadText;
 

@@ -28,8 +28,8 @@ public partial class SimpleDialogInteraction : Area3D
     [Signal]
     public delegate void CompletedNegativeEventHandler();
 
-    private int debugState = 0;
-    private bool isPlayerInsideArea = false;
+    protected int debugState = 0;
+    protected bool isPlayerInsideArea = false;
 
     public override void _Ready()
     {
@@ -39,8 +39,13 @@ public partial class SimpleDialogInteraction : Area3D
 
     public void Refresh()
     {
-        TextLabel.Text = !IsCompleted ? HandledDialog.StartingText : PositiveOutput 
-            ? HandledDialog.CompletedHappyText: HandledDialog.CompletedSadText;
+        SetLabel(HandledDialog);
+    }
+    
+    protected void SetLabel(DialogData dialogData)
+    {
+        TextLabel.Text = !IsCompleted ? dialogData.StartingText : PositiveOutput
+            ? dialogData.CompletedHappyText : dialogData.CompletedSadText;
     }
 
     public new void Show()
@@ -93,7 +98,6 @@ public partial class SimpleDialogInteraction : Area3D
         PositiveOutput = true;
         Refresh();
     }
-    
     
     public override void _Process(double delta)
     {
