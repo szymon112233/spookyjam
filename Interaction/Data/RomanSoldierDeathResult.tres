@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InteractionResultData" load_steps=2 format=3 uid="uid://bjd3dd614cw24"]
+
+[ext_resource type="Script" uid="uid://b6obgucb54j7h" path="res://Interaction/InteractionResultData.cs" id="1_f1n7p"]
+
+[resource]
+script = ExtResource("1_f1n7p")
+DivineApprovalChange = -5
+NotorietyChange = 20
+metadata/_custom_type_script = "uid://b6obgucb54j7h"
