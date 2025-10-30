@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://bbsk6e5uhiuo3"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_7bdyj"]
+
+[resource]
+script = ExtResource("1_7bdyj")
+Speaker = "Villager"
+StartingText = "Have mercy on a poor leper."
+CompletedHappyText = "I am cured!"

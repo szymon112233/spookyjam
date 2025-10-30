@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://ckopss46foh8i"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_ka3op"]
+
+[resource]
+script = ExtResource("1_ka3op")
+Speaker = "Moneylender"
+StartingText = "Roll on up, for the price is down!"
+CompletedHappyText = "I will roll on away now."

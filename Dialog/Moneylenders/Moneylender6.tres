@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://u16qokbcrmxj"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_onrm3"]
+
+[resource]
+script = ExtResource("1_onrm3")
+Speaker = "Bookmaker"
+StartingText = "Lay your bets on this bird of mine!"
+CompletedHappyText = "I lost!"
