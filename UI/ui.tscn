@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6m03isargpxu"]
+[gd_scene load_steps=8 format=3 uid="uid://b6m03isargpxu"]
 
 [ext_resource type="Script" uid="uid://30o3qaqoq1wb" path="res://UI/MainUI.cs" id="1_2fwl4"]
+[ext_resource type="Texture2D" uid="uid://ciig1chnc2vt0" path="res://UI/Icons/healing.png" id="2_dajm1"]
+[ext_resource type="Script" uid="uid://b7ofet261vqxf" path="res://UI/SpellUI.cs" id="3_3sbvi"]
+[ext_resource type="Texture2D" uid="uid://dugex1trrvu64" path="res://UI/Icons/fireball.png" id="4_nm1m0"]
+[ext_resource type="Texture2D" uid="uid://becna7kjxinh6" path="res://UI/Icons/fusrodah.png" id="5_c7tqi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr8d8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -55,6 +59,20 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Not"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 713.99994
+offset_right = 524.0
+offset_bottom = 1236.0
+scale = Vector2(0.18, 0.18)
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_dajm1")
+script = ExtResource("3_3sbvi")
+spellTextures = Array[Texture2D]([ExtResource("2_dajm1"), ExtResource("4_nm1m0"), ExtResource("5_c7tqi")])
 
 [node name="EndingPanel" type="Panel" parent="."]
 layout_mode = 1

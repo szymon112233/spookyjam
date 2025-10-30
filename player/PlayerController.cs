@@ -8,6 +8,8 @@ public partial class PlayerController : CharacterBody3D
 	Camera3D camera;
 	private Node3D cameraPivot;
 	private Node3D body;
+
+	public static System.Action<int> ChangedSpell;
     
 	
 	[Export()]
@@ -95,6 +97,7 @@ public override void _PhysicsProcess(double delta)
 		}
         if(Input.IsActionJustPressed("spell_change_increase")){
             spellIndex = (spellIndex + 1)%spells.Length;
+            ChangedSpell(spellIndex);
         }
         
         if(Input.IsActionJustPressed("spell_change_decrease")){
@@ -103,6 +106,7 @@ public override void _PhysicsProcess(double delta)
 	        {
 		        spellIndex = spells.Length - 1;
 	        }
+            ChangedSpell(spellIndex);
         }
 		
 		bool isSprinting= Input.IsActionPressed("sprint");
