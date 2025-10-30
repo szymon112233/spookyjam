@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v6ho44vx30qd"
+path="res://.godot/imported/Bat Impact 001.wav-10c0025c3197619830d9b35476c5cac3.sample"
+
+[deps]
+
+source_file="res://Sound/EnemyAttacks/Bat Impact 001.wav"
+dest_files=["res://.godot/imported/Bat Impact 001.wav-10c0025c3197619830d9b35476c5cac3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
