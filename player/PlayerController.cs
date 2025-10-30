@@ -171,8 +171,8 @@ public override void _PhysicsProcess(double delta)
 		KnockbackForce = Vector3.Zero;
 		
 		MoveAndSlide();
-		Tween tween = GetTree().CreateTween();
-		cameraPivot.GlobalPosition = cameraPivotRelativetoPlayerLocation.GlobalPosition;
+		//Tween tween = GetTree().CreateTween();
+		//cameraPivot.GlobalPosition = cameraPivotRelativetoPlayerLocation.GlobalPosition;
 		
 		if (IsOnFloor() && Input.IsActionPressed("jump"))
 			Velocity += new Vector3(0, JUMP_SPEED, 0);
