@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=17 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
@@ -17,8 +17,6 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_orvbd"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_35ted"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6uh6"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ubpxq"]
@@ -29,7 +27,7 @@ collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
 cameraPivot = NodePath("CameraPivot")
-cameraPivotRelativetoPlayerLocation = NodePath("Model/CameaPositionRelativetoPlayer")
+cameraPivotRelativetoPlayerLocation = NodePath("")
 body = NodePath("Model")
 ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
 MAX_SPEED = 7.0
@@ -61,12 +59,6 @@ transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0,
 
 [node name="ShootingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
-
-[node name="CameaPositionRelativetoPlayer" type="Node3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0210533, 2.405, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/CameaPositionRelativetoPlayer"]
-mesh = SubResource("SphereMesh_35ted")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t6uh6")
@@ -169,4 +161,5 @@ autowrap_mode = 3
 width = 750.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot"]
+visible = false
 mesh = SubResource("SphereMesh_ubpxq")
