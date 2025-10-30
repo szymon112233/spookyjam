@@ -101,4 +101,10 @@ public partial class NPC : CharacterBody3D
 				break;
 		}
 	}
+
+	public void FusRohDah(Vector3 direction)
+	{
+		Velocity = direction * 100;
+		MoveAndSlide();
+	}
 }

@@ -101,7 +101,7 @@ public override void _PhysicsProcess(double delta)
         }
         
         if(Input.IsActionJustPressed("spell_change_decrease")){
-	        spellIndex = Math.Abs(spellIndex - 1)%spells.Length;
+	        spellIndex = (spellIndex - 1)%spells.Length;
 	        if (spellIndex < 0)
 	        {
 		        spellIndex = spells.Length - 1;
@@ -177,10 +177,16 @@ public override void _PhysicsProcess(double delta)
 		// GD.Print("Fired1");
 		Owner.AddChild(spell);
 		
-		Fireball fireball = (Fireball)spell;
-		//fireball.SetTransform(marker3D.GlobalTransform);
-		Transform3D trans = cameraPivot.GlobalTransform;
-		trans.Origin = Transform.Origin;
-		fireball.SetTransform(trans);
+        if(spell is IBaseSpell ispell)
+        {
+            GD.Print("IBase yes");
+            Transform3D trans = cameraPivot.GlobalTransform;
+            trans.Origin = Transform.Origin;
+            ispell.SetInitialState(trans);
+        }
+        else
+        {
+	        throw new InvalidCastException("Spell lacks IBaseSpell interface");
+        }
 	}
 }
