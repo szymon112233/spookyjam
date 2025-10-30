@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0yhp8gkhcxyi"]
+
+[ext_resource type="PackedScene" uid="uid://dqimce2w08agx" path="res://models/Bartosz/Character.fbx" id="1_v0rqm"]
+[ext_resource type="AnimationLibrary" uid="uid://dsjws6w8j4i27" path="res://models/Bartosz/Imported.res" id="2_2pay1"]
+[ext_resource type="Script" uid="uid://dm7qti2fai4ji" path="res://models/Bartosz/DefaultAnimationPlayer.cs" id="2_c3uy2"]
+[ext_resource type="Material" uid="uid://nbtabwi4c0lq" path="res://materials/7.tres" id="3_bkxcm"]
+[ext_resource type="Script" uid="uid://vinmoghxld5t" path="res://models/Bartosz/NPCColourPicker.cs" id="4_j4sh7"]
+[ext_resource type="ColorPalette" uid="uid://e6k7u37burv3" path="res://GameColorPallette.tres" id="5_ckr48"]
+[ext_resource type="Material" uid="uid://b06se00xklukt" path="res://materials/30.tres" id="6_i6kcq"]
+
+[node name="Character" instance=ExtResource("1_v0rqm")]
+script = ExtResource("2_c3uy2")
+AnimationName_Idle = "Imported/Idle"
+AnimationName_Walk = "Imported/Walk"
+AnimationName_Dance = "Imported/Breakdance"
+DefaultAnimation = "Imported/Idle"
+
+[node name="GeneralSkeleton" parent="." index="0"]
+bones/0/position = Vector3(-0.0037951684, 0.7735561, 0.013782878)
+bones/0/rotation = Quaternion(-0.025403023, 0.007144794, -0.012195796, 0.99957746)
+bones/1/rotation = Quaternion(0.013174237, -0.00086830644, -0.00026990855, 0.9999128)
+bones/2/rotation = Quaternion(0.012302416, -0.010903308, 0.00044175828, 0.9998649)
+bones/3/rotation = Quaternion(0.012276096, -0.010890143, 0.00062793907, 0.99986523)
+bones/4/rotation = Quaternion(-0.0021731383, 0.001998981, -0.011622648, 0.9999282)
+bones/5/rotation = Quaternion(0.044102974, -0.027035326, 0.0366483, 0.99798846)
+bones/7/rotation = Quaternion(0.51966566, 0.47760087, 0.4740929, -0.5263849)
+bones/8/rotation = Quaternion(0.118260086, 0.88351494, -0.44257754, -0.09767866)
+bones/9/rotation = Quaternion(0.34208393, -0.6686999, 0.11726748, 0.6496671)
+bones/10/rotation = Quaternion(-0.074889205, 0.77779365, -0.06568117, 0.6205762)
+bones/11/rotation = Quaternion(-0.058215316, 0.6620487, 0.25745165, 0.70144224)
+bones/12/rotation = Quaternion(0.18132173, 0.049675174, 0.041993257, 0.9812703)
+bones/13/rotation = Quaternion(0.006494671, 0.010773718, -0.117946655, 0.99294025)
+bones/13/scale = Vector3(1.0000255, 0.9999746, 1.0000001)
+bones/15/rotation = Quaternion(0.21638522, 0.008774117, -0.02482453, 0.975953)
+bones/16/rotation = Quaternion(0.26681802, -0.00023110208, -0.04059943, 0.96289134)
+bones/17/rotation = Quaternion(-0.09658089, 0.0045624077, -0.021092743, 0.9950912)
+bones/19/rotation = Quaternion(0.22314726, 0.0075971484, -0.02139306, 0.9745204)
+bones/20/rotation = Quaternion(0.24142033, 0.0046682064, -0.027185056, 0.97002864)
+bones/21/rotation = Quaternion(0.1003772, 0.001768619, -0.012577923, 0.99486846)
+bones/23/rotation = Quaternion(0.34975418, 0.008091004, -0.025313769, 0.93646455)
+bones/24/rotation = Quaternion(0.058865406, 0.0012339653, -0.01968369, 0.9980712)
+bones/25/rotation = Quaternion(-0.13924788, -0.0027046204, -0.01489906, 0.99014187)
+bones/27/rotation = Quaternion(0.48762777, -0.50360584, -0.5022491, -0.5063064)
+bones/28/rotation = Quaternion(-0.22053939, 0.86737585, -0.4407144, 0.069227725)
+bones/29/rotation = Quaternion(0.30658194, 0.6889117, -0.08269834, 0.65158963)
+bones/30/rotation = Quaternion(-0.099910274, -0.72022176, 0.006506284, 0.6864811)
+bones/31/rotation = Quaternion(0.009646045, -0.73830354, -0.22397152, 0.63612247)
+bones/32/rotation = Quaternion(0.11607733, -0.048649713, -0.039548397, 0.9912594)
+bones/33/rotation = Quaternion(-0.031954095, -0.007838266, -0.08085065, 0.99618316)
+bones/33/scale = Vector3(1.000024, 0.9999761, 1.0000001)
+bones/35/rotation = Quaternion(0.054155797, -0.0072953254, 0.050495073, 0.9972283)
+bones/36/rotation = Quaternion(0.34964398, -0.011485339, 0.0449037, 0.9357355)
+bones/37/rotation = Quaternion(0.3163292, -0.007963256, 0.009692133, 0.9485666)
+bones/39/rotation = Quaternion(0.13159002, -0.0132142585, 0.029822495, 0.9907675)
+bones/40/rotation = Quaternion(0.28142354, 0.0068428675, 0.031846736, 0.9590306)
+bones/41/rotation = Quaternion(0.2836329, 0.024494011, 0.0035981839, 0.9586134)
+bones/43/rotation = Quaternion(0.28292575, -0.016410964, 0.042936984, 0.9580398)
+bones/44/rotation = Quaternion(0.13927451, -0.0029433225, 0.02052361, 0.9900368)
+bones/45/rotation = Quaternion(0.0866494, 0.014228329, 0.009025723, 0.99609643)
+bones/47/rotation = Quaternion(0.049114123, 0.06250765, 0.9968147, -0.006405588)
+bones/48/rotation = Quaternion(-0.028580677, 0.9728846, -0.21435529, 0.08204071)
+bones/49/rotation = Quaternion(0.045790832, 0.6083531, -0.78684723, 0.093173504)
+bones/50/rotation = Quaternion(-1.1458674e-07, 0.9999998, 0.0005970597, 4.0829757e-08)
+bones/52/rotation = Quaternion(-0.1272274, 0.044313215, 0.99053836, 0.0261405)
+bones/53/rotation = Quaternion(0.02581565, 0.98567516, -0.15475024, -0.06189046)
+bones/54/rotation = Quaternion(0.0081034945, 0.6517002, -0.755218, -0.069764845)
+bones/55/rotation = Quaternion(-1.4422126e-07, 1, 2.9802326e-08, 9.878165e-09)
+
+[node name="Hat" parent="GeneralSkeleton" index="0"]
+surface_material_override/0 = ExtResource("3_bkxcm")
+
+[node name="NPCBody" parent="GeneralSkeleton" index="1"]
+script = ExtResource("4_j4sh7")
+_colorPalette = ExtResource("5_ckr48")
+_skinColorsWhitelist = Array[int]([3, 4, 6, 7, 8, 9, 10, 12, 13])
+
+[node name="Sandals" parent="GeneralSkeleton" index="2"]
+surface_material_override/0 = ExtResource("6_i6kcq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"Imported": ExtResource("2_2pay1")
+}

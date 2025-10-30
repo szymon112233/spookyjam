@@ -7,9 +7,9 @@
 [ext_resource type="Material" uid="uid://c3mktod8ol23c" path="res://materials/GoldMaterial.tres" id="4_uce70"]
 [ext_resource type="Material" uid="uid://kppplhrcnntr" path="res://materials/3.tres" id="5_88atl"]
 [ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="6_qcxqq"]
-[ext_resource type="Material" path="res://materials/8.tres" id="7_wo5ac"]
-[ext_resource type="Material" path="res://materials/7.tres" id="8_88atl"]
-[ext_resource type="PackedScene" path="res://models/Bartosz/Soldier/gladius.tscn" id="9_qcxqq"]
+[ext_resource type="Material" uid="uid://qnipsdce1lfs" path="res://materials/8.tres" id="7_wo5ac"]
+[ext_resource type="Material" uid="uid://nbtabwi4c0lq" path="res://materials/7.tres" id="8_88atl"]
+[ext_resource type="PackedScene" uid="uid://bcwvu2v6ncfr2" path="res://models/Bartosz/Soldier/gladius.tscn" id="9_qcxqq"]
 
 [sub_resource type="Animation" id="Animation_hskxd"]
 resource_name = "mixamo_com"
