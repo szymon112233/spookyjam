@@ -35,7 +35,7 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 
 	}
 
-	public void SetTransform(Transform3D trans)
+	public new void SetInitialState(Transform3D trans)
 	{
 		Transform = trans; 
 		LinearVelocity = -Basis.Z.Normalized()*SPEED;

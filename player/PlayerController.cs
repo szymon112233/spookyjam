@@ -6,7 +6,10 @@ public partial class PlayerController : CharacterBody3D
 	Vector3 start_position;
 	float gravity;
 	Camera3D camera;
+	[Export]
 	private Node3D cameraPivot;
+	[Export]
+	private Node3D cameraPivotRelativetoPlayerLocation;
 	[Export]
 	public Node3D body;
 	[Export]
@@ -56,10 +59,10 @@ public partial class PlayerController : CharacterBody3D
 		gravity = -(float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		
 		// @onready var _camera := %Camera3D as Camera3D
-		cameraPivot = GetNode<Node3D>("CameraPivot");
+		// cameraPivot = GetNode<Node3D>("CameraPivot");
 		// body = GetNode<Node3D>("BodyCapsuleMesh");
 		
-		// Input.SetMouseMode(Input.MouseModeEnum.Captured);
+		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 	
 	public override void _UnhandledInput(InputEvent @event)
@@ -106,7 +109,7 @@ public override void _PhysicsProcess(double delta)
         }
         
         if(Input.IsActionJustPressed("spell_change_decrease")){
-	        spellIndex = Math.Abs(spellIndex - 1)%spells.Length;
+	        spellIndex = (spellIndex - 1)%spells.Length;
 	        if (spellIndex < 0)
 	        {
 		        spellIndex = spells.Length - 1;
@@ -168,6 +171,8 @@ public override void _PhysicsProcess(double delta)
 		KnockbackForce = Vector3.Zero;
 		
 		MoveAndSlide();
+		Tween tween = GetTree().CreateTween();
+		cameraPivot.GlobalPosition = cameraPivotRelativetoPlayerLocation.GlobalPosition;
 		
 		if (IsOnFloor() && Input.IsActionPressed("jump"))
 			Velocity += new Vector3(0, JUMP_SPEED, 0);
@@ -188,12 +193,18 @@ public override void _PhysicsProcess(double delta)
 		// GD.Print("Fired1");
 		Owner.AddChild(spell);
 
-		Fireball fireball = (Fireball)spell;
-		//fireball.SetTransform(marker3D.GlobalTransform);
-		Transform3D trans = cameraPivot.GlobalTransform;
-		// Transform3D trans = ShootingPoint.GlobalTransform;
-		trans.Origin = Transform.Origin;
-		fireball.SetTransform(trans);
+        if(spell is IBaseSpell ispell)
+        {
+            GD.Print("IBase yes");
+            Transform3D trans = cameraPivot.GlobalTransform;
+            trans.Origin = Transform.Origin;
+            ispell.SetInitialState(trans);
+        }
+        else
+        {
+	        throw new InvalidCastException("Spell lacks IBaseSpell interface");
+        }
+
 	}
 	
 	public void Attacked(Soldier attacker)
