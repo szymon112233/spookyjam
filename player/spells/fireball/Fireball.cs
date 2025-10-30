@@ -52,6 +52,10 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 		{
 			GD.Print("Hit NPC");
 			npc.ChangeHealthStatus(HealthStatusEffect);
+			if(HealthStatusEffect == NPC.HealthStatus.Dead)
+			{
+				npc.AddForceAndActivateRagdoll(Transform.Basis.Z);
+			}
 		}
 		HitEffect();
 	}
