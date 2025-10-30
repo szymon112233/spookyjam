@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=16 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
@@ -9,17 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="4_rg78b"]
 [ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
 [ext_resource type="Script" uid="uid://12eyse56rte6" path="res://Dialog/Options/Player UI/OptionNode.cs" id="5_rg78b"]
+[ext_resource type="Material" uid="uid://cs1e4pam06sno" path="res://materials/29.tres" id="10_52rpc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_orvbd"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_35ted"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6uh6"]
 
-[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("body", "ShootingPoint", "PlayerDialogOptionHandler")]
+[sub_resource type="SphereMesh" id="SphereMesh_ubpxq"]
+material = ExtResource("10_52rpc")
+
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "cameraPivotRelativetoPlayerLocation", "body", "ShootingPoint", "PlayerDialogOptionHandler")]
 collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
+cameraPivot = NodePath("CameraPivot")
+cameraPivotRelativetoPlayerLocation = NodePath("Model/CameaPositionRelativetoPlayer")
 body = NodePath("Model")
 ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
 MAX_SPEED = 7.0
@@ -52,11 +60,37 @@ transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0,
 [node name="ShootingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
 
+[node name="CameaPositionRelativetoPlayer" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0210533, 2.405, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model/CameaPositionRelativetoPlayer"]
+mesh = SubResource("SphereMesh_35ted")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t6uh6")
 
+[node name="WinText" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="Holder" type="Control" parent="WinText"]
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="WinText/Holder"]
+layout_mode = 0
+offset_left = -354.0
+offset_right = 354.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 20
+text = "Thank You, Cubio! But the Princess is in Another Demo!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.405, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0210533, 2.405, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 1, 0, -2.9802322e-08, 0, 1, 1.1920929e-07, 0, 5.9604645e-08)
@@ -130,22 +164,5 @@ vertical_alignment = 0
 autowrap_mode = 3
 width = 750.0
 
-[node name="WinText" type="CenterContainer" parent="."]
-visible = false
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
-grow_horizontal = 2
-
-[node name="Holder" type="Control" parent="WinText"]
-layout_mode = 2
-
-[node name="TextLabel" type="Label" parent="WinText/Holder"]
-layout_mode = 0
-offset_left = -354.0
-offset_right = 354.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 20
-text = "Thank You, Cubio! But the Princess is in Another Demo!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot"]
+mesh = SubResource("SphereMesh_ubpxq")
