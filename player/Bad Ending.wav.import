@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uy14j2u5vy6h"
+path="res://.godot/imported/Bad Ending.wav-a066b623859be2ea13e13f88c11d2720.sample"
+
+[deps]
+
+source_file="res://player/Bad Ending.wav"
+dest_files=["res://.godot/imported/Bad Ending.wav-a066b623859be2ea13e13f88c11d2720.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
