@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=18 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://cbfpd7b47wj52" path="res://Dialog/Options/Player UI/PlayerDialogOption.cs" id="4_d4xeg"]
 [ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="4_rg78b"]
 [ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
+[ext_resource type="PackedScene" uid="uid://dtdkjgqgcgyed" path="res://player/spells/blowforce/BlowForce.tscn" id="4_u5r6g"]
 [ext_resource type="Script" uid="uid://12eyse56rte6" path="res://Dialog/Options/Player UI/OptionNode.cs" id="5_rg78b"]
+[ext_resource type="Script" uid="uid://cfuopw4tdh0tx" path="res://player/SimpleCameraPivot.cs" id="7_ubpxq"]
 [ext_resource type="Material" uid="uid://cs1e4pam06sno" path="res://materials/29.tres" id="10_52rpc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
@@ -31,7 +33,7 @@ cameraPivotRelativetoPlayerLocation = NodePath("Model/CameaPositionRelativetoPla
 body = NodePath("Model")
 ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
 MAX_SPEED = 7.0
-spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted")])
+spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted"), ExtResource("4_u5r6g")])
 PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
 
 [node name="Model" type="Node3D" parent="."]
@@ -89,8 +91,10 @@ text = "Thank You, Cubio! But the Princess is in Another Demo!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CameraPivot" type="Node3D" parent="."]
+[node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("playerNode3D")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0210533, 2.405, 0)
+script = ExtResource("7_ubpxq")
+playerNode3D = NodePath("..")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 1, 0, -2.9802322e-08, 0, 1, 1.1920929e-07, 0, 5.9604645e-08)
