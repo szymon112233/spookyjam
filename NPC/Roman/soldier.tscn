@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://crglnyjkdymh5"]
+[gd_scene load_steps=10 format=3 uid="uid://crglnyjkdymh5"]
 
 [ext_resource type="Script" uid="uid://c7u6u6j3v6udm" path="res://NPC/Roman/Soldier.cs" id="1_dka42"]
+[ext_resource type="Resource" uid="uid://bjd3dd614cw24" path="res://Interaction/Data/RomanSoldierDeathResult.tres" id="2_gy2eb"]
 [ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="2_h4i1q"]
+[ext_resource type="Resource" uid="uid://n8gon24nah58" path="res://Interaction/Data/RomanSoldierHealResult.tres" id="3_756kp"]
 [ext_resource type="PackedScene" uid="uid://dosgd5q3bu63r" path="res://models/Bartosz/Soldier/soldier_idle.tscn" id="3_h4i1q"]
+[ext_resource type="Resource" uid="uid://dgp6ux0in0t10" path="res://Interaction/Data/RomanSoldierResurretResult.tres" id="4_j3pl7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_056qb"]
 height = 9.09
@@ -24,6 +27,9 @@ PlayerCast = NodePath("Player Detector")
 AnimationPlayer = NodePath("SoldierIdle")
 MoveSpeed = 3.0
 RunSpeed = 6.0
+DeathResult = ExtResource("2_gy2eb")
+HealResult = ExtResource("3_756kp")
+ResurectResult = ExtResource("4_j3pl7")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
