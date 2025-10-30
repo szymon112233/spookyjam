@@ -137,6 +137,7 @@ spell_change_decrease={
 3d_physics/layer_4="Spells"
 3d_physics/layer_5="Player"
 3d_physics/layer_6="PlayerDetector"
+3d_physics/layer_7="Ragdoll"
 
 [physics]
 
