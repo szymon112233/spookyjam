@@ -100,7 +100,7 @@ spring_length = 3.56
 transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 0, 0)
 fov = 74.0
 near = 0.1
-far = 100.0
+far = 10000.0
 
 [node name="PlayerOptionRoot" type="Node3D" parent="CameraPivot" node_paths=PackedStringArray("Options")]
 visible = false
