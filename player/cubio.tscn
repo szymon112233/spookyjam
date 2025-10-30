@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=13 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
 [ext_resource type="PackedScene" uid="uid://dcffn1fdbskyq" path="res://player/spells/Fireball.tscn" id="3_35ted"]
+[ext_resource type="ArrayMesh" uid="uid://1c12vtu552jd" path="res://models/ass/Donkey.obj" id="4_35ted"]
 [ext_resource type="Script" uid="uid://cbfpd7b47wj52" path="res://Dialog/Options/Player UI/PlayerDialogOption.cs" id="4_d4xeg"]
 [ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="4_rg78b"]
 [ext_resource type="Material" uid="uid://f5ybqxt2uc4d" path="res://materials/NoseMaterial.tres" id="4_t6uh6"]
@@ -15,27 +16,40 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t6uh6"]
 
-[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("PlayerDialogOptionHandler")]
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("body", "ShootingPoint", "PlayerDialogOptionHandler")]
 collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
+body = NodePath("Model")
+ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
 MAX_SPEED = 7.0
 spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted")])
 PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
 
-[node name="BodyCapsuleMesh" type="MeshInstance3D" parent="."]
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Donkey" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-0.215, 0, -1.8795896e-08, 0, 0.215, 0, 1.8795896e-08, 0, -0.215, 0, -0.9962832, 0)
+mesh = ExtResource("4_35ted")
+skeleton = NodePath("../..")
+
+[node name="BodyCapsuleMesh" type="MeshInstance3D" parent="Model/Donkey"]
 _import_path = NodePath("cube-col")
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+transform = Transform3D(-4.186046, 0, 3.6595577e-07, 0, 4.186046, 0, -3.6595577e-07, 0, -4.186046, 0, 10.565921, 0)
 mesh = SubResource("CapsuleMesh_hb27q")
+skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("2_orvbd")
 
-[node name="Nose" type="MeshInstance3D" parent="BodyCapsuleMesh"]
+[node name="Nose" type="MeshInstance3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(0.3888889, 0, 0, 0, -0.26472482, 0.2848778, 0, -0.2848778, -0.26472482, 0, 0.3188889, -0.53333336)
 material_override = ExtResource("4_t6uh6")
 mesh = SubResource("CapsuleMesh_orvbd")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../../..")
 
-[node name="CastingPointMarker3D" type="Marker3D" parent="BodyCapsuleMesh"]
+[node name="CastingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
+transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
+
+[node name="ShootingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
