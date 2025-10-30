@@ -19,11 +19,21 @@ public partial class Soldier : NPC
     [Export]
     protected int NotorietyThreshold;
 
+    [Export]
+    protected float NotorietyMulti = 0.4f;
+
+    [Export]
+    protected int NotorietyThresholdSteps = 2;
+
     protected double IdleTime;
     protected double CurrentIdleTime;
     protected double CurrentChaseTime;
+    protected float detectorRadius;
+    protected float detectorLength;
+    protected float detectorZPos;
 
     protected PlayerController FoundPlayer;
+    protected CylinderShape3D PlayerCastShape;
 
     Random rand = new Random();
 
@@ -31,7 +41,15 @@ public partial class Soldier : NPC
     {
         base._PhysicsProcess(delta);
 
+        int tier = GameManager.Instance.Notoriety / NotorietyThreshold;
+
         PlayerCast.Enabled = GameManager.Instance.Notoriety > NotorietyThreshold;
+        
+        PlayerCastShape.Radius = detectorRadius + detectorRadius * tier * NotorietyMulti;
+        PlayerCastShape.Height = detectorLength + detectorLength * tier * NotorietyMulti;
+        var castPos = PlayerCast.Position;
+        castPos.Z = detectorZPos + (detectorLength * tier * NotorietyMulti) / 2;
+        PlayerCast.Position = castPos;
 
         if (PlayerCast.IsColliding())
         {
@@ -41,7 +59,7 @@ public partial class Soldier : NPC
             TargetPlayer(playerNode);
             ChasePlayer(delta);
         }
-        else if(FoundPlayer != null)
+        else if (FoundPlayer != null)
         {
             ChasePlayer(delta);
         }
@@ -51,6 +69,11 @@ public partial class Soldier : NPC
 	{
         base._Ready();
         IdleTime = rand.NextDouble() * MaximumIdleTime + MinimumIdelTime;
+
+        PlayerCastShape = PlayerCast.Shape as CylinderShape3D;
+        detectorRadius = PlayerCastShape.Radius;
+        detectorLength = PlayerCastShape.Height;
+        detectorZPos = PlayerCast.Position.Z;
 	}
 
     public override void Idle(double delta)
@@ -81,13 +104,15 @@ public partial class Soldier : NPC
 
     private void ChasePlayer(double delta)
     {
+        int tier = GameManager.Instance.Notoriety / NotorietyThreshold;
+
         if (TestForAttack())
         {
             return;
         }
         
         CurrentChaseTime += delta;
-        if (CurrentChaseTime >= ChaseTime)
+        if (CurrentChaseTime >= (ChaseTime + ChaseTime * tier * NotorietyMulti) ) 
         {
             StopChase();
         }
