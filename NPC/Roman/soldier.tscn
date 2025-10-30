@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crglnyjkdymh5"]
+[gd_scene load_steps=15 format=3 uid="uid://crglnyjkdymh5"]
 
 [ext_resource type="Script" uid="uid://c7u6u6j3v6udm" path="res://NPC/Roman/Soldier.cs" id="1_dka42"]
 [ext_resource type="Resource" uid="uid://bjd3dd614cw24" path="res://Interaction/Data/RomanSoldierDeathResult.tres" id="2_gy2eb"]
@@ -6,6 +6,10 @@
 [ext_resource type="Resource" uid="uid://n8gon24nah58" path="res://Interaction/Data/RomanSoldierHealResult.tres" id="3_756kp"]
 [ext_resource type="PackedScene" uid="uid://dosgd5q3bu63r" path="res://models/Bartosz/Soldier/soldier_idle.tscn" id="3_h4i1q"]
 [ext_resource type="Resource" uid="uid://dgp6ux0in0t10" path="res://Interaction/Data/RomanSoldierResurretResult.tres" id="4_j3pl7"]
+[ext_resource type="AudioStream" uid="uid://v6ho44vx30qd" path="res://Sound/EnemyAttacks/Bat Impact 001.wav" id="7_kjj38"]
+[ext_resource type="AudioStream" uid="uid://dfeb1c8sxm3xd" path="res://Sound/EnemyAttacks/Bat Impact 002.wav" id="8_7yg00"]
+[ext_resource type="AudioStream" uid="uid://bxg4pth2grf1x" path="res://Sound/EnemyAttacks/Bat Impact 003.wav" id="9_iiw3d"]
+[ext_resource type="AudioStream" uid="uid://bnydnao8sli5" path="res://Sound/EnemyAttacks/Bat Impact 004.wav" id="10_snmic"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_056qb"]
 height = 9.09
@@ -15,13 +19,21 @@ radius = 0.64
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
 
-[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "AnimationPlayer")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gy2eb"]
+streams_count = 4
+stream_0/stream = ExtResource("7_kjj38")
+stream_1/stream = ExtResource("8_7yg00")
+stream_2/stream = ExtResource("9_iiw3d")
+stream_3/stream = ExtResource("10_snmic")
+
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("HitEffectAudioPlayer", "NavAgent3D", "PlayerCast", "AnimationPlayer")]
 script = ExtResource("1_dka42")
 MinimumIdelTime = 2.0
 MaximumIdleTime = 15.0
 ChaseTime = 5.0
 WhackDistance = 1.5
 NotorietyThreshold = 20
+HitEffectAudioPlayer = NodePath("AudioStreamPlayer3D")
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
 AnimationPlayer = NodePath("SoldierIdle")
@@ -54,3 +66,6 @@ skeleton = NodePath("")
 
 [node name="SoldierIdle" parent="." instance=ExtResource("3_h4i1q")]
 DefaultAnimation = "Idle"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_gy2eb")

@@ -24,6 +24,9 @@ public partial class Soldier : NPC
 
     [Export]
     protected int NotorietyThresholdSteps = 2;
+    
+    [Export]
+    protected AudioStreamPlayer3D HitEffectAudioPlayer;
 
     protected double IdleTime;
     protected double CurrentIdleTime;
@@ -129,6 +132,7 @@ public partial class Soldier : NPC
         if (distance <= WhackDistance)
         {
             FoundPlayer.Attacked(this);
+            HitEffectAudioPlayer.Play();
             return true;
         }
 
