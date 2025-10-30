@@ -6,5 +6,5 @@
 script = ExtResource("1_p5ua6")
 OptionTexts = PackedStringArray("Yes. Pay your taxes.", "Give to Caesar what belongs to Caesar and to God what belongs to God.", "No. Caesar is a servant of the devil!")
 OptionsCorrectness = PackedInt32Array(0, 1, 0)
-NotorietyEffects = PackedInt32Array(-5, 0, 20)
-ApprovalEffects = PackedInt32Array(-5, 5, 10)
+NotorietyEffects = PackedInt32Array(0, 5, 30)
+ApprovalEffects = PackedInt32Array(-5, 10, 20)

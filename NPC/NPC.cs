@@ -47,6 +47,15 @@ public partial class NPC : CharacterBody3D
 
 	[Export]
 	protected HealthStatus _healthStatus = HealthStatus.Healthy;
+	
+	[Export]
+	private PhysicalBoneSimulator3D Ragdoll;
+    
+	[Export]
+	private CollisionShape3D mainCollider;
+
+	private bool _ragdolledThisFrame = false;
+	private Vector3 ragdollDirection;
 
 	protected float CurrentSpeed;
 	
@@ -97,6 +106,14 @@ public partial class NPC : CharacterBody3D
 			if(GlobalPosition != pos)
 				LookAt(pos, useModelFront: true);
 		}
+		if (_ragdolledThisFrame)
+		{
+			if(Ragdoll != null){
+				ActivateRagdoll(Vector3.Zero, ragdollDirection);
+			}
+			_ragdolledThisFrame = false;
+		}
+
 
 	}
 	
@@ -141,7 +158,7 @@ public partial class NPC : CharacterBody3D
 				Rotation = new Vector3(45, 0, 0);
 				break;
 			case HealthStatus.Dead:
-				Rotation = new Vector3(90, 0, 0);
+				// Rotation = new Vector3(90, 0, 0);
 				if (previousStatus == HealthStatus.Healthy || previousStatus == HealthStatus.Sick)
 				{
 					HandleDeath();	
@@ -154,6 +171,13 @@ public partial class NPC : CharacterBody3D
 	{
 		Velocity = direction * 100;
 		MoveAndSlide();
+	}
+
+	public void AddForceAndActivateRagdoll(Vector3 direction)
+	{
+		ragdollDirection = direction;
+		_ragdolledThisFrame = true;
+		// ActivateRagdoll(Vector3.Zero, direction);
 	}
 	
 	
@@ -177,5 +201,31 @@ public partial class NPC : CharacterBody3D
 		EmitSignalOnDeath();
 		GameManager.Instance.ChangeDivineApproval(DeathResult.DivineApprovalChange);
 		GameManager.Instance.ChangeNotoriety(DeathResult.NotorietyChange);
+		_ragdolledThisFrame = true;
+	}
+	
+	private void ActivateRagdoll(Vector3 position, Vector3 direction)
+	{
+		mainCollider.Disabled = true;
+
+		
+		Ragdoll.Active = true;
+		Ragdoll.PhysicalBonesStartSimulation();
+		for (int i = 0; i < Ragdoll.GetChildCount(); i++)
+		{
+			if (Ragdoll.GetChild(i) is PhysicalBone3D bone)
+			{
+				bone.ApplyImpulse(-direction * 50);
+			}
+		}
+	}
+
+
+	private void DeactivateRagdoll()
+	{
+		Ragdoll.PhysicalBonesStopSimulation();
+		Ragdoll.Active = false;
+		mainCollider.Disabled = false;
+		
 	}
 }
