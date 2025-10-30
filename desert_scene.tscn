@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
 [ext_resource type="Material" uid="uid://cev0qj5upcp0b" path="res://materials/26.tres" id="11_wb7md"]
 [ext_resource type="Material" uid="uid://cnfud5oht4ofy" path="res://materials/11.tres" id="12_871se"]
-[ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
-[ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
+[ext_resource type="Resource" uid="uid://ofkwmqbelhju" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
+[ext_resource type="Resource" uid="uid://bj6dvldkx2p01" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
 [ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="13_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Resource" uid="uid://daattouychpn6" path="res://Dialog/Options/TEST/PhariseeOption1.tres" id="17_nm2cg"]
@@ -84,7 +84,7 @@ material = ExtResource("2_1nrcf")
 transform = Transform3D(1.1905935, 0, 0, 0, 1.1905935, 0, 0, 0, 1.1905935, 2.2086296, -0.7885971, -4.7788277)
 navigation_mesh = SubResource("NavigationMesh_bjslr")
 script = ExtResource("1_uvdaf")
-PointsOfInterest = [NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"), NodePath("Point 4"), NodePath("Point 5")]
+PointsOfInterest = [NodePath("SoldierPOIs/Point 1"), NodePath("SoldierPOIs/Point 2"), NodePath("SoldierPOIs/Point 3"), NodePath("SoldierPOIs/Point 4"), NodePath("SoldierPOIs/Point 5"), NodePath("SoldierPOIs/Point 1"), NodePath("SoldierPOIs/Point 2"), NodePath("SoldierPOIs/Point 3"), NodePath("SoldierPOIs/Point 4"), NodePath("SoldierPOIs/Point 5"), NodePath("SoldierPOIs/Point 6"), NodePath("SoldierPOIs/Point 7"), NodePath("SoldierPOIs/Point 8"), NodePath("SoldierPOIs/Point 9"), NodePath("SoldierPOIs/Point 10"), NodePath("SoldierPOIs/Point 11"), NodePath("SoldierPOIs/Point 12"), NodePath("SoldierPOIs/Point 13"), NodePath("SoldierPOIs/Point 14"), NodePath("SoldierPOIs/Point 15"), NodePath("SoldierPOIs/Point 16"), NodePath("SoldierPOIs/Point 17"), NodePath("SoldierPOIs/Point 18"), NodePath("SoldierPOIs/Point 19"), NodePath("SoldierPOIs/Point 20"), NodePath("SoldierPOIs/Point 21"), NodePath("SoldierPOIs/Point 22"), NodePath("SoldierPOIs/Point 23"), NodePath("SoldierPOIs/Point 24"), NodePath("SoldierPOIs/Point 25"), NodePath("SoldierPOIs/Point 26"), NodePath("SoldierPOIs/Point 27"), NodePath("SoldierPOIs/Point 28"), NodePath("SoldierPOIs/Point 29"), NodePath("SoldierPOIs/Point 30"), NodePath("SoldierPOIs/Point 31"), NodePath("SoldierPOIs/Point 32"), NodePath("SoldierPOIs/Point 33"), NodePath("SoldierPOIs/Point 34")]
 
 [node name="Cubio" parent="." instance=ExtResource("1_x2qou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.690933, 1.0230136, 51.708225)
@@ -164,20 +164,109 @@ isOneShot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.504941, 1.1003367, -1.0607872)
 visible = false
 
-[node name="Point 1" type="Node3D" parent="."]
+[node name="SoldierPOIs" type="Node3D" parent="."]
+
+[node name="Point 1" type="Node3D" parent="SoldierPOIs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2351074, 0, 15.976931)
 
-[node name="Point 2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.02078, 0, 7.3284473)
+[node name="Point 2" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.020779, 0, 7.3284473)
 
-[node name="Point 3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.600744, 0, 27.126436)
+[node name="Point 3" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.600742, 0, 27.126434)
 
-[node name="Point 4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8755407, 0, 40.11895)
+[node name="Point 4" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8755407, 0, 40.118954)
 
-[node name="Point 5" type="Node3D" parent="."]
+[node name="Point 5" type="Node3D" parent="SoldierPOIs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.85617, 0, 35.483555)
+
+[node name="Point 6" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.900932, 0, 69.2632)
+
+[node name="Point 7" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.725384, 0, 72.107796)
+
+[node name="Point 8" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.19246, 0, 96.28693)
+
+[node name="Point 9" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.19246, 0, 85.28693)
+
+[node name="Point 10" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.03795, 0, 108.04373)
+
+[node name="Point 11" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.03795, 0, 86.04373)
+
+[node name="Point 12" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.61832, 0, 74.66531)
+
+[node name="Point 13" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.61832, 0, 48.665314)
+
+[node name="Point 14" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.484, 0, 44.042843)
+
+[node name="Point 15" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.48399, 0, 36.042843)
+
+[node name="Point 16" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.61744, 0, 11.508152)
+
+[node name="Point 17" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.97389, 0, 3.329917)
+
+[node name="Point 18" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.2838, 0, -15.871152)
+
+[node name="Point 19" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.036175, 0, -26.182835)
+
+[node name="Point 20" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.966774, 0, -41.472576)
+
+[node name="Point 21" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.45731, 0, -35.07222)
+
+[node name="Point 22" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.725105, 0, 18.619652)
+
+[node name="Point 23" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.104385, 0, 19.686378)
+
+[node name="Point 24" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.105286, 0, -10.893103)
+
+[node name="Point 25" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.105286, 0, -34.716644)
+
+[node name="Point 26" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.10796, 0, -34.00549)
+
+[node name="Point 27" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.63642, 0, -52.13983)
+
+[node name="Point 28" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.390564, 0, 82.623215)
+
+[node name="Point 29" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6556854, 0, 130.98145)
+
+[node name="Point 30" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.835121, 0, 16.13063)
+
+[node name="Point 31" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.636726, 0, 40.309753)
+
+[node name="Point 32" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.637634, 0, 56.31064)
+
+[node name="Point 33" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.637634, 0, 71.31064)
+
+[node name="Point 34" type="Node3D" parent="SoldierPOIs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.431767, 0, 57.087624)
 
 [node name="GameManager" parent="." instance=ExtResource("37_qqntk")]
 
