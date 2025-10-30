@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcwvu2v6ncfr2"]
+
+[ext_resource type="PackedScene" uid="uid://c7bm7h7meoi8a" path="res://models/Bartosz/Soldier/Gladius.fbx" id="1_bp6wo"]
+[ext_resource type="Material" uid="uid://d0rvabk17idtj" path="res://materials/MetalMaterial.tres" id="2_dl8hr"]
+[ext_resource type="Material" uid="uid://qnipsdce1lfs" path="res://materials/8.tres" id="3_4me5i"]
+
+[node name="Gladius" instance=ExtResource("1_bp6wo")]
+
+[node name="Hilt" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dl8hr")
+
+[node name="Blade" parent="Hilt" index="0"]
+surface_material_override/0 = ExtResource("2_dl8hr")
+
+[node name="Crossguard" parent="Hilt" index="1"]
+surface_material_override/0 = ExtResource("3_4me5i")
+
+[node name="Pommel" parent="Hilt" index="2"]
+surface_material_override/0 = ExtResource("3_4me5i")
