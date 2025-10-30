@@ -60,7 +60,7 @@ public partial class PlayerController : CharacterBody3D
 		// cameraPivot = GetNode<Node3D>("CameraPivot");
 		// body = GetNode<Node3D>("BodyCapsuleMesh");
 		
-		// Input.SetMouseMode(Input.MouseModeEnum.Captured);
+		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 	
 	public override void _UnhandledInput(InputEvent @event)
