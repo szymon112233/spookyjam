@@ -213,5 +213,7 @@ public override void _PhysicsProcess(double delta)
 		dir = dir.Normalized();
 
 		KnockbackForce = dir * 40;
+		
+		GameManager.Instance.ChangeLives(-1);
     }
 }

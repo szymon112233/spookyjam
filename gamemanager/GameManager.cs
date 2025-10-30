@@ -41,16 +41,24 @@ public partial class GameManager : Node
 	
 	[Export]
 	public Vector2I ManaRange = new Vector2I(0, 100);
+
+	[Export] 
+	public int Lives = 3;
+	
+	[Export] 
+	public Vector2I LivesRange = new Vector2I(0, 5);
 	
 	[Export]
 	public GameEndingsData GameEndingsData;
 	
 	[Signal]
-	public delegate void DivineApprovalChangedEventHandler(int newValue);
+	public delegate void DivineApprovalChangedEventHandler(int newValue, bool isPositive);
 	[Signal]
-	public delegate void NotorietyChangedEventHandler(int newValue);
+	public delegate void NotorietyChangedEventHandler(int newValue, bool isPositive);
 	[Signal]
-	public delegate void ManaChangedEventHandler(int newValue);
+	public delegate void ManaChangedEventHandler(int newValue, bool isPositive);
+	[Signal]
+	public delegate void LivesChangedEventHandler(int newValue, bool isPositive);
 	
 	[Signal]
 	public delegate void GameEndedEventHandler(Ending ending);
@@ -82,21 +90,33 @@ public partial class GameManager : Node
 	{
 		DivineApproval += amount;
 		DivineApproval = Math.Clamp(DivineApproval, DivineApprovalRange.X, DivineApprovalRange.Y);
-		EmitSignalDivineApprovalChanged(DivineApproval);
+		EmitSignalDivineApprovalChanged(DivineApproval, amount>0 ? true : false);
 	}
 	
 	public void ChangeNotoriety(int amount)
 	{
 		Notoriety += amount;
 		Notoriety = Math.Clamp(Notoriety, NotorietyRange.X, NotorietyRange.Y);
-		EmitSignalNotorietyChanged(Notoriety);
+		EmitSignalNotorietyChanged(Notoriety, amount>0 ? true : false);
 	}
 	
 	public void ChangeMana(int amount)
 	{
 		Mana += amount;
 		Mana = Math.Clamp(Mana, ManaRange.X, ManaRange.Y);
-		EmitSignalManaChanged(Mana);
+		EmitSignalManaChanged(Mana, amount>0 ? true : false);
+	}
+	
+	public void ChangeLives(int amount)
+	{
+		Lives += amount;
+		Lives = Math.Clamp(Lives, LivesRange.X, LivesRange.Y);
+		EmitSignalLivesChanged(Lives, amount>0 ? true : false);
+		if (Lives == 0)
+		{
+			isCrucified = true;
+			GameTimerOnTimeout();
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
