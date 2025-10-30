@@ -6,5 +6,5 @@
 script = ExtResource("1_2p1so")
 OptionTexts = PackedStringArray("Yes. Kill her.", "Let he who is without sin cast the first stone.", "There\'s nothing wrong with a little cheating.")
 OptionsCorrectness = PackedInt32Array(0, 1, 0)
-NotorietyEffects = PackedInt32Array(0, 0, 1)
+NotorietyEffects = PackedInt32Array(0, 5, 10)
 ApprovalEffects = PackedInt32Array(-5, 10, -5)
