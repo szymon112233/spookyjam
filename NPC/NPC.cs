@@ -46,9 +46,9 @@ public partial class NPC : CharacterBody3D
 	protected bool DancingMan;
 
 	[Export]
-	private HealthStatus _healthStatus = HealthStatus.Healthy;
+	protected HealthStatus _healthStatus = HealthStatus.Healthy;
 
-	private float CurrentSpeed;
+	protected float CurrentSpeed;
 	
 	[Export] 
 	public InteractionResultData DeathResult;
@@ -148,6 +148,12 @@ public partial class NPC : CharacterBody3D
 				}
 				break;
 		}
+	}
+
+	public void FusRohDah(Vector3 direction)
+	{
+		Velocity = direction * 100;
+		MoveAndSlide();
 	}
 	
 	

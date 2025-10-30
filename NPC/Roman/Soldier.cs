@@ -13,8 +13,16 @@ public partial class Soldier : NPC
     [Export]
     protected float ChaseTime;
 
+    [Export]
+    protected float WhackDistance;
+
+    [Export]
+    protected int NotorietyThreshold;
+
     protected double IdleTime;
-    protected double CurrentTime;
+    protected double CurrentIdleTime;
+    protected double CurrentChaseTime;
+
     protected PlayerController FoundPlayer;
 
     Random rand = new Random();
@@ -23,14 +31,19 @@ public partial class Soldier : NPC
     {
         base._PhysicsProcess(delta);
 
-        PlayerCast.Enabled = true;
+        PlayerCast.Enabled = GameManager.Instance.Notoriety > NotorietyThreshold;
 
-        if(PlayerCast.IsColliding())
+        if (PlayerCast.IsColliding())
         {
             var obj = PlayerCast.GetCollider(0);
-            Node3D playerNode = obj as Node3D;
-           
-            SetTarget(playerNode.GlobalPosition);
+            PlayerController playerNode = obj as PlayerController;
+
+            TargetPlayer(playerNode);
+            ChasePlayer(delta);
+        }
+        else if(FoundPlayer != null)
+        {
+            ChasePlayer(delta);
         }
     }
 
@@ -42,11 +55,11 @@ public partial class Soldier : NPC
 
     public override void Idle(double delta)
     {
-        CurrentTime += delta;
+        CurrentIdleTime += delta;
 
-        if (CurrentTime >= IdleTime)
+        if (CurrentIdleTime >= IdleTime)
         {
-            CurrentTime = 0;
+            CurrentIdleTime = 0;
             IdleTime = rand.NextDouble() * MaximumIdleTime + MinimumIdelTime;
             SetNewPatrolPos();
         }
@@ -62,11 +75,46 @@ public partial class Soldier : NPC
     private void TargetPlayer(PlayerController playerController)
     {
         FoundPlayer = playerController;
-        
+        CurrentSpeed = RunSpeed;
+        CurrentChaseTime = 0.0;
     }
 
-    // private void GoToIdle()
-    // {
+    private void ChasePlayer(double delta)
+    {
+        if (TestForAttack())
+        {
+            return;
+        }
         
-    // }
+        CurrentChaseTime += delta;
+        if (CurrentChaseTime >= ChaseTime)
+        {
+            StopChase();
+        }
+        else
+        {
+            SetTarget(FoundPlayer.GlobalPosition);
+        }
+    }
+
+    private bool TestForAttack()
+    {
+        var distance = GlobalPosition.DistanceTo(FoundPlayer.GlobalPosition);
+
+        if (distance <= WhackDistance)
+        {
+            FoundPlayer.Attacked(this);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void StopChase()
+    {
+        CurrentSpeed = MoveSpeed;
+        CurrentChaseTime = 0.0;
+        FoundPlayer = null;
+        SetTarget(GlobalPosition);
+    }
 }

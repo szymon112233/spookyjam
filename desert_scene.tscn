@@ -13,15 +13,15 @@
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/Judas.tres" id="9_6fjt0"]
 [ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/Moneylender.tres" id="9_31pye"]
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/Soldier.tres" id="9_uvdaf"]
-[ext_resource type="Material" uid="uid://cko1imbruweoh" path="res://materials/14.tres" id="10_5myj6"]
+[ext_resource type="Material" path="res://materials/14.tres" id="10_5myj6"]
 [ext_resource type="PackedScene" uid="uid://bhsbdwa2w45g7" path="res://Interaction/spell_trigger.tscn" id="10_wb7md"]
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
-[ext_resource type="Material" uid="uid://cev0qj5upcp0b" path="res://materials/26.tres" id="11_wb7md"]
-[ext_resource type="Material" uid="uid://cnfud5oht4ofy" path="res://materials/11.tres" id="12_871se"]
-[ext_resource type="Resource" uid="uid://ofkwmqbelhju" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
-[ext_resource type="Resource" uid="uid://bj6dvldkx2p01" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="13_nm2cg"]
-[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="Material" path="res://materials/26.tres" id="11_wb7md"]
+[ext_resource type="Material" path="res://materials/11.tres" id="12_871se"]
+[ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
+[ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
+[ext_resource type="Material" path="res://materials/15.tres" id="13_nm2cg"]
+[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Resource" uid="uid://daattouychpn6" path="res://Dialog/Options/TEST/PhariseeOption1.tres" id="17_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 [ext_resource type="Resource" uid="uid://bswc6mesqt0tn" path="res://Dialog/Options/TEST/PhariseeDialog1.tres" id="18_dwck8"]
@@ -334,63 +334,123 @@ shape = SubResource("CylinderShape3D_gq0e1")
 
 [node name="NPC" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877594, 0.94608474, -9.129321)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="TutorialNPC" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.910599, 0.020284414, 49.006725)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="TutorialNPC_waiting" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(0.60128516, 0, 0.7990345, 0, 1, 0, -0.7990345, 0, 0.60128516, -12.219477, 0.020284414, 42.39377)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC2" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.834171, 0.01925683, 5.635614)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC3" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.470001, 0.01925683, 1.788753)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC4" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.392328, 0.01925683, 3.350119)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC5" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.345625, 0.01925683, 3.7379184)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC6" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.314604, 0.01925683, 5.491474)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC17" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.6308703, 0.01925683, 12.987628)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC7" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.735765, 0.01925683, 1.3767519)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC8" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.62264, 0.01925683, 7.261383)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC9" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.730574, -0.101201296, 26.74358)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC10" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.386465, -0.101201296, 22.805887)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC11" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.669401, -0.101201296, 22.625776)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC12" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.669401, -0.101201296, 24.56941)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC13" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.564924, -0.101201296, 20.317705)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC14" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.861525, -0.10120034, 22.682632)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC15" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.84448, -0.10120034, 20.885157)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="NPC16" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8375797, 0.25834632, 4.4361715)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="drug dealer" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.73238, 0.24562073, 18.487236)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="DrugdealerDialogInteraction4" parent="ppl/drug dealer" instance=ExtResource("8_31pye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5180378, -0.2583468, -0.21948242)
@@ -459,14 +519,23 @@ shape = SubResource("BoxShape3D_xbyy0")
 
 [node name="Soldier" parent="ppl" instance=ExtResource("8_bjslr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.390136)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="Dialog man" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.060293, 0.0019677512, 42.40215)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Dialog man" instance=ExtResource("10_y5u4b")]
 
 [node name="Pharisee1" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3852696, 0.0019677512, 38.5777)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee1" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("17_nm2cg")
@@ -474,6 +543,9 @@ HandledDialog = ExtResource("18_dwck8")
 
 [node name="Pharisee2" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8531113, 0.0019677281, 36.086845)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee2" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("19_7iif4")
@@ -481,6 +553,9 @@ HandledDialog = ExtResource("20_5rruw")
 
 [node name="Pharisee3" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.905771, 0.0019679666, 26.377523)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee3" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("21_u6fa1")
@@ -488,6 +563,9 @@ HandledDialog = ExtResource("22_tymm3")
 
 [node name="Pharisee4" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.545336, 0.0019686818, 29.729258)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee4" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("23_bbvs8")
@@ -495,6 +573,9 @@ HandledDialog = ExtResource("24_gwv0j")
 
 [node name="Pharisee5" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.985565, 0.0019677281, 7.850689)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee5" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("25_vpmn1")
@@ -502,6 +583,9 @@ HandledDialog = ExtResource("26_3nr5a")
 
 [node name="Pharisee6" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.981115, 0.0019677281, 28.855585)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee6" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("27_qqntk")
@@ -509,6 +593,9 @@ HandledDialog = ExtResource("28_iy8q6")
 
 [node name="Pharisee7" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.560304, 0.0019639134, -5.6921806)
+DeathResult = null
+HealResult = null
+ResurectResult = null
 
 [node name="OptionDialog" parent="ppl/Pharisee7" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("29_6p3tp")
