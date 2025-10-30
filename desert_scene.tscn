@@ -13,15 +13,15 @@
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/Judas.tres" id="9_6fjt0"]
 [ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/Moneylender.tres" id="9_31pye"]
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/Soldier.tres" id="9_uvdaf"]
-[ext_resource type="Material" uid="uid://cko1imbruweoh" path="res://materials/14.tres" id="10_5myj6"]
+[ext_resource type="Material" path="res://materials/14.tres" id="10_5myj6"]
 [ext_resource type="PackedScene" uid="uid://bhsbdwa2w45g7" path="res://Interaction/spell_trigger.tscn" id="10_wb7md"]
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
-[ext_resource type="Material" uid="uid://cev0qj5upcp0b" path="res://materials/26.tres" id="11_wb7md"]
-[ext_resource type="Material" uid="uid://cnfud5oht4ofy" path="res://materials/11.tres" id="12_871se"]
+[ext_resource type="Material" path="res://materials/26.tres" id="11_wb7md"]
+[ext_resource type="Material" path="res://materials/11.tres" id="12_871se"]
 [ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
 [ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="13_nm2cg"]
-[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="Material" path="res://materials/15.tres" id="13_nm2cg"]
+[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Resource" uid="uid://daattouychpn6" path="res://Dialog/Options/TEST/PhariseeOption1.tres" id="17_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 [ext_resource type="Resource" uid="uid://bswc6mesqt0tn" path="res://Dialog/Options/TEST/PhariseeDialog1.tres" id="18_dwck8"]
@@ -73,6 +73,7 @@ PointsOfInterest = [NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"
 
 [node name="Cubio" parent="." instance=ExtResource("1_x2qou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.690933, 1.0230136, 51.708225)
+spells = null
 
 [node name="DesertPlane" type="StaticBody3D" parent="."]
 collision_layer = 3
@@ -461,17 +462,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.3901
 
 [node name="Dialog man" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.060293, 0.0019677512, 42.40215)
+DancingMan = true
 
 [node name="Breathing Idle (1)" parent="ppl/Dialog man" index="4"]
-AnimationName = "Imported/Idle"
+DefaultAnimation = "Imported/Breakdance"
 
 [node name="OptionDialog" parent="ppl/Dialog man" instance=ExtResource("10_y5u4b")]
 
 [node name="Pharisee1" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3852696, 0.0019677512, 38.5777)
-
-[node name="Breathing Idle (1)" parent="ppl/Pharisee1" index="4"]
-AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Pharisee1" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("17_nm2cg")
@@ -480,18 +479,12 @@ HandledDialog = ExtResource("18_dwck8")
 [node name="Pharisee2" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8531113, 0.0019677281, 36.086845)
 
-[node name="Breathing Idle (1)" parent="ppl/Pharisee2" index="4"]
-AnimationName = "Imported/Idle"
-
 [node name="OptionDialog" parent="ppl/Pharisee2" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("19_7iif4")
 HandledDialog = ExtResource("20_5rruw")
 
 [node name="Pharisee3" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.905771, 0.0019679666, 26.377523)
-
-[node name="Breathing Idle (1)" parent="ppl/Pharisee3" index="4"]
-AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Pharisee3" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("21_u6fa1")
@@ -500,18 +493,12 @@ HandledDialog = ExtResource("22_tymm3")
 [node name="Pharisee4" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.545336, 0.0019686818, 29.729258)
 
-[node name="Breathing Idle (1)" parent="ppl/Pharisee4" index="4"]
-AnimationName = "Imported/Idle"
-
 [node name="OptionDialog" parent="ppl/Pharisee4" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("23_bbvs8")
 HandledDialog = ExtResource("24_gwv0j")
 
 [node name="Pharisee5" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.985565, 0.0019677281, 7.850689)
-
-[node name="Breathing Idle (1)" parent="ppl/Pharisee5" index="4"]
-AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Pharisee5" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("25_vpmn1")
@@ -520,18 +507,12 @@ HandledDialog = ExtResource("26_3nr5a")
 [node name="Pharisee6" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.981115, 0.0019677281, 28.855585)
 
-[node name="Breathing Idle (1)" parent="ppl/Pharisee6" index="4"]
-AnimationName = "Imported/Idle"
-
 [node name="OptionDialog" parent="ppl/Pharisee6" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("27_qqntk")
 HandledDialog = ExtResource("28_iy8q6")
 
 [node name="Pharisee7" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.560304, 0.0019639134, -5.6921806)
-
-[node name="Breathing Idle (1)" parent="ppl/Pharisee7" index="4"]
-AnimationName = "Imported/Idle"
 
 [node name="OptionDialog" parent="ppl/Pharisee7" instance=ExtResource("10_y5u4b")]
 HandledOption = ExtResource("29_6p3tp")

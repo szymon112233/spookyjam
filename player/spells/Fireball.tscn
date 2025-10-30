@@ -27,7 +27,6 @@ curve = SubResource("Curve_3svfh")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvjhf"]
 emission_shape = 2
 emission_sphere_radius = 0.6
-inherit_velocity_ratio = 1.0
 gravity = Vector3(0, 0, 0)
 damping_min = 1.0
 damping_max = 1.0
@@ -43,7 +42,6 @@ anim_offset_max = 1.0
 [sub_resource type="QuadMesh" id="QuadMesh_3svfh"]
 
 [node name="Fireball" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17865235, -0.2646857, 0)
 collision_layer = 8
 collision_mask = 2147483599
 gravity_scale = 0.2

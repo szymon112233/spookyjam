@@ -29,18 +29,27 @@ public partial class NPC : CharacterBody3D
 	protected Node3D DebugPosPoint;
 
 	[Export]
+	protected DefaultAnimationPlayer AnimationPlayer;
+
+	[Export]
 	protected float MoveSpeed;
 
 	[Export]
 	protected float RunSpeed;
 
-	[Export] 
+	[Export]
+	protected bool DancingMan;
+
+	[Export]
 	private HealthStatus _healthStatus = HealthStatus.Healthy;
+
+	private float CurrentSpeed;
 
 	public override void _Ready()
 	{
+		CurrentSpeed = MoveSpeed;
 		PlayerCast.Enabled = false;
-		NavAgent3D.TargetPosition = Position;
+		SetTarget(GlobalPosition);
 	}
 
 	public virtual void SetTarget(Vector3 position)
@@ -53,24 +62,38 @@ public partial class NPC : CharacterBody3D
 	{
 		if (NavAgent3D.IsNavigationFinished())
 		{
+			if (DancingMan)
+			{
+				AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Dance);
+			}
+			else
+			{
+				AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Idle);
+			}
+			
 			Idle(delta);
 		}
 		else
 		{
+			AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Walk);
+
 			var pos = NavAgent3D.GetNextPathPosition();
 			Velocity = GetVelocity(pos);
-
+			
 			MoveAndSlide();
+
+			if(GlobalPosition != pos)
+				LookAt(pos, useModelFront: true);
 		}
 
 	}
 	
 	public virtual Vector3 GetVelocity(Vector3 targetPos)
 	{
-		var dir = targetPos - Position;
+		var dir = targetPos - GlobalPosition;
 		dir = dir.Normalized();
 
-		return dir * MoveSpeed;
+		return dir * CurrentSpeed;
 	} 
 
 	public virtual void Idle(double delta)

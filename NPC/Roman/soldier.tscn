@@ -12,21 +12,24 @@ radius = 0.64
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
 
-[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast")]
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "AnimationPlayer")]
 script = ExtResource("1_dka42")
 MinimumIdelTime = 2.0
 MaximumIdleTime = 15.0
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
+AnimationPlayer = NodePath("SoldierIdle")
 MoveSpeed = 3.0
 RunSpeed = 4.5
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="Player Detector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2184697, 5.039946)
 shape = SubResource("CylinderShape3D_056qb")
 target_position = Vector3(0, 0, 0)
+collision_mask = 16
 debug_shape_custom_color = Color(0, 0.5686275, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -41,3 +44,4 @@ mesh = SubResource("CapsuleMesh_ieddu")
 skeleton = NodePath("")
 
 [node name="SoldierIdle" parent="." instance=ExtResource("3_h4i1q")]
+DefaultAnimation = "Idle"

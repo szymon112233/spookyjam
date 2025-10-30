@@ -12,12 +12,14 @@ radius = 0.64
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
 
-[node name="NPC" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast")]
+[node name="NPC" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "AnimationPlayer")]
 script = ExtResource("1_056qb")
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
+AnimationPlayer = NodePath("Breathing Idle (1)")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="Player Detector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2184697, 5.039946)
