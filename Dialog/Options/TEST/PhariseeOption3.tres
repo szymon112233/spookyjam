@@ -6,5 +6,5 @@
 script = ExtResource("1_h7hgu")
 OptionTexts = PackedStringArray("I can do what I want!", "The Sabbath was made for man, not man for the Sabbath.", "I forgot today is the Sabbath.")
 OptionsCorrectness = PackedInt32Array(0, 1, 0)
-NotorietyEffects = PackedInt32Array(5, 0, 1)
-ApprovalEffects = PackedInt32Array(-10, 5, -5)
+NotorietyEffects = PackedInt32Array(10, 5, 5)
+ApprovalEffects = PackedInt32Array(-10, 10, -5)
