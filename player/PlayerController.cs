@@ -12,7 +12,7 @@ public partial class PlayerController : CharacterBody3D
 	[Export]
 	public Node3D ShootingPoint;
 
-	public static System.Action<int> ChangedSpell;
+	public static Action<int> ChangedSpell;
     
 	
 	[Export()]
@@ -40,8 +40,10 @@ public partial class PlayerController : CharacterBody3D
 	[Export]
 	public PlayerDialogOption PlayerDialogOptionHandler;
 
-	[Export()] 
+	[Export()]
 	private Marker3D marker3D;
+
+	protected Vector3 KnockbackForce;
 
 	//var camera;
 	// Called when the node enters the scene tree for the first time.
@@ -162,6 +164,9 @@ public override void _PhysicsProcess(double delta)
 		Velocity = new Vector3(hvel.X, Velocity.Y, hvel.Z);
 
 		Velocity += new Vector3(0, (float)delta * gravity, 0);
+		Velocity += KnockbackForce;
+		KnockbackForce = Vector3.Zero;
+		
 		MoveAndSlide();
 		
 		if (IsOnFloor() && Input.IsActionPressed("jump"))
@@ -175,13 +180,14 @@ public override void _PhysicsProcess(double delta)
 			canvasItem.Show();
 		}
 	}
-	
-	private void Shoot(){
+
+	private void Shoot()
+	{
 		//var scene = ResourceLoader.Load<PackedScene>("res://player/spells/Fireball.tscn").Instantiate();
-        var spell = spells[spellIndex].Instantiate();
+		var spell = spells[spellIndex].Instantiate();
 		// GD.Print("Fired1");
 		Owner.AddChild(spell);
-		
+
 		Fireball fireball = (Fireball)spell;
 		//fireball.SetTransform(marker3D.GlobalTransform);
 		Transform3D trans = cameraPivot.GlobalTransform;
@@ -189,4 +195,12 @@ public override void _PhysicsProcess(double delta)
 		trans.Origin = Transform.Origin;
 		fireball.SetTransform(trans);
 	}
+	
+	public void Attacked(Soldier attacker)
+    {
+		var dir = GlobalPosition - attacker.GlobalPosition;
+		dir = dir.Normalized();
+
+		KnockbackForce = dir * 40;
+    }
 }
