@@ -338,7 +338,7 @@ mesh = SubResource("BoxMesh_x2qou")
 shape = SubResource("BoxShape3D_xbyy0")
 
 [node name="Building52" type="StaticBody3D" parent="Blockout"]
-transform = Transform3D(2.166032, 0, -154.24168, 0, 24.152193, 0, -1.9791765, 0, -168.80377, -307.32678, 10.341963, 180.24876)
+transform = Transform3D(1.2782483, 0, -205.8196, 0, 24.152191, 0, -2.6410065, 0, -99.616776, -194.63237, 10.34197, 111.278366)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blockout/Building52"]
 material_override = ExtResource("8_y4n2q")
