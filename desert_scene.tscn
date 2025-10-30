@@ -13,15 +13,15 @@
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/Judas.tres" id="9_6fjt0"]
 [ext_resource type="Resource" uid="uid://d14ofqpfd74c3" path="res://Dialog/Data/Moneylender.tres" id="9_31pye"]
 [ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Data/Soldier.tres" id="9_uvdaf"]
-[ext_resource type="Material" path="res://materials/14.tres" id="10_5myj6"]
+[ext_resource type="Material" uid="uid://cko1imbruweoh" path="res://materials/14.tres" id="10_5myj6"]
 [ext_resource type="PackedScene" uid="uid://bhsbdwa2w45g7" path="res://Interaction/spell_trigger.tscn" id="10_wb7md"]
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
-[ext_resource type="Material" path="res://materials/26.tres" id="11_wb7md"]
-[ext_resource type="Material" path="res://materials/11.tres" id="12_871se"]
-[ext_resource type="Resource" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
-[ext_resource type="Resource" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
-[ext_resource type="Material" path="res://materials/15.tres" id="13_nm2cg"]
-[ext_resource type="PackedScene" uid="uid://b1m3h4ey3uoq0" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
+[ext_resource type="Material" uid="uid://cev0qj5upcp0b" path="res://materials/26.tres" id="11_wb7md"]
+[ext_resource type="Material" uid="uid://cnfud5oht4ofy" path="res://materials/11.tres" id="12_871se"]
+[ext_resource type="Resource" uid="uid://ofkwmqbelhju" path="res://Dialog/Data/TellToGoDialogue.tres" id="13_7ffcb"]
+[ext_resource type="Resource" uid="uid://bj6dvldkx2p01" path="res://Dialog/Data/okgotcha.tres" id="13_ap3w5"]
+[ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="13_nm2cg"]
+[ext_resource type="PackedScene" uid="uid://dkyrdd5rsr1cm" path="res://Interaction/generic_interaction.tscn" id="15_8vsgl"]
 [ext_resource type="Resource" uid="uid://daattouychpn6" path="res://Dialog/Options/TEST/PhariseeOption1.tres" id="17_nm2cg"]
 [ext_resource type="PackedScene" uid="uid://b6m03isargpxu" path="res://UI/ui.tscn" id="17_rr8d8"]
 [ext_resource type="Resource" uid="uid://bswc6mesqt0tn" path="res://Dialog/Options/TEST/PhariseeDialog1.tres" id="18_dwck8"]
@@ -73,7 +73,6 @@ PointsOfInterest = [NodePath("Point 1"), NodePath("Point 2"), NodePath("Point 3"
 
 [node name="Cubio" parent="." instance=ExtResource("1_x2qou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.690933, 1.0230136, 51.708225)
-spells = null
 
 [node name="DesertPlane" type="StaticBody3D" parent="."]
 collision_layer = 3
@@ -462,10 +461,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.31229, 0.36976957, 13.3901
 
 [node name="Dialog man" parent="ppl" instance=ExtResource("6_p06u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.060293, 0.0019677512, 42.40215)
-DancingMan = true
-
-[node name="Breathing Idle (1)" parent="ppl/Dialog man" index="4"]
-DefaultAnimation = "Imported/Breakdance"
 
 [node name="OptionDialog" parent="ppl/Dialog man" instance=ExtResource("10_y5u4b")]
 
