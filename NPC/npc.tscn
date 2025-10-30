@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://guuwcgtogcs7"]
+[gd_scene load_steps=11 format=3 uid="uid://guuwcgtogcs7"]
 
 [ext_resource type="Script" uid="uid://d4npgftnhjete" path="res://NPC/NPC.cs" id="1_056qb"]
 [ext_resource type="Material" uid="uid://cdc0exiu5yafl" path="res://materials/16.tres" id="1_kd6ta"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6n4nrnt2lhp1" path="res://models/Bartosz/breathing_idle_(1).tscn" id="3_3etx6"]
 [ext_resource type="Resource" uid="uid://dqo84ke0epfen" path="res://Interaction/Data/NormalNPCHealResult.tres" id="3_u08xh"]
 [ext_resource type="Resource" uid="uid://daohbvaeepg8x" path="res://Interaction/Data/NormalNPCResurrectResult.tres" id="4_m2dqh"]
+[ext_resource type="PackedScene" uid="uid://c0yhp8gkhcxyi" path="res://models/Bartosz/NPC/NPC.tscn" id="7_u08xh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_056qb"]
 height = 9.09
@@ -19,7 +20,7 @@ radius = 0.64
 script = ExtResource("1_056qb")
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
-AnimationPlayer = NodePath("Breathing Idle (1)")
+AnimationPlayer = NodePath("Character")
 DeathResult = ExtResource("2_rovd1")
 HealResult = ExtResource("3_u08xh")
 ResurectResult = ExtResource("4_m2dqh")
@@ -45,3 +46,6 @@ mesh = SubResource("CapsuleMesh_ieddu")
 skeleton = NodePath("")
 
 [node name="Breathing Idle (1)" parent="." instance=ExtResource("3_3etx6")]
+visible = false
+
+[node name="Character" parent="." instance=ExtResource("7_u08xh")]
