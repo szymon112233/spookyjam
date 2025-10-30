@@ -12,6 +12,11 @@ public partial class NPC : CharacterBody3D
 	
 	[Signal]
 	public delegate void OnDeathEventHandler();
+	[Signal]
+	public delegate void OnHealEventHandler();
+	[Signal]
+	public delegate void OnResurrectEventHandler();
+	
 	
 	[Signal]
 	public delegate void OnStatusChangedEventHandler(HealthStatus status);
@@ -44,7 +49,14 @@ public partial class NPC : CharacterBody3D
 	private HealthStatus _healthStatus = HealthStatus.Healthy;
 
 	private float CurrentSpeed;
-
+	
+	[Export] 
+	public InteractionResultData DeathResult;
+	[Export] 
+	public InteractionResultData HealResult;
+	[Export] 
+	public InteractionResultData ResurectResult;
+	
 	public override void _Ready()
 	{
 		CurrentSpeed = MoveSpeed;
@@ -108,20 +120,56 @@ public partial class NPC : CharacterBody3D
 
 	public void ChangeHealthStatus(HealthStatus status)
 	{
+		var previousStatus = _healthStatus;
 		_healthStatus = status;
 		EmitSignalOnStatusChanged(status);
 		switch (status)
 		{
 			case HealthStatus.Healthy:
 				Rotation = new Vector3(0, 0, 0);
+				if (previousStatus == HealthStatus.Dead)
+				{
+					HandleResurrection();
+				}
+
+				if (previousStatus == HealthStatus.Sick)
+				{
+					HandleHeal();
+				}
 				break;
 			case HealthStatus.Sick:
 				Rotation = new Vector3(45, 0, 0);
 				break;
 			case HealthStatus.Dead:
 				Rotation = new Vector3(90, 0, 0);
-				EmitSignalOnDeath();
+				if (previousStatus == HealthStatus.Healthy || previousStatus == HealthStatus.Sick)
+				{
+					HandleDeath();	
+				}
 				break;
 		}
+	}
+	
+	
+	
+	public void HandleResurrection()
+	{
+		EmitSignalOnResurrect();
+		GameManager.Instance.ChangeDivineApproval(ResurectResult.DivineApprovalChange);
+		GameManager.Instance.ChangeNotoriety(ResurectResult.NotorietyChange);
+	}
+	
+	public void HandleHeal()
+	{
+		EmitSignalOnHeal();
+		GameManager.Instance.ChangeDivineApproval(HealResult.DivineApprovalChange);
+		GameManager.Instance.ChangeNotoriety(HealResult.NotorietyChange);
+	}
+
+	public void HandleDeath()
+	{
+		EmitSignalOnDeath();
+		GameManager.Instance.ChangeDivineApproval(DeathResult.DivineApprovalChange);
+		GameManager.Instance.ChangeNotoriety(DeathResult.NotorietyChange);
 	}
 }
