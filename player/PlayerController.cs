@@ -7,7 +7,10 @@ public partial class PlayerController : CharacterBody3D
 	float gravity;
 	Camera3D camera;
 	private Node3D cameraPivot;
-	private Node3D body;
+	[Export]
+	public Node3D body;
+	[Export]
+	public Node3D ShootingPoint;
 
 	public static System.Action<int> ChangedSpell;
     
@@ -52,9 +55,9 @@ public partial class PlayerController : CharacterBody3D
 		
 		// @onready var _camera := %Camera3D as Camera3D
 		cameraPivot = GetNode<Node3D>("CameraPivot");
-		body = GetNode<Node3D>("BodyCapsuleMesh");
+		// body = GetNode<Node3D>("BodyCapsuleMesh");
 		
-		Input.SetMouseMode(Input.MouseModeEnum.Captured);
+		// Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 	
 	public override void _UnhandledInput(InputEvent @event)
@@ -150,7 +153,9 @@ public override void _PhysicsProcess(double delta)
 		if(hvel.Length() > 0)
 		{
 			//Transform = Transform.LookingAt(hvel+Transform.Origin, new Vector3(0,1,0));
+			// var scale = body.Transform.Basis.Scale;
 			body.Transform = body.Transform.LookingAt(hvel+body.Transform.Origin, new Vector3(0,1,0));
+			// body.Transform.Scaled(scale);
 		}
 
 		//# Assign hvel's values back to velocity, and then move.
@@ -188,5 +193,6 @@ public override void _PhysicsProcess(double delta)
         {
 	        throw new InvalidCastException("Spell lacks IBaseSpell interface");
         }
+
 	}
 }

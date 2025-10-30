@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class Soldier : NPC
 {
@@ -9,13 +10,35 @@ public partial class Soldier : NPC
     [Export]
     public double MaximumIdleTime;
 
+    [Export]
+    protected float ChaseTime;
+
     protected double IdleTime;
     protected double CurrentTime;
+    protected PlayerController FoundPlayer;
 
-    // public override void _Ready()
-    // {
-    //     NavAgent3D.TargetReached += GoToIdle;
-    // }
+    Random rand = new Random();
+
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+
+        PlayerCast.Enabled = true;
+
+        if(PlayerCast.IsColliding())
+        {
+            var obj = PlayerCast.GetCollider(0);
+            Node3D playerNode = obj as Node3D;
+           
+            SetTarget(playerNode.GlobalPosition);
+        }
+    }
+
+    public override void _Ready()
+	{
+        base._Ready();
+        IdleTime = rand.NextDouble() * MaximumIdleTime + MinimumIdelTime;
+	}
 
     public override void Idle(double delta)
     {
@@ -23,8 +46,6 @@ public partial class Soldier : NPC
 
         if (CurrentTime >= IdleTime)
         {
-            var rand = new Random();
-
             CurrentTime = 0;
             IdleTime = rand.NextDouble() * MaximumIdleTime + MinimumIdelTime;
             SetNewPatrolPos();
@@ -34,8 +55,14 @@ public partial class Soldier : NPC
     private void SetNewPatrolPos()
     {
         var poi = Map.Instance.GetRandomPOI();
-        SetTarget(poi.Position);
+        SetTarget(poi.GlobalPosition);
 
+    }
+
+    private void TargetPlayer(PlayerController playerController)
+    {
+        FoundPlayer = playerController;
+        
     }
 
     // private void GoToIdle()

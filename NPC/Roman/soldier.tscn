@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://crglnyjkdymh5"]
+[gd_scene load_steps=10 format=3 uid="uid://crglnyjkdymh5"]
 
 [ext_resource type="Script" uid="uid://c7u6u6j3v6udm" path="res://NPC/Roman/Soldier.cs" id="1_dka42"]
+[ext_resource type="Resource" uid="uid://bjd3dd614cw24" path="res://Interaction/Data/RomanSoldierDeathResult.tres" id="2_gy2eb"]
 [ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="2_h4i1q"]
+[ext_resource type="Resource" uid="uid://n8gon24nah58" path="res://Interaction/Data/RomanSoldierHealResult.tres" id="3_756kp"]
 [ext_resource type="PackedScene" uid="uid://dosgd5q3bu63r" path="res://models/Bartosz/Soldier/soldier_idle.tscn" id="3_h4i1q"]
+[ext_resource type="Resource" uid="uid://dgp6ux0in0t10" path="res://Interaction/Data/RomanSoldierResurretResult.tres" id="4_j3pl7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_056qb"]
 height = 9.09
@@ -12,21 +15,27 @@ radius = 0.64
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
 
-[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast")]
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "AnimationPlayer")]
 script = ExtResource("1_dka42")
 MinimumIdelTime = 2.0
 MaximumIdleTime = 15.0
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
+AnimationPlayer = NodePath("SoldierIdle")
 MoveSpeed = 3.0
 RunSpeed = 4.5
+DeathResult = ExtResource("2_gy2eb")
+HealResult = ExtResource("3_756kp")
+ResurectResult = ExtResource("4_j3pl7")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="Player Detector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2184697, 5.039946)
 shape = SubResource("CylinderShape3D_056qb")
 target_position = Vector3(0, 0, 0)
+collision_mask = 16
 debug_shape_custom_color = Color(0, 0.5686275, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -41,3 +50,4 @@ mesh = SubResource("CapsuleMesh_ieddu")
 skeleton = NodePath("")
 
 [node name="SoldierIdle" parent="." instance=ExtResource("3_h4i1q")]
+DefaultAnimation = "Idle"

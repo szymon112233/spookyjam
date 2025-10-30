@@ -1,9 +1,19 @@
+using System.Data;
 using Godot;
 
 public partial class DefaultAnimationPlayer : Node
 {
 	[Export]
-	private string AnimationName = "default";
+	public string AnimationName_Idle = "default";
+
+	[Export]
+	public string AnimationName_Walk;
+
+	[Export]
+	public string AnimationName_Dance;
+
+	[Export]
+	public string DefaultAnimation;
 
 	private AnimationPlayer _animationPlayer;
 
@@ -14,20 +24,30 @@ public partial class DefaultAnimationPlayer : Node
 		if (_animationPlayer == null)
 		{
 			GD.PrintErr($"AnimationPlayer is missing.");
-			
+
 			return;
 		}
-		
-		if (_animationPlayer.HasAnimation(AnimationName) == false)
+
+		if (_animationPlayer.HasAnimation(DefaultAnimation) == false)
 		{
-			GD.PrintErr($"Animation '{AnimationName}' is missing.");
-			
+			GD.PrintErr($"Animation '{DefaultAnimation}' is missing.");
+
 			return;
 		}
-		
-		float animationLength = _animationPlayer.GetAnimation(AnimationName).Length;
-		float randomStartTime = GD.Randf() * animationLength;
-		_animationPlayer.Play(AnimationName);
-		_animationPlayer.Seek(randomStartTime, true);
+
+		PlayAnimationWithKey(DefaultAnimation);
 	}
+	
+	public void PlayAnimationWithKey(string key)
+	{
+		if (_animationPlayer.CurrentAnimation == key)
+			return;
+
+
+		float animationLength = _animationPlayer.GetAnimation(key).Length;
+		float randomStartTime = GD.Randf() * animationLength;
+
+		_animationPlayer.Play(key);
+		_animationPlayer.Seek(randomStartTime, true);
+    }
 }
