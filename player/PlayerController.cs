@@ -6,7 +6,10 @@ public partial class PlayerController : CharacterBody3D
 	Vector3 start_position;
 	float gravity;
 	Camera3D camera;
+	[Export]
 	private Node3D cameraPivot;
+	[Export]
+	private Node3D cameraPivotRelativetoPlayerLocation;
 	[Export]
 	public Node3D body;
 	[Export]
@@ -54,7 +57,7 @@ public partial class PlayerController : CharacterBody3D
 		gravity = -(float)ProjectSettings.GetSetting("physics/3d/default_gravity");
 		
 		// @onready var _camera := %Camera3D as Camera3D
-		cameraPivot = GetNode<Node3D>("CameraPivot");
+		// cameraPivot = GetNode<Node3D>("CameraPivot");
 		// body = GetNode<Node3D>("BodyCapsuleMesh");
 		
 		// Input.SetMouseMode(Input.MouseModeEnum.Captured);
@@ -163,6 +166,8 @@ public override void _PhysicsProcess(double delta)
 
 		Velocity += new Vector3(0, (float)delta * gravity, 0);
 		MoveAndSlide();
+		Tween tween = GetTree().CreateTween();
+		cameraPivot.GlobalPosition = cameraPivotRelativetoPlayerLocation.GlobalPosition;
 		
 		if (IsOnFloor() && Input.IsActionPressed("jump"))
 			Velocity += new Vector3(0, JUMP_SPEED, 0);
