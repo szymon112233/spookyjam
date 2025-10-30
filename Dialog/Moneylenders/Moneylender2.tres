@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://xb0go1k0adfo"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_we576"]
+
+[resource]
+script = ExtResource("1_we576")
+Speaker = "Moneylender"
+StartingText = "Need to borrow some money to buy a sacrifice?"
+CompletedHappyText = "Forgive me!"

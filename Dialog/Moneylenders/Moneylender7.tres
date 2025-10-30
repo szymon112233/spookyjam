@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://ban5bbbv1adms"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_nmqwx"]
+
+[resource]
+script = ExtResource("1_nmqwx")
+Speaker = "Merchant"
+StartingText = "Name your price! I got everything!"
+CompletedHappyText = "I thought I had everything, but I see the truth now."
