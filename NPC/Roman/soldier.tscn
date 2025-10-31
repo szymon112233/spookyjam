@@ -26,7 +26,7 @@ stream_1/stream = ExtResource("8_7yg00")
 stream_2/stream = ExtResource("9_iiw3d")
 stream_3/stream = ExtResource("10_snmic")
 
-[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("HitEffectAudioPlayer", "NavAgent3D", "PlayerCast", "AnimationPlayer", "Ragdoll", "mainCollider")]
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("HitEffectAudioPlayer", "NavAgent3D", "PlayerCast", "AnimationPlayer", "mainCollider")]
 script = ExtResource("1_dka42")
 MinimumIdelTime = 2.0
 MaximumIdleTime = 15.0
@@ -39,7 +39,6 @@ PlayerCast = NodePath("Player Detector")
 AnimationPlayer = NodePath("SoldierIdle")
 MoveSpeed = 3.0
 RunSpeed = 6.0
-Ragdoll = NodePath("SoldierIdle/GeneralSkeleton/PhysicalBoneSimulator3DNew")
 mainCollider = NodePath("CollisionShape3D")
 DeathResult = ExtResource("2_gy2eb")
 HealResult = ExtResource("3_756kp")
@@ -67,7 +66,34 @@ mesh = SubResource("CapsuleMesh_ieddu")
 skeleton = NodePath("")
 
 [node name="SoldierIdle" parent="." instance=ExtResource("3_h4i1q")]
-DefaultAnimation = "Idle"
+
+[node name="GeneralSkeleton" parent="SoldierIdle" index="0"]
+bones/0/position = Vector3(-0.2031315, 0.6878656, 0.094965324)
+bones/0/rotation = Quaternion(-0.048784707, 0.19787061, 0.018719304, 0.97883445)
+bones/1/rotation = Quaternion(0.007624179, 0.085995786, 0.02968897, 0.99582386)
+bones/2/rotation = Quaternion(0.010532805, 0.06555583, 0.0136174755, 0.99770045)
+bones/3/rotation = Quaternion(0.010843202, 0.06527336, 0.01469615, 0.99770033)
+bones/4/rotation = Quaternion(0.08645392, -0.08385838, 0.018117987, 0.99255496)
+bones/5/rotation = Quaternion(-0.011656451, -0.42675188, 0.12219458, 0.89599967)
+bones/7/rotation = Quaternion(0.512106, 0.4669929, 0.5931086, -0.40974063)
+bones/8/rotation = Quaternion(0.16167061, 0.8560953, -0.47045466, 0.1401276)
+bones/9/rotation = Quaternion(0.6276764, -0.41936046, 0.5616303, 0.33871916)
+bones/10/rotation = Quaternion(-0.04664633, 0.6323193, 0.32401752, 0.7021461)
+bones/27/rotation = Quaternion(0.3417467, -0.6073102, -0.60086274, -0.3915963)
+bones/28/rotation = Quaternion(-0.5572441, 0.7478405, -0.30612558, -0.19105172)
+bones/29/rotation = Quaternion(0.5375576, 0.50793326, -0.5114572, 0.43754673)
+bones/30/rotation = Quaternion(0.094645314, -0.6313434, 0.34242105, 0.68934435)
+bones/47/rotation = Quaternion(-0.117360815, 0.39795336, 0.90464574, 0.09734307)
+bones/48/rotation = Quaternion(0.038832325, 0.9493698, -0.3021003, -0.076970704)
+bones/49/rotation = Quaternion(-0.20033704, 0.7890285, -0.5714164, -0.1038387)
+bones/50/rotation = Quaternion(1.6463616e-08, 1, -0.00024491554, 7.2439907e-09)
+bones/52/rotation = Quaternion(-0.09347228, -0.16568075, 0.98167807, -0.011002799)
+bones/53/rotation = Quaternion(0.013139387, 0.9106685, -0.40839577, 0.06101944)
+bones/54/rotation = Quaternion(-0.07166345, 0.369542, -0.92143726, 0.09621127)
+bones/55/rotation = Quaternion(3.5561406e-08, 0.97495896, 0.22238526, -2.5024695e-08)
+
+[node name="HandBoneAttachment3D" parent="SoldierIdle/GeneralSkeleton" index="5"]
+transform = Transform3D(-0.75225854, 0.5864044, -0.30039477, 0.40753162, 0.05587482, -0.9114799, -0.51771116, -0.80808914, -0.28101057, -0.1446856, 1.3056433, 0.2165308)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_gy2eb")
