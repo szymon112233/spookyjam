@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OptionData" load_steps=2 format=3 uid="uid://d0ojv7usgxnxd"]
+
+[ext_resource type="Script" uid="uid://cbq18xciyraqx" path="res://Dialog/Options/OptionData.cs" id="1_085ii"]
+
+[resource]
+script = ExtResource("1_085ii")
+OptionTexts = PackedStringArray("Just like a man can be both a father, a husband, and a stonemason, God is both me, my Father, and the Holy Spirit.", "I am not my Father, nor the Holy Spirit, but God encompasses all three of us.", "God is above such worldly concepts as maths.")
+OptionsCorrectness = PackedInt32Array(0, 0, 1)
+NotorietyEffects = PackedInt32Array(0, 0, 0)
+ApprovalEffects = PackedInt32Array(-5, -5, 5)
