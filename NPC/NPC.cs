@@ -55,6 +55,7 @@ public partial class NPC : CharacterBody3D
 	private CollisionShape3D mainCollider;
 
 	private bool _ragdolledThisFrame = false;
+	private bool _ragdolledDisabledThisFrame = false;
 	private Vector3 ragdollDirection;
 
 	protected float CurrentSpeed;
@@ -106,13 +107,22 @@ public partial class NPC : CharacterBody3D
 			if(GlobalPosition != pos)
 				LookAt(pos, useModelFront: true);
 		}
-		if (_ragdolledThisFrame)
-		{
-			if(Ragdoll != null){
+		if(Ragdoll != null){
+			if (_ragdolledThisFrame)
+			{
 				ActivateRagdoll(Vector3.Zero, ragdollDirection);
+				_ragdolledThisFrame = false;
 			}
-			_ragdolledThisFrame = false;
+
+			if (_ragdolledDisabledThisFrame)
+			{
+				DeactivateRagdoll();
+				_ragdolledDisabledThisFrame = false;
+			}
+			
 		}
+		
+		
 
 
 	}
@@ -187,6 +197,7 @@ public partial class NPC : CharacterBody3D
 		EmitSignalOnResurrect();
 		GameManager.Instance.ChangeDivineApproval(ResurectResult.DivineApprovalChange);
 		GameManager.Instance.ChangeNotoriety(ResurectResult.NotorietyChange);
+		_ragdolledDisabledThisFrame = true;
 	}
 	
 	public void HandleHeal()
@@ -194,6 +205,7 @@ public partial class NPC : CharacterBody3D
 		EmitSignalOnHeal();
 		GameManager.Instance.ChangeDivineApproval(HealResult.DivineApprovalChange);
 		GameManager.Instance.ChangeNotoriety(HealResult.NotorietyChange);
+		_ragdolledDisabledThisFrame = true;
 	}
 
 	public void HandleDeath()
