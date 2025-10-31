@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7gq40gxxf2tl"]
+
+[ext_resource type="PackedScene" uid="uid://bfqtc67a6bryi" path="res://models/Bartosz/PropsAndOthers/Well.fbx" id="1_bi0xf"]
+[ext_resource type="Material" uid="uid://b06se00xklukt" path="res://materials/30.tres" id="2_gaub2"]
+[ext_resource type="Material" uid="uid://bryh3ey6cnl4l" path="res://materials/23.tres" id="3_xb4dd"]
+[ext_resource type="Material" uid="uid://dsk1aegiiivlx" path="res://materials/24.tres" id="4_pyhpo"]
+[ext_resource type="Material" uid="uid://3cedcdvqp2ws" path="res://materials/25.tres" id="5_ui5rx"]
+[ext_resource type="Material" uid="uid://bf7wxxubyd70l" path="res://materials/6.tres" id="6_dfoy3"]
+[ext_resource type="Material" uid="uid://qnipsdce1lfs" path="res://materials/8.tres" id="7_a28vk"]
+[ext_resource type="Material" uid="uid://cs7o1lstitwt0" path="res://materials/9.tres" id="8_hcals"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bi0xf"]
+height = 3.0930176
+radius = 0.9873047
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bi0xf"]
+size = Vector3(2.647583, 3.0562134, 0.42248535)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gaub2"]
+size = Vector3(3.062561, 0.2995758, 1.878418)
+
+[node name="Well" instance=ExtResource("1_bi0xf")]
+
+[node name="Circle" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gaub2")
+
+[node name="Cube" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_xb4dd")
+surface_material_override/1 = ExtResource("4_pyhpo")
+surface_material_override/2 = ExtResource("5_ui5rx")
+
+[node name="Cube_001" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_xb4dd")
+surface_material_override/1 = ExtResource("4_pyhpo")
+surface_material_override/2 = ExtResource("5_ui5rx")
+
+[node name="Cube_002" parent="." index="3"]
+surface_material_override/0 = ExtResource("3_xb4dd")
+surface_material_override/1 = ExtResource("4_pyhpo")
+surface_material_override/2 = ExtResource("5_ui5rx")
+
+[node name="Cube_003" parent="." index="4"]
+surface_material_override/0 = ExtResource("3_xb4dd")
+surface_material_override/1 = ExtResource("4_pyhpo")
+surface_material_override/2 = ExtResource("5_ui5rx")
+
+[node name="Cube_004" parent="." index="5"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_005" parent="." index="6"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_006" parent="." index="7"]
+surface_material_override/0 = ExtResource("7_a28vk")
+
+[node name="Cube_007" parent="." index="8"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_008" parent="." index="9"]
+surface_material_override/0 = ExtResource("7_a28vk")
+
+[node name="Cube_009" parent="." index="10"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_020" parent="." index="11"]
+surface_material_override/0 = ExtResource("8_hcals")
+
+[node name="Cube_021" parent="." index="12"]
+surface_material_override/0 = ExtResource("7_a28vk")
+
+[node name="Cube_022" parent="." index="13"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_023" parent="." index="14"]
+surface_material_override/0 = ExtResource("8_hcals")
+
+[node name="Cube_024" parent="." index="15"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_025" parent="." index="16"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="Cube_026" parent="." index="17"]
+surface_material_override/0 = ExtResource("8_hcals")
+
+[node name="Cube_027" parent="." index="18"]
+surface_material_override/0 = ExtResource("6_dfoy3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36605835, 1.534729, -0.7987049)
+shape = SubResource("CylinderShape3D_bi0xf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35247803, 1.5364685, -0.7852173)
+shape = SubResource("BoxShape3D_bi0xf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39657593, 3.1185837, -0.81762695)
+shape = SubResource("BoxShape3D_gaub2")
