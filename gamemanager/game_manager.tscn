@@ -14,6 +14,7 @@ GameTimer = NodePath("Timer")
 GameDurationInSeconds = 600.0
 DivineApproval = 40
 NotorietyRange = Vector2i(0, 500)
+Lives = 2
 GameEndingsData = ExtResource("2_0kugl")
 
 [node name="Timer" type="Timer" parent="."]
