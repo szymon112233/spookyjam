@@ -27,6 +27,12 @@ public partial class DefaultAnimationPlayer : Node3D
 
 	public AnimationPlayer AnimationPlayer;
 
+	[Export]
+	public bool ShouldBeAWoman;
+
+	[Export]
+	public Node3D WomanObject;
+
 	public bool IsAnimationPlaying => AnimationPlayer.IsPlaying();
 
 	public override void _Ready()
@@ -48,6 +54,11 @@ public partial class DefaultAnimationPlayer : Node3D
 		}
 
 		PlayAnimationWithKey(DefaultAnimation);
+
+		if (ShouldBeAWoman == false)
+		{
+			WomanObject.Visible = false;
+		}
 	}
 	
 	public void PlayAnimationWithKey(string key)
