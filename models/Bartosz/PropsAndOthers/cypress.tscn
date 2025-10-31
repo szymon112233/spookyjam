@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://boo14xdbmpm2t"]
+
+[ext_resource type="PackedScene" uid="uid://cy2bo3xi50ijv" path="res://models/Bartosz/PropsAndOthers/Cypress.fbx" id="1_t0yfo"]
+[ext_resource type="Material" uid="uid://bf7wxxubyd70l" path="res://materials/6.tres" id="2_lhbt6"]
+[ext_resource type="Material" uid="uid://c81j4r3c7mbgy" path="res://materials/15.tres" id="3_f6adg"]
+
+[node name="Cypress" instance=ExtResource("1_t0yfo")]
+
+[node name="Stump" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_lhbt6")
+
+[node name="Top" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_f6adg")
