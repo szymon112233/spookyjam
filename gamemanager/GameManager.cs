@@ -119,11 +119,6 @@ public partial class GameManager : Node
 		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	public async void DummyAddDA(float time)
 	{
 		await ToSignal(GetTree().CreateTimer(time), SceneTreeTimer.SignalName.Timeout);

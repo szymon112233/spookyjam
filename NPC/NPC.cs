@@ -245,9 +245,10 @@ public partial class NPC : CharacterBody3D
 
 	private void DeactivateRagdoll()
 	{
+        
+		GlobalPosition = ((Node3D)Ragdoll.GetChild(0)).GlobalPosition; 
 		Ragdoll.PhysicalBonesStopSimulation();
 		Ragdoll.Active = false;
 		mainCollider.Disabled = false;
-		
 	}
 }
