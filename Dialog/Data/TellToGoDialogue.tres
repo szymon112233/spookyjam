@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_66yn1")
 Speaker = "Working woman"
-StartingText = "Can you tell the customer outside to wait a little longeer?"
-CompletedHappyText = "Thank you very much, I'm verry busy here as you can see."
+StartingText = "Can you tell the customer outside to wait a little longer?"
+CompletedHappyText = "Thank you very much. I'm very busy here as you can see."
 CompletedSadText = "How long do I need to wait!"

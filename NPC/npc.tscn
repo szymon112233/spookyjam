@@ -16,11 +16,13 @@ radius = 0.64
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ieddu"]
 
-[node name="NPC" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "AnimationPlayer")]
+[node name="NPC" type="CharacterBody3D" node_paths=PackedStringArray("NavAgent3D", "PlayerCast", "AnimationPlayer", "Ragdoll", "mainCollider")]
 script = ExtResource("1_056qb")
 NavAgent3D = NodePath("NavigationAgent3D")
 PlayerCast = NodePath("Player Detector")
 AnimationPlayer = NodePath("Character")
+Ragdoll = NodePath("Character/GeneralSkeleton/PhysicalBoneSimulator3DNew")
+mainCollider = NodePath("CollisionShape3D")
 DeathResult = ExtResource("2_rovd1")
 HealResult = ExtResource("3_u08xh")
 ResurectResult = ExtResource("4_m2dqh")
@@ -49,3 +51,18 @@ skeleton = NodePath("")
 visible = false
 
 [node name="Character" parent="." instance=ExtResource("7_u08xh")]
+
+[node name="Physical Bone Hips" parent="Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="0"]
+transform = Transform3D(0.9996004, 0.015583183, -0.023582708, -0.024744269, 0.07911318, -0.99655855, -0.01366385, 0.99674386, 0.07946716, -0.0024507395, 0.83036816, 0.009252833)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7135473e-08, -2.3818575e-07, 0.057008214)
+body_offset = Transform3D(1.0000001, -7.7299774e-08, 6.519258e-09, 5.529728e-09, 0.028568912, -0.9995919, 7.636845e-08, 0.99959195, 0.028568916, 1.6763806e-08, 0.05698496, -0.001628425)
+linear_damp = 6.37
+angular_damp = 7.643
+
+[node name="Physical Bone Spine" parent="Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="1"]
+transform = Transform3D(0.9996112, 0.013228739, -0.024545843, -0.025212966, 0.052875005, -0.99828285, -0.011908161, 0.9985135, 0.053187985, 0.0005261067, 1.1535366, 0.0011789287)
+body_offset = Transform3D(1.0000002, -4.209578e-07, 5.4943375e-06, 5.504058e-06, 0.02857055, -0.9995919, 2.6635826e-07, 0.99959177, 0.028570548, -0.005043082, 0.26632267, 0.002959419)
+linear_damp = 4.943
+angular_damp = 7.643
+
+[editable path="Character"]

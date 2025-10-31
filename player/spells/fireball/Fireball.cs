@@ -48,10 +48,26 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 
 	private void _on_body_entered(Node node)
 	{
-		if (node is NPC npc)
+		GD.Print(node.Name);
+		if (node is PhysicalBone3D)
+		{
+			if (node.GetParent().GetParent().GetParent().GetParent() is NPC npc)
+			{
+				npc.ChangeHealthStatus(HealthStatusEffect);
+				if(HealthStatusEffect == NPC.HealthStatus.Dead)
+				{
+					npc.AddForceAndActivateRagdoll(Transform.Basis.Z);
+				}
+			}
+		}
+		if (node is NPC npc2)
 		{
 			GD.Print("Hit NPC");
-			npc.ChangeHealthStatus(HealthStatusEffect);
+			npc2.ChangeHealthStatus(HealthStatusEffect);
+			if(HealthStatusEffect == NPC.HealthStatus.Dead)
+			{
+				npc2.AddForceAndActivateRagdoll(Transform.Basis.Z);
+			}
 		}
 		HitEffect();
 	}

@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class MainUI : Node
 {
@@ -18,6 +17,9 @@ public partial class MainUI : Node
 	[Export]
 	public Label EndingTextLabel;
 	
+	[Export]
+	public Control[] LivesIcons;
+	
 	
 	
 	// Called when the node enters the scene tree for the first time.
@@ -28,13 +30,27 @@ public partial class MainUI : Node
 		gameManager.DivineApprovalChanged += OnDivineApprovalChanged;
 		gameManager.ManaChanged += OnManaChanged;
 		gameManager.NotorietyChanged += OnNotorietyChanged;
+		gameManager.LivesChanged += OnLivesChanged;
 		gameManager.GameEnded += GameManagerOnGameEnded;
 		
-		OnDivineApprovalChanged(gameManager.DivineApproval);
-		OnManaChanged(gameManager.Mana);
-		OnNotorietyChanged(gameManager.Notoriety);
+		OnDivineApprovalChanged(gameManager.DivineApproval, true);
+		OnManaChanged(gameManager.Mana, true);
+		OnNotorietyChanged(gameManager.Notoriety, true);
+		OnLivesChanged(gameManager.Lives, true);
 		
 		EndingScreenRoot.Hide();
+	}
+
+	private void OnLivesChanged(int newValue, bool isPositive)
+	{
+		for (int i = 0; i < LivesIcons.Length; i++)
+		{
+			LivesIcons[i].Hide();
+		}
+		for (int i = 0; i < newValue; i++)
+		{
+			LivesIcons[i].Show();
+		}
 	}
 
 	private void GameManagerOnGameEnded(GameManager.Ending ending)
@@ -68,7 +84,7 @@ public partial class MainUI : Node
 		EndingScreenRoot.Show();
 	}
 
-	private void OnNotorietyChanged(int newValue)
+	private void OnNotorietyChanged(int newValue, bool isPositive)
 	{
 		NotorietyLabel.Text = $"Notoriety: {newValue}";
 		
@@ -80,7 +96,7 @@ public partial class MainUI : Node
 		tween.TweenProperty(NotorietyLabel, "theme_override_font_sizes/font_size", 31.0f, 1.0f);
 	}
 
-	private void OnManaChanged(int newValue)
+	private void OnManaChanged(int newValue, bool isPositive)
 	{
 		ManalLabel.Text = $"Mana: {newValue}";
 		
@@ -93,7 +109,7 @@ public partial class MainUI : Node
 		
 	}
 
-	private void OnDivineApprovalChanged(int newValue)
+	private void OnDivineApprovalChanged(int newValue, bool isPositive)
 	{
 		DivinieApprovalLabel.Text = $"Divine Approval: {newValue}";
 		

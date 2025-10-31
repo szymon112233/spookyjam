@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://cpwpkncdgdkvf"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_iycmp"]
+
+[resource]
+script = ExtResource("1_iycmp")
+Speaker = "Merchant"
+StartingText = "Come on in for the best in town!"
+CompletedHappyText = "I guess this was the wrong town for business."
