@@ -34,6 +34,7 @@ public partial class Soldier : NPC
     protected float detectorRadius;
     protected float detectorLength;
     protected float detectorZPos;
+    protected bool Attacking;
 
     protected PlayerController FoundPlayer;
     protected CylinderShape3D PlayerCastShape;
@@ -42,6 +43,16 @@ public partial class Soldier : NPC
 
     public override void _PhysicsProcess(double delta)
     {
+
+        if (Attacking && !AnimationPlayer.IsAnimationPlaying)
+        {
+            Attacking = false;
+        }
+        else if(Attacking)
+        {
+            return;
+        }
+        
         base._PhysicsProcess(delta);
 
         if(_healthStatus == HealthStatus.Healthy)
@@ -98,7 +109,6 @@ public partial class Soldier : NPC
     {
         var poi = Map.Instance.GetRandomPOI();
         SetTarget(poi.GlobalPosition);
-
     }
 
     private void TargetPlayer(PlayerController playerController)
@@ -134,12 +144,19 @@ public partial class Soldier : NPC
 
         if (distance <= WhackDistance)
         {
+            PlayAttack();
             FoundPlayer.Attacked(this);
             HitEffectAudioPlayer.Play();
             return true;
         }
 
         return false;
+    }
+
+    private void PlayAttack()
+    {
+        AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Attack);
+        Attacking = true;
     }
 
     private void StopChase()

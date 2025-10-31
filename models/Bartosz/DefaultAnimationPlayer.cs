@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using Godot;
 
@@ -24,20 +25,22 @@ public partial class DefaultAnimationPlayer : Node3D
 	[Export]
 	public float Sick_Y_offset;
 
-	private AnimationPlayer _animationPlayer;
+	public AnimationPlayer AnimationPlayer;
+
+	public bool IsAnimationPlaying => AnimationPlayer.IsPlaying();
 
 	public override void _Ready()
 	{
-		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
-		if (_animationPlayer == null)
+		if (AnimationPlayer == null)
 		{
 			GD.PrintErr($"AnimationPlayer is missing.");
 
 			return;
 		}
 
-		if (_animationPlayer.HasAnimation(DefaultAnimation) == false)
+		if (AnimationPlayer.HasAnimation(DefaultAnimation) == false)
 		{
 			GD.PrintErr($"Animation '{DefaultAnimation}' is missing.");
 
@@ -49,7 +52,7 @@ public partial class DefaultAnimationPlayer : Node3D
 	
 	public void PlayAnimationWithKey(string key)
 	{
-		if (_animationPlayer.CurrentAnimation == key)
+		if (AnimationPlayer.CurrentAnimation == key)
 			return;
 
 		if (key == AnimationName_Sick)
@@ -57,14 +60,23 @@ public partial class DefaultAnimationPlayer : Node3D
 			Position = new Vector3(0, Sick_Y_offset, 0);
 		}
 		else
-        {
+		{
 			Position = Vector3.Zero;
+		}
+
+		if (key == AnimationName_Attack)
+		{
+			AnimationPlayer.SpeedScale = 2;
+		}
+		else
+		{
+			AnimationPlayer.SpeedScale = 1;	
         }
 
-		float animationLength = _animationPlayer.GetAnimation(key).Length;
+		float animationLength = AnimationPlayer.GetAnimation(key).Length;
 		float randomStartTime = GD.Randf() * animationLength;
 
-		_animationPlayer.Play(key);
-		_animationPlayer.Seek(randomStartTime, true);
+		AnimationPlayer.Play(key);
+		AnimationPlayer.Seek(randomStartTime, true);
     }
 }
