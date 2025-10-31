@@ -4,7 +4,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lnoel"]
 height = 5.0
-radius = 2.461
+radius = 4.0
 
 [node name="BlowForce" type="ShapeCast3D"]
 transform = Transform3D(1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0, 0, 0)
