@@ -46,6 +46,11 @@ public partial class PlayerController : CharacterBody3D
 	[Export()]
 	private Marker3D marker3D;
 
+	[Export] private Node3D rockedObject;
+	[Export] private float rockingAmplitude = 0.05f;
+	[Export] private float rockingSpeed = 2.0f;
+	private float rockingSineWave = 0.0f;
+
 	protected Vector3 KnockbackForce;
 
 	//var camera;
@@ -83,6 +88,30 @@ public partial class PlayerController : CharacterBody3D
 			cameraPivot.Rotation = rotation;
 		}
 		base._UnhandledInput(@event);
+	}
+	
+	public override void _Process(double delta)
+	{
+		if (Mathf.IsZeroApprox(Velocity.Y) == false)
+		{
+			return;
+		}
+
+		Vector3 horizontalVelocity = new Vector3(Velocity.X, 0, Velocity.Z);
+		float horizontalVelocityLengthSquared = horizontalVelocity.LengthSquared();
+		
+		if (horizontalVelocityLengthSquared > 0f == false)
+		{
+			return;
+		}
+		
+		rockingSineWave += horizontalVelocityLengthSquared * rockingSpeed * (float)delta;
+		
+		rockedObject.RotationDegrees = new Vector3(
+			Mathf.Sin(rockingSineWave) * rockingAmplitude,
+			-180f,
+			0
+		);
 	}
 
 
