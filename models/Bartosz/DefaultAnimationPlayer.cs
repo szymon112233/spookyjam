@@ -1,7 +1,7 @@
 using System.Data;
 using Godot;
 
-public partial class DefaultAnimationPlayer : Node
+public partial class DefaultAnimationPlayer : Node3D
 {
 	[Export]
 	public string AnimationName_Idle = "default";
@@ -13,7 +13,16 @@ public partial class DefaultAnimationPlayer : Node
 	public string AnimationName_Dance;
 
 	[Export]
+	public string AnimationName_Sick;
+
+	[Export]
+	public string AnimationName_Attack;
+
+	[Export]
 	public string DefaultAnimation;
+
+	[Export]
+	public float Sick_Y_offset;
 
 	private AnimationPlayer _animationPlayer;
 
@@ -43,6 +52,14 @@ public partial class DefaultAnimationPlayer : Node
 		if (_animationPlayer.CurrentAnimation == key)
 			return;
 
+		if (key == AnimationName_Sick)
+		{
+			Position = new Vector3(0, Sick_Y_offset, 0);
+		}
+		else
+        {
+			Position = Vector3.Zero;
+        }
 
 		float animationLength = _animationPlayer.GetAnimation(key).Length;
 		float randomStartTime = GD.Randf() * animationLength;
