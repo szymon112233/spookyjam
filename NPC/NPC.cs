@@ -55,7 +55,7 @@ public partial class NPC : CharacterBody3D
 	
 	[Export]
 	protected PhysicalBoneSimulator3D Ragdoll;
-    private bool isRagdolling = false;
+    protected bool isRagdolling = false;
 
 	[Export] 
 	private float ragdollWindStunDuration = 10;
