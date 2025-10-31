@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck6pwff0c5bbi"
-path="res://.godot/imported/GameJam-House3.png-b9346285ae175a5ac820d2c4be863097.ctex"
+path="res://.godot/imported/GameJam-House3.png-9e40dc2aaaa21237f42d22e2cf2a1d9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/Hoese/GameJam-House3.png"
-dest_files=["res://.godot/imported/GameJam-House3.png-b9346285ae175a5ac820d2c4be863097.ctex"]
+source_file="res://models/Hoese/Assets/GameJam-House3.png"
+dest_files=["res://.godot/imported/GameJam-House3.png-9e40dc2aaaa21237f42d22e2cf2a1d9b.ctex"]
 
 [params]
 

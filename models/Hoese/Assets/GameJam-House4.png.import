@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo60vnj070ge"
-path="res://.godot/imported/GameJam-House5.png-9ea6709f4f0190b8f2043ae794137aa2.ctex"
+uid="uid://qtjhedcyce4v"
+path="res://.godot/imported/GameJam-House4.png-a9f8d4ff3e1902c45fc39260318f1e80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/Hoese/GameJam-House5.png"
-dest_files=["res://.godot/imported/GameJam-House5.png-9ea6709f4f0190b8f2043ae794137aa2.ctex"]
+source_file="res://models/Hoese/Assets/GameJam-House4.png"
+dest_files=["res://.godot/imported/GameJam-House4.png-a9f8d4ff3e1902c45fc39260318f1e80.ctex"]
 
 [params]
 
