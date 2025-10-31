@@ -3,14 +3,17 @@ using System;
 
 public partial class BlowForce : ShapeCast3D, IBaseSpell
 {
+
     public string Name { get; set; }
     public float ManaCost { get; set; }
     public NPC.HealthStatus HealthStatusEffect { get; set; }
     public SpellType SpellType { get; set; }
+
     public void SetInitialState(Transform3D trans)
     {
         Transform = trans;
         Rotation = Rotation + new Vector3(float.DegreesToRadians(90), 0, 0);
+
     }
 
     public override void _PhysicsProcess(double delta)
