@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=87 format=3 uid="uid://ddfrla0niav7c"]
 
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_uvdaf"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
@@ -60,10 +60,14 @@
 [ext_resource type="PackedScene" uid="uid://cgk1330oheant" path="res://models/Hoese/House 3/game_jam_house_3-blue.tscn" id="54_jku4w"]
 [ext_resource type="PackedScene" uid="uid://dhcf5cniteu4d" path="res://models/Hoese/House 4/game_jam_house_4.tscn" id="55_cet5j"]
 [ext_resource type="PackedScene" path="res://models/Bartosz/PropsAndOthers/palm_tree.tscn" id="55_esppd"]
+[ext_resource type="Resource" uid="uid://cgcfrh56regku" path="res://Dialog/Options/TEST/JamesZebedeeOption.tres" id="56_84ml2"]
 [ext_resource type="PackedScene" uid="uid://d0la4gxhkw1gu" path="res://models/Hoese/House 5/game_jam_house_5.tscn" id="56_kiddr"]
+[ext_resource type="Resource" uid="uid://bnoqbs7n60car" path="res://Dialog/Options/TEST/JamesZebedeeDialog.tres" id="57_hilia"]
 [ext_resource type="PackedScene" uid="uid://b8jgdqmidbgs5" path="res://models/Hoese/House 6/game_jam_house_6.tscn" id="57_r503c"]
 [ext_resource type="PackedScene" uid="uid://cwv2oba24yxh0" path="res://models/Hoese/House 1/game_jam_house_1_ornage.tscn" id="58_5sia3"]
+[ext_resource type="Resource" uid="uid://c0a5coovgh7t1" path="res://Dialog/Options/TEST/JohnZebedeeOption.tres" id="58_ynq6h"]
 [ext_resource type="PackedScene" uid="uid://b88byqhq1xb5v" path="res://models/Hoese/House 6/game_jam_house_6_grey.tscn" id="59_76v2g"]
+[ext_resource type="Resource" uid="uid://dk682beag4v7c" path="res://Dialog/Options/TEST/JohnZebedeeDialog.tres" id="59_qe1yt"]
 [ext_resource type="ArrayMesh" uid="uid://ivrk4erm8m1o" path="res://models/Walls/Tower.obj" id="60_cet5j"]
 [ext_resource type="PackedScene" uid="uid://cg6umx3cdygwm" path="res://models/Hoese/House 2/game_jam_house_2_normal.tscn" id="61_jku4w"]
 [ext_resource type="PackedScene" uid="uid://b00f0n8ckihav" path="res://models/Hoese/House 5/game_jam_house_5_red.tscn" id="61_kiddr"]
@@ -1740,6 +1744,70 @@ body_offset = Transform3D(1.0000001, 2.503395e-06, 2.6207417e-06, 2.5480986e-06,
 
 [node name="OptionDialog" parent="ppl2/James" instance=ExtResource("10_y5u4b")]
 
+[node name="JamesZebedee" parent="ppl2" instance=ExtResource("6_p06u6")]
+transform = Transform3D(0.7624426, 0, 0.64705604, 0, 1, 0, -0.64705604, 0, 0.7624426, -95.69082, 0.001956284, 42.533184)
+
+[node name="Physical Bone Hips" parent="ppl2/JamesZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="0"]
+transform = Transform3D(0.9996003, 0.015584022, -0.023582079, -0.024743715, 0.079113185, -0.9965585, -0.013664722, 0.9967437, 0.07946716, -0.0029449463, 0.8304036, 0.009162903)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00049587473, 9.854499e-05, 0.057039365)
+body_offset = Transform3D(0.99999994, 8.046627e-07, 6.2957406e-07, 6.03497e-07, 0.028568946, -0.99959195, -8.046627e-07, 0.9995917, 0.028568929, -0.00049591064, 0.057013273, -0.0017280579)
+
+[node name="Physical Bone RightShoulder" parent="ppl2/JamesZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="1"]
+transform = Transform3D(0.020757645, -0.34515858, 0.9383146, 0.038844652, 0.9380868, 0.34421542, -0.9990295, 0.029303432, 0.03288001, -0.24811554, 1.248024, -0.017410278)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00064642314, -0.00032496452, 0.20367719)
+body_offset = Transform3D(0.9999963, 0.0024141073, 0.0010050237, 2.9802322e-08, 0.38427076, -0.92322016, -0.0026149815, 0.92321736, 0.3842695, 0.00044250488, 0.18816376, -0.0779686)
+
+[node name="Physical Bone Spine2" parent="ppl2/JamesZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="2"]
+transform = Transform3D(0.999611, 0.013228089, -0.024546197, -0.0252133, 0.05287534, -0.9982828, -0.011907518, 0.99851334, 0.0531883, 0.0020751953, 0.95355105, 0.0008659363)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015567378, 0.00030003686, 0.066542186)
+body_offset = Transform3D(0.99999976, -1.1026859e-06, 5.1297247e-06, 5.150214e-06, 0.028570872, -0.99959177, 8.940697e-07, 0.99959147, 0.028570864, 0.0015563965, 0.066506445, -0.0022010803)
+
+[node name="Physical Bone Chest" parent="ppl2/JamesZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="3"]
+transform = Transform3D(0.9996614, -0.0091891885, -0.024340926, -0.024066929, 0.028835509, -0.9992944, 0.009884566, 0.9995418, 0.028604588, 0.004432678, 1.0956013, -0.0054397583)
+joint_offset = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.0004196212, 0.000926699, 0.075725004)
+body_offset = Transform3D(0.99999994, 1.2218952e-06, 4.4703484e-08, -9.313226e-10, 0.028571587, -0.99959177, -1.1920929e-06, 0.99959165, 0.028571585, 0.0004196167, 0.07566762, -0.0030899048)
+
+[node name="Physical Bone UpperChest" parent="ppl2/JamesZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="4"]
+transform = Transform3D(0.99923205, -0.031569928, -0.023205392, -0.023064999, 0.004804215, -0.9997224, 0.031672686, 0.99948984, 0.0040723644, 0.005706787, 1.2572899, -0.006877899)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021284106, -0.00024224981, 0.08538475)
+body_offset = Transform3D(1.0000001, 2.5331974e-06, 2.2370368e-06, 2.1662563e-06, 0.028569749, -0.999592, -2.4735928e-06, 0.99959177, 0.028569758, -0.002128601, 0.08535683, -0.0021972656)
+
+[node name="OptionDialog" parent="ppl2/JamesZebedee" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("56_84ml2")
+HandledDialog = ExtResource("57_hilia")
+
+[node name="JohnZebedee" parent="ppl2" instance=ExtResource("6_p06u6")]
+transform = Transform3D(0.7624426, 0, 0.64705604, 0, 1, 0, -0.64705604, 0, 0.7624426, -93.73355, 0.001956284, 41.483418)
+
+[node name="Physical Bone Hips" parent="ppl2/JohnZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="0"]
+transform = Transform3D(0.9996003, 0.015584022, -0.023582079, -0.024743715, 0.079113185, -0.9965585, -0.013664722, 0.9967437, 0.07946716, -0.003211975, 0.83040696, 0.009149551)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00077053293, 0.00011577923, 0.057037238)
+body_offset = Transform3D(0.99999994, 8.046627e-07, 6.2957406e-07, 6.03497e-07, 0.028568946, -0.99959195, -8.046627e-07, 0.9995917, 0.028568929, -0.00077056885, 0.05701065, -0.001745224)
+
+[node name="Physical Bone RightShoulder" parent="ppl2/JohnZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="1"]
+transform = Transform3D(0.020757645, -0.34515858, 0.9383146, 0.038844652, 0.9380868, 0.34421542, -0.9990295, 0.029303432, 0.03288001, -0.24832153, 1.2480245, -0.017457962)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00069222687, -0.00039748847, 0.20387839)
+body_offset = Transform3D(0.9999963, 0.0024141073, 0.0010050237, 2.9802322e-08, 0.38427076, -0.92322016, -0.0026149815, 0.92321736, 0.3842695, 0.00048828125, 0.18837738, -0.07797909)
+
+[node name="Physical Bone Spine2" parent="ppl2/JohnZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="2"]
+transform = Transform3D(0.999611, 0.013228208, -0.024546294, -0.025213392, 0.052875344, -0.9982828, -0.011907518, 0.99851334, 0.053188305, 0.002204895, 0.95355105, 0.00096702576)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016788025, 0.00019706553, 0.066539824)
+body_offset = Transform3D(0.99999976, -1.1026859e-06, 5.044043e-06, 5.0570816e-06, 0.028570872, -0.9995918, 8.940697e-07, 0.99959147, 0.02857086, 0.0016784668, 0.06650704, -0.0020980835)
+
+[node name="Physical Bone Chest" parent="ppl2/JohnZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="3"]
+transform = Transform3D(0.9996614, -0.0091891885, -0.024340926, -0.024066929, 0.028835509, -0.9992944, 0.009884566, 0.9995418, 0.028604588, 0.004676819, 1.0955939, -0.0055179596)
+joint_offset = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.000663762, 0.0010068191, 0.07572574)
+body_offset = Transform3D(0.99999994, 1.2218952e-06, 4.4703484e-08, -9.313226e-10, 0.028571587, -0.99959177, -1.1920929e-06, 0.99959165, 0.028571585, 0.0006637573, 0.07566607, -0.0031700134)
+
+[node name="Physical Bone UpperChest" parent="ppl2/JohnZebedee/Character/GeneralSkeleton/PhysicalBoneSimulator3DNew" index="4"]
+transform = Transform3D(0.99923205, -0.031569928, -0.023205439, -0.023065045, 0.004804215, -0.9997224, 0.031672686, 0.99948984, 0.0040723626, 0.0058135986, 1.2572846, -0.006837845)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020216028, -0.00027651363, 0.085381866)
+body_offset = Transform3D(1.0000001, 2.5331974e-06, 2.1923333e-06, 2.1196902e-06, 0.028569749, -0.999592, -2.4735928e-06, 0.99959177, 0.028569758, -0.0020217896, 0.085354924, -0.0021629333)
+
+[node name="OptionDialog" parent="ppl2/JohnZebedee" instance=ExtResource("10_y5u4b")]
+HandledOption = ExtResource("58_ynq6h")
+HandledDialog = ExtResource("59_qe1yt")
+
 [node name="GameJamHouse2" parent="." instance=ExtResource("50_bxj8s")]
 transform = Transform3D(-0.9999013, 0, -0.014049457, 0, 1, 0, 0.014049457, 0, -0.9999013, -93.517784, 0, 23.87539)
 
@@ -2011,4 +2079,8 @@ transform = Transform3D(-0.6802681, 0, 0.58926666, 0, 0.9, 0, -0.58926666, 0, -0
 [editable path="ppl2/Andrew/Character"]
 [editable path="ppl2/James"]
 [editable path="ppl2/James/Character"]
+[editable path="ppl2/JamesZebedee"]
+[editable path="ppl2/JamesZebedee/Character"]
+[editable path="ppl2/JohnZebedee"]
+[editable path="ppl2/JohnZebedee/Character"]
 [editable path="Cypress5"]
