@@ -18,6 +18,9 @@ public partial class MainUI : Node
 	public Label EndingTextLabel;
 	
 	[Export]
+	public Label TimeLabel;
+	
+	[Export]
 	public Control[] LivesIcons;
 	
 	
@@ -39,6 +42,11 @@ public partial class MainUI : Node
 		OnLivesChanged(gameManager.Lives, true);
 		
 		EndingScreenRoot.Hide();
+	}
+
+	public override void _Process(double delta)
+	{
+		UpdateTimer(GameManager.Instance.GetNode<Timer>("Timer").TimeLeft);
 	}
 
 	private void OnLivesChanged(int newValue, bool isPositive)
@@ -119,5 +127,14 @@ public partial class MainUI : Node
 		// tween.SetParallel(true);
 		tween.TweenProperty(DivinieApprovalLabel, "theme_override_colors/font_color", Colors.White, 1.5f);
 		// tween.Parallel().TweenProperty(DivinieApprovalLabel, "theme_override_font_sizes/font_size", 10.0f, 1.0f);
+	}
+
+	private void UpdateTimer(double timeLeftInSeconds)
+	{
+		
+		int minutes = (int)(timeLeftInSeconds / 60);
+		int seconds = (int)(timeLeftInSeconds % 60);
+
+		TimeLabel.Text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
 	}
 }
