@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=21 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
-[ext_resource type="PackedScene" path="res://player/spells/Heal.tscn" id="2_og8fv"]
+[ext_resource type="AudioStream" uid="uid://botfiuam2ddnp" path="res://Sound/HealShortened.wav" id="2_3cqij"]
+[ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
+[ext_resource type="AudioStream" uid="uid://dj15a1e5jnh1o" path="res://Sound/FireballShortened.wav" id="3_8ttvn"]
 [ext_resource type="PackedScene" uid="uid://dcffn1fdbskyq" path="res://player/spells/Fireball.tscn" id="3_35ted"]
+[ext_resource type="AudioStream" uid="uid://drqa1vn3liuo0" path="res://Sound/FusRoDahShortened.wav" id="4_6crar"]
 [ext_resource type="ArrayMesh" uid="uid://1c12vtu552jd" path="res://models/ass/Donkey.obj" id="4_35ted"]
 [ext_resource type="Script" uid="uid://cbfpd7b47wj52" path="res://Dialog/Options/Player UI/PlayerDialogOption.cs" id="4_d4xeg"]
 [ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="4_rg78b"]
@@ -23,7 +26,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_ubpxq"]
 material = ExtResource("10_52rpc")
 
-[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "body", "ShootingPoint", "PlayerDialogOptionHandler", "rockedObject")]
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "body", "ShootingPoint", "audioStreamPlayer", "PlayerDialogOptionHandler", "rockedObject")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12340021, -2.21706, 1.1812489)
 collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
@@ -31,11 +35,16 @@ cameraPivot = NodePath("CameraPivot")
 body = NodePath("Model")
 ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
 MAX_SPEED = 7.0
+audioStreamPlayer = NodePath("AudioStreamPlayer")
+spellSounds = Array[AudioStream]([ExtResource("2_3cqij"), ExtResource("3_8ttvn"), ExtResource("4_6crar")])
 spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted"), ExtResource("4_u5r6g")])
 PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
 rockedObject = NodePath("Model/Donkey")
 rockingAmplitude = 10.0
 rockingSpeed = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 32
 
 [node name="Model" type="Node3D" parent="."]
 
