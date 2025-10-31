@@ -6,6 +6,9 @@ public partial class OptionDialog : SimpleDialogInteraction
     [Export]
     public OptionData HandledOption;
     
+    [Export]
+    public Sprite3D QuestionIndication;
+    
     [Signal]
     public delegate void ChoiceStartedEventHandler();
 
@@ -16,8 +19,18 @@ public partial class OptionDialog : SimpleDialogInteraction
     public new void OnPlayerEnter(Node3D player)
     {
         base.OnPlayerEnter(player);
-
+        
+        QuestionIndication.Hide();
         BoundController = player as PlayerController;
+    }
+
+    public new void OnPlayerExit(Node3D player)
+    {
+        base.OnPlayerExit(player);
+        if (!IsCompleted)
+        {
+            QuestionIndication.Show();
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -44,6 +57,7 @@ public partial class OptionDialog : SimpleDialogInteraction
     {
         TextLabel.Text = HandledDialog.InprogressText;
         BoundController.PlayerDialogOptionHandler.BindOptions(HandledOption, PlayerMadeChoice);
+        QuestionIndication.QueueFree();
         EmitSignalChoiceStarted();
     }
 
