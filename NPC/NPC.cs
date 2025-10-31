@@ -17,6 +17,11 @@ public partial class NPC : CharacterBody3D
 	[Signal]
 	public delegate void OnResurrectEventHandler();
 	
+	[Signal]
+	public delegate void OnRagdollEventHandler();
+	[Signal]
+	public delegate void OnCharacterControlBackEventHandler();
+	
 	
 	[Signal]
 	public delegate void OnStatusChangedEventHandler(HealthStatus status);
@@ -187,17 +192,12 @@ public partial class NPC : CharacterBody3D
 		}
 	}
 
-	public void FusRohDah(Vector3 direction)
-	{
-		Velocity = direction * 100;
-		MoveAndSlide();
-	}
+
 
 	public void AddForceAndActivateRagdoll(Vector3 direction)
 	{
 		ragdollDirection = direction;
 		_ragdolledThisFrame = true;
-		// ActivateRagdoll(Vector3.Zero, direction);
 	}
 	
 	
@@ -228,6 +228,7 @@ public partial class NPC : CharacterBody3D
 	
 	private void ActivateRagdoll(Vector3 position, Vector3 direction)
 	{
+		EmitSignalOnRagdoll();
 		mainCollider.Disabled = true;
 
 		
@@ -245,7 +246,7 @@ public partial class NPC : CharacterBody3D
 
 	private void DeactivateRagdoll()
 	{
-        
+        EmitSignalOnCharacterControlBack();
 		GlobalPosition = ((Node3D)Ragdoll.GetChild(0)).GlobalPosition; 
 		Ragdoll.PhysicalBonesStopSimulation();
 		Ragdoll.Active = false;

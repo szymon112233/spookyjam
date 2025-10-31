@@ -4,9 +4,11 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lnoel"]
 height = 5.0
+radius = 2.461
 
 [node name="BlowForce" type="ShapeCast3D"]
 transform = Transform3D(1.57, 0, 0, 0, 1.57, 0, 0, 0, 1.57, 0, 0, 0)
 shape = SubResource("CylinderShape3D_lnoel")
 target_position = Vector3(0, -2.5, 0)
+collision_mask = 65
 script = ExtResource("1_lnoel")
