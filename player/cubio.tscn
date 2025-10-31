@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bi6i1imtfpxd1" path="res://models/Bartosz/Jesus/Jesus.tscn" id="5_hwx4i"]
 [ext_resource type="Script" uid="uid://12eyse56rte6" path="res://Dialog/Options/Player UI/OptionNode.cs" id="5_rg78b"]
 [ext_resource type="Script" uid="uid://cfuopw4tdh0tx" path="res://player/SimpleCameraPivot.cs" id="7_ubpxq"]
-[ext_resource type="Material" path="res://materials/29.tres" id="10_52rpc"]
+[ext_resource type="Material" uid="uid://cs1e4pam06sno" path="res://materials/29.tres" id="10_52rpc"]
 [ext_resource type="PackedScene" uid="uid://77u6w4ih36bn" path="res://Prefabs/dust_particle.tscn" id="12_8ttvn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
@@ -41,6 +41,7 @@ MAX_SPEED = 7.0
 audioStreamPlayer = NodePath("AudioStreamPlayer")
 spellSounds = Array[AudioStream]([ExtResource("2_3cqij"), ExtResource("3_8ttvn"), ExtResource("4_6crar")])
 spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted"), ExtResource("4_u5r6g")])
+tilt_limit = 0.5
 PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
 rockedObject = NodePath("Model/Donkey")
 rockingAmplitude = 10.0
