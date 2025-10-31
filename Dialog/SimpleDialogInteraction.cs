@@ -39,11 +39,28 @@ public partial class SimpleDialogInteraction : Area3D
 
     protected int debugState = 0;
     protected bool isPlayerInsideArea = false;
+    
+    private NPC npcParent;
 
     public override void _Ready()
     {
-        TextLabel.Text = HandledDialog.StartingText;
+
+        if(HandledDialog != null)
+        {
+            TextLabel.Text = HandledDialog.StartingText;
+        }
+                if (GetParent() is NPC npc)
+        {
+            npcParent = npc;
+            npcParent.OnRagdoll += () => {SetEnabled(false);
+                Monitoring = false;
+            };
+            npcParent.OnCharacterControlBack += () => { SetEnabled(true);
+                Monitoring = true;
+            };
+        }
         IsCompleted = false;
+
     }
 
     public void Refresh()

@@ -61,10 +61,8 @@ public partial class BlowForce : ShapeCast3D, IBaseSpell
                 {
                     if (bone.GetParent().GetParent().GetParent().GetParent() is NPC npc2)
                     {
-
-                        {
+                        
                             npc2.AddForceAndActivateRagdoll(Transform.Basis.Y);
-                        }
                     }
                 }
             }
