@@ -82,32 +82,9 @@ public partial class NPC : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (NavAgent3D.IsNavigationFinished())
-		{
-			if (DancingMan)
-			{
-				AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Dance);
-			}
-			else
-			{
-				AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Idle);
-			}
-			
-			Idle(delta);
-		}
-		else
-		{
-			AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Walk);
 
-			var pos = NavAgent3D.GetNextPathPosition();
-			Velocity = GetVelocity(pos);
-			
-			MoveAndSlide();
-
-			if(GlobalPosition != pos)
-				LookAt(pos, useModelFront: true);
-		}
-		if(Ragdoll != null){
+		if (Ragdoll != null)
+		{
 			if (_ragdolledThisFrame)
 			{
 				ActivateRagdoll(Vector3.Zero, ragdollDirection);
@@ -119,12 +96,45 @@ public partial class NPC : CharacterBody3D
 				DeactivateRagdoll();
 				_ragdolledDisabledThisFrame = false;
 			}
-			
+
+		}
+
+		if (_healthStatus == HealthStatus.Dead)
+		{
+			return;
 		}
 		
+		if(_healthStatus == HealthStatus.Sick)
+		{
+			AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Sick);
+			return;
+        }
 		
+		if (NavAgent3D.IsNavigationFinished())
+		{
+			if (DancingMan)
+			{
+				AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Dance);
+			}
+			else
+			{
+				AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Idle);
+			}
 
+			Idle(delta);
+		}
+		else
+		{
+			AnimationPlayer.PlayAnimationWithKey(AnimationPlayer.AnimationName_Walk);
 
+			var pos = NavAgent3D.GetNextPathPosition();
+			Velocity = GetVelocity(pos);
+
+			MoveAndSlide();
+
+			if (GlobalPosition != pos)
+				LookAt(pos, useModelFront: true);
+		}
 	}
 	
 	public virtual Vector3 GetVelocity(Vector3 targetPos)
