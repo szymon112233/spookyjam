@@ -28,7 +28,11 @@ public partial class PlayerController : CharacterBody3D
 	float DECELERATION = 4;
 	[Export()]
 	float SPRINT_MAX_SPEED_MULTIPLIER = 1.5f;
-    
+
+	[Export]
+	AudioStreamPlayer audioStreamPlayer;
+	[Export()] 
+	private AudioStream[] spellSounds;
     [Export()]
     private PackedScene[] spells;
     private int spellIndex = 0;
@@ -57,6 +61,13 @@ public partial class PlayerController : CharacterBody3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		audioStreamPlayer.Stream = spellSounds[spellIndex];
+
+
+		AudioStreamPolyphonic polyStream = new AudioStreamPolyphonic();
+		audioStreamPlayer.Stream = polyStream;
+		audioStreamPlayer.Play();
+
 		//camera = $Target/Camera3D;
 		camera = GetViewport().GetCamera3D();
 		
@@ -222,6 +233,11 @@ public override void _PhysicsProcess(double delta)
 		// GD.Print("Fired1");
 		Owner.AddChild(spell);
 
+		
+		AudioStream sfx = spellSounds[spellIndex];
+		var playback = (AudioStreamPlaybackPolyphonic)audioStreamPlayer.GetStreamPlayback();
+		playback.PlayStream(sfx);
+		
         if(spell is IBaseSpell ispell)
         {
             GD.Print("IBase yes");
