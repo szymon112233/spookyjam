@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://dqy40j0avsi8s"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_2la3f"]
+
+[resource]
+script = ExtResource("1_2la3f")
+Speaker = "James, son of Joseph"
+StartingText = "Hey, Jesus!"
+InprogressText = "You haven't forgotten your brother, right?"
+CompletedHappyText = "I see..."
+CompletedSadText = "You really are too far gone."

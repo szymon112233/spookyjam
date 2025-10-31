@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://b7f235jfqc6aj"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_3b2vh"]
+
+[resource]
+script = ExtResource("1_3b2vh")
+Speaker = "Matthew"
+StartingText = "Master, I am confused."
+InprogressText = "How can one God be three different people?"
+CompletedHappyText = "I see, I think..."
+CompletedSadText = "That doesn't seem to make sense."
