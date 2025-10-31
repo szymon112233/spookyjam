@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OptionData" load_steps=2 format=3 uid="uid://3fsp3ge5hp2p"]
+
+[ext_resource type="Script" uid="uid://cbq18xciyraqx" path="res://Dialog/Options/OptionData.cs" id="1_ups2e"]
+
+[resource]
+script = ExtResource("1_ups2e")
+OptionTexts = PackedStringArray("Let\'s put it away and save it for ourselves.", "We will have to cut it into very small pieces.", "Have faith. It will be enough.")
+OptionsCorrectness = PackedInt32Array(0, 0, 1)
+NotorietyEffects = PackedInt32Array(0, 0, 5)
+ApprovalEffects = PackedInt32Array(-20, 0, 20)

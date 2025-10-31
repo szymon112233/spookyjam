@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://cs5u2atrl862s"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_lvtgd"]
+
+[resource]
+script = ExtResource("1_lvtgd")
+Speaker = "Simon Peter"
+StartingText = "Master, I have a question."
+InprogressText = "Why do you call me Peter?"
+CompletedHappyText = "Ah, I see now."
+CompletedSadText = "Huh?"
