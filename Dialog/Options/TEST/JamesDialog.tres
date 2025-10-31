@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_2la3f")
-Speaker = "James, son of Joseph"
+Speaker = "James (your brother)"
 StartingText = "Hey, Jesus!"
 InprogressText = "You haven't forgotten your brother, right?"
 CompletedHappyText = "I see..."

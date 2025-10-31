@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://cxo4s2ng8s4hg"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_4jah0"]
+
+[resource]
+script = ExtResource("1_4jah0")
+Speaker = "Mary (your morther)"
+StartingText = "Hello, my son."
+InprogressText = "I hope you're staying out of trouble."
+CompletedHappyText = "Yes, of course..."
+CompletedSadText = "Stay safe, my son."

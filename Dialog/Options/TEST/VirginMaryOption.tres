@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OptionData" load_steps=2 format=3 uid="uid://ctctdw5hh552k"]
+
+[ext_resource type="Script" uid="uid://cbq18xciyraqx" path="res://Dialog/Options/OptionData.cs" id="1_axvjv"]
+
+[resource]
+script = ExtResource("1_axvjv")
+OptionTexts = PackedStringArray("I do what God demands of me.", "I\'m an adult now. I can do what I want!", "Yes, Mom.")
+OptionsCorrectness = PackedInt32Array(1, 0, 0)
+NotorietyEffects = PackedInt32Array(5, 5, 0)
+ApprovalEffects = PackedInt32Array(20, -5, 5)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OptionData" load_steps=2 format=3 uid="uid://beuj8bdoc8vss"]
+
+[ext_resource type="Script" uid="uid://cbq18xciyraqx" path="res://Dialog/Options/OptionData.cs" id="1_5g6xf"]
+
+[resource]
+script = ExtResource("1_5g6xf")
+OptionTexts = PackedStringArray("Well, as a woman, you are inferior.", "Where is he? I\'ll beat him up.", "All those filled with the spirit of light will come forward to interpret what I say.")
+OptionsCorrectness = PackedInt32Array(0, 0, 1)
+NotorietyEffects = PackedInt32Array(0, 0, 0)
+ApprovalEffects = PackedInt32Array(-10, -5, 5)
