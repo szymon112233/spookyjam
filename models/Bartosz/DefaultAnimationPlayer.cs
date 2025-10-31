@@ -55,7 +55,7 @@ public partial class DefaultAnimationPlayer : Node3D
 
 		PlayAnimationWithKey(DefaultAnimation);
 
-		if (ShouldBeAWoman == false)
+		if (ShouldBeAWoman == false && WomanObject != null)
 		{
 			WomanObject.Visible = false;
 		}
