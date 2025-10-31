@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6m03isargpxu"]
+[gd_scene load_steps=13 format=3 uid="uid://b6m03isargpxu"]
 
 [ext_resource type="Script" uid="uid://30o3qaqoq1wb" path="res://UI/MainUI.cs" id="1_2fwl4"]
+[ext_resource type="Texture2D" uid="uid://mviyg1ju6jlg" path="res://UI/Icons/divineapproval.png" id="2_cbfhl"]
 [ext_resource type="Texture2D" uid="uid://ciig1chnc2vt0" path="res://UI/Icons/healing.png" id="2_dajm1"]
 [ext_resource type="Script" uid="uid://b7ofet261vqxf" path="res://UI/SpellUI.cs" id="3_3sbvi"]
+[ext_resource type="Texture2D" uid="uid://c2mfweklyhenl" path="res://UI/Icons/notoriety.png" id="3_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://dugex1trrvu64" path="res://UI/Icons/fireball.png" id="4_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://becna7kjxinh6" path="res://UI/Icons/fusrodah.png" id="5_c7tqi"]
 [ext_resource type="Texture2D" uid="uid://bbldoprgqc40m" path="res://UI/Icons/heart.png" id="6_nm1m0"]
@@ -11,22 +13,27 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr8d8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_c7tqi"]
+font_size = 42
+
 [sub_resource type="LabelSettings" id="LabelSettings_2fwl4"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("DivinieApprovalLabel", "ManalLabel", "NotorietyLabel", "EndingScreenRoot", "EndingNameLabel", "EndingTextLabel", "LivesIcons")]
-custom_minimum_size = Vector2(1920, 1080)
+[node name="UI" type="Control" node_paths=PackedStringArray("DivinieApprovalLabel", "ManalLabel", "NotorietyLabel", "EndingScreenRoot", "EndingNameLabel", "EndingTextLabel", "TimeLabel", "LivesIcons")]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2fwl4")
-DivinieApprovalLabel = NodePath("Panel/VBoxContainer/DALabel")
-ManalLabel = NodePath("Panel/VBoxContainer/ManaLabel")
-NotorietyLabel = NodePath("Panel/VBoxContainer/NotLabel")
+DivinieApprovalLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer/DALabel")
+ManalLabel = NodePath("Panel/StatsVBoxContainer/ManaLabel")
+NotorietyLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer2/NotLabel")
 EndingScreenRoot = NodePath("EndingPanel")
 EndingNameLabel = NodePath("EndingPanel/VBoxContainer/EndingTitleLabel")
 EndingTextLabel = NodePath("EndingPanel/VBoxContainer/MarginContainer/TextLabel")
+TimeLabel = NodePath("Panel/timeLabel")
 LivesIcons = [NodePath("Panel/LivesHBoxContainer/Heart"), NodePath("Panel/LivesHBoxContainer/Heart2"), NodePath("Panel/LivesHBoxContainer/Heart3"), NodePath("Panel/LivesHBoxContainer/Heart4"), NodePath("Panel/LivesHBoxContainer/Heart5")]
 
 [node name="Panel" type="Panel" parent="."]
@@ -39,41 +46,63 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rr8d8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="StatsVBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 156.0
+offset_bottom = 110.0
 
-[node name="DALabel" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 31
-text = "Divine"
-
-[node name="ManaLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="ManaLabel" type="Label" parent="Panel/StatsVBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Mana"
 
-[node name="NotLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/StatsVBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/StatsVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_cbfhl")
+expand_mode = 1
+
+[node name="DALabel" type="Label" parent="Panel/StatsVBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 31
+text = "Divine"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/StatsVBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/StatsVBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_4fiuh")
+expand_mode = 1
+
+[node name="NotLabel" type="Label" parent="Panel/StatsVBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Not"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 713.99994
-offset_right = 524.0
-offset_bottom = 1236.0
-scale = Vector2(0.18, 0.18)
-
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer2"]
-layout_mode = 2
+[node name="CurrentSpell" type="TextureRect" parent="Panel"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -139.09497
+offset_right = 138.0
+offset_bottom = -11.094971
+grow_vertical = 0
 texture = ExtResource("2_dajm1")
+expand_mode = 1
 script = ExtResource("3_3sbvi")
 spellTextures = Array[Texture2D]([ExtResource("2_dajm1"), ExtResource("4_nm1m0"), ExtResource("5_c7tqi")])
 
@@ -82,9 +111,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -863.0
-offset_right = -489.08496
-offset_bottom = 64.0
+offset_left = -383.91504
+offset_top = 10.0
+offset_right = -11.915039
+offset_bottom = 74.0
 grow_horizontal = 0
 theme_override_constants/separation = 13
 alignment = 2
@@ -119,25 +149,34 @@ layout_mode = 2
 texture = ExtResource("6_nm1m0")
 expand_mode = 1
 
-[node name="CrossHair" type="VBoxContainer" parent="Panel"]
+[node name="crosshair" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = -158.0
-offset_right = 436.0
-offset_bottom = 240.0
+offset_left = -10.25
+offset_top = -7.5
+offset_right = 10.25
+offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.02, 0.02)
-pivot_offset = Vector2(18.845, 0)
-
-[node name="TextureRect" type="TextureRect" parent="Panel/CrossHair"]
-layout_mode = 2
 texture = ExtResource("7_c7tqi")
+expand_mode = 1
+
+[node name="timeLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.5
+offset_top = 10.0
+offset_right = 53.5
+offset_bottom = 68.0
+grow_horizontal = 2
+text = "21:37"
+label_settings = SubResource("LabelSettings_c7tqi")
 
 [node name="EndingPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -146,9 +185,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -536.0
-offset_top = -300.0
-offset_right = 64.0
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
