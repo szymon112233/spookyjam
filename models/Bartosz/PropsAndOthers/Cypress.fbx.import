@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Cypress.fbx-8cab86c15783fea0a24d9d8e57eeddd9.
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
