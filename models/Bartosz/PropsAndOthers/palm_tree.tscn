@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5sh5tsvuxtc3"]
+
+[ext_resource type="PackedScene" uid="uid://d4iddgjc83qw1" path="res://models/Bartosz/PropsAndOthers/PalmTree.fbx" id="1_1v417"]
+[ext_resource type="Material" uid="uid://bf7wxxubyd70l" path="res://materials/6.tres" id="2_afugi"]
+[ext_resource type="Material" uid="uid://cdc0exiu5yafl" path="res://materials/16.tres" id="3_urum6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_afugi"]
+height = 5.020508
+radius = 0.484375
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bmws6"]
+height = 1.1273193
+radius = 2.0507813
+
+[node name="PalmTree" instance=ExtResource("1_1v417")]
+
+[node name="Trunk" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_afugi")
+
+[node name="Leaf" parent="Trunk" index="0"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_001" parent="Trunk" index="1"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_002" parent="Trunk" index="2"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_003" parent="Trunk" index="3"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_004" parent="Trunk" index="4"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_005" parent="Trunk" index="5"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_006" parent="Trunk" index="6"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_007" parent="Trunk" index="7"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="Leaf_008" parent="Trunk" index="8"]
+surface_material_override/0 = ExtResource("3_urum6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.338379, 0.15982056)
+shape = SubResource("CylinderShape3D_afugi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.690366, 0)
+shape = SubResource("CylinderShape3D_bmws6")
