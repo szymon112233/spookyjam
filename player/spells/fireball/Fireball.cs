@@ -29,12 +29,6 @@ public partial class Fireball : RigidBody3D, IBaseSpell
 		SetMaxContactsReported(1);
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-
-	}
-
 	public new void SetInitialState(Transform3D trans)
 	{
 		Transform = trans; 
