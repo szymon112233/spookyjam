@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://h7u7uo7gb1hh"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_7j0ys"]
+
+[resource]
+script = ExtResource("1_7j0ys")
+Speaker = "Mary Magdalene"
+StartingText = "Master, I have a problem."
+InprogressText = "I am afraid of Peter, because he threatens me and hates my gender."
+CompletedHappyText = "Thank you, Master."
+CompletedSadText = "I see..."

@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d4iddgjc83qw1"
-path="res://.godot/imported/PalmTree.fbx-f20129f20e604accafe93ced97c46a4c.scn"
+uid="uid://dwqclnh3jr7u5"
+path="res://.godot/imported/Heart.fbx-d8acb528acbabf636461f7fa695b2249.scn"
 
 [deps]
 
-source_file="res://models/Bartosz/PropsAndOthers/PalmTree.fbx"
-dest_files=["res://.godot/imported/PalmTree.fbx-f20129f20e604accafe93ced97c46a4c.scn"]
+source_file="res://models/Bartosz/PropsAndOthers/Heart.fbx"
+dest_files=["res://.godot/imported/Heart.fbx-d8acb528acbabf636461f7fa695b2249.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true

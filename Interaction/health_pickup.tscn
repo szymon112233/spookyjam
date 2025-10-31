@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bilrtjjvwjtqp"]
+
+[ext_resource type="Script" path="res://Interaction/HealthPickup.cs" id="1_r3gtx"]
+[ext_resource type="PackedScene" uid="uid://dyhyul73i4v1n" path="res://models/Bartosz/PropsAndOthers/heart.tscn" id="2_r3gtx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qe1yt"]
+radius = 1.413
+
+[node name="HealthPickup" type="Area3D"]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_r3gtx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qe1yt")
+
+[node name="Heart" parent="." instance=ExtResource("2_r3gtx")]
+transform = Transform3D(0.67, 0, 0, 0, 0.67, 0, 0, 0, 0.67, 0, 0, 0)
