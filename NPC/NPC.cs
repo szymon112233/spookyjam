@@ -55,6 +55,11 @@ public partial class NPC : CharacterBody3D
 	
 	[Export]
 	protected PhysicalBoneSimulator3D Ragdoll;
+    private bool isRagdolling = false;
+
+	[Export] 
+	private float ragdollWindStunDuration = 10;
+	private float ragdollWindStunTimer = 0;
     
 	[Export]
 	protected CollisionShape3D mainCollider;
@@ -90,13 +95,17 @@ public partial class NPC : CharacterBody3D
 
 		if (Ragdoll != null)
 		{
+            if(isRagdolling)
+            { 
+                ragdollWindStunTimer += (float)delta;
+            }
 			if (_ragdolledThisFrame)
 			{
 				ActivateRagdoll(Vector3.Zero, ragdollDirection);
 				_ragdolledThisFrame = false;
 			}
 
-			if (_ragdolledDisabledThisFrame)
+			if (_ragdolledDisabledThisFrame || (ragdollWindStunTimer >= ragdollWindStunDuration && _healthStatus != HealthStatus.Dead))
 			{
 				DeactivateRagdoll();
 				_ragdolledDisabledThisFrame = false;
@@ -228,9 +237,10 @@ public partial class NPC : CharacterBody3D
 	
 	private void ActivateRagdoll(Vector3 position, Vector3 direction)
 	{
+        isRagdolling = true;
 		EmitSignalOnRagdoll();
 		mainCollider.Disabled = true;
-
+		ragdollWindStunTimer = 0;
 		
 		Ragdoll.Active = true;
 		Ragdoll.PhysicalBonesStartSimulation();
@@ -246,10 +256,14 @@ public partial class NPC : CharacterBody3D
 
 	private void DeactivateRagdoll()
 	{
+        isRagdolling = false;
         EmitSignalOnCharacterControlBack();
+        ragdollWindStunTimer = 0;
 		GlobalPosition = ((Node3D)Ragdoll.GetChild(0)).GlobalPosition; 
 		Ragdoll.PhysicalBonesStopSimulation();
 		Ragdoll.Active = false;
 		mainCollider.Disabled = false;
 	}
+	
+
 }
