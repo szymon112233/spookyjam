@@ -9,8 +9,8 @@
 [ext_resource type="Material" uid="uid://delb5nx4mavki" path="res://materials/5.tres" id="6_qcxqq"]
 [ext_resource type="Material" uid="uid://qnipsdce1lfs" path="res://materials/8.tres" id="7_wo5ac"]
 [ext_resource type="Material" uid="uid://nbtabwi4c0lq" path="res://materials/7.tres" id="8_88atl"]
-[ext_resource type="PackedScene" uid="uid://bcwvu2v6ncfr2" path="res://models/Bartosz/Soldier/gladius.tscn" id="9_qcxqq"]
-[ext_resource type="PackedScene" uid="uid://ba7ws4v6b84qd" path="res://models/Bartosz/NPC/physical_bone_simulator_3d_new.tscn" id="10_wo5ac"]
+[ext_resource type="PackedScene" path="res://models/Bartosz/Soldier/gladius.tscn" id="9_qcxqq"]
+[ext_resource type="PackedScene" path="res://models/Bartosz/NPC/physical_bone_simulator_3d_new.tscn" id="10_wo5ac"]
 
 [sub_resource type="Animation" id="Animation_hskxd"]
 resource_name = "mixamo_com"
@@ -363,6 +363,10 @@ script = ExtResource("2_a8cfa")
 AnimationName_Idle = "Idle"
 AnimationName_Walk = "Imported/Walk"
 AnimationName_Dance = "Imported/Breakdance"
+AnimationName_Sick = "Imported/Sick"
+AnimationName_Attack = "Imported/Strike"
+DefaultAnimation = "Imported/Idle"
+Sick_Y_offset = -0.85
 
 [node name="GeneralSkeleton" parent="." index="0"]
 bones/0/position = Vector3(-0.17927861, 0.7631568, 0.21934019)

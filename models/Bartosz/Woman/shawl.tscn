@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bayirk2cm5kre"]
+
+[ext_resource type="PackedScene" uid="uid://bqc6v2gdue3cf" path="res://models/Bartosz/Woman/Shawl.fbx" id="1_w6igy"]
+[ext_resource type="Material" uid="uid://dlltf4qi6oyjs" path="res://materials/1.tres" id="2_uti5c"]
+
+[node name="Shawl" instance=ExtResource("1_w6igy")]
+
+[node name="Shawl" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_uti5c")

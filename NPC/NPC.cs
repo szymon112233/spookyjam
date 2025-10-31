@@ -54,10 +54,10 @@ public partial class NPC : CharacterBody3D
 	protected HealthStatus _healthStatus = HealthStatus.Healthy;
 	
 	[Export]
-	private PhysicalBoneSimulator3D Ragdoll;
+	protected PhysicalBoneSimulator3D Ragdoll;
     
 	[Export]
-	private CollisionShape3D mainCollider;
+	protected CollisionShape3D mainCollider;
 
 	private bool _ragdolledThisFrame = false;
 	private bool _ragdolledDisabledThisFrame = false;

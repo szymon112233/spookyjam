@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://dk682beag4v7c"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_biwh8"]
+
+[resource]
+script = ExtResource("1_biwh8")
+Speaker = "John, son of Zebedee"
+StartingText = "Master, I have a question."
+InprogressText = "Which of your disciples do you love the most?"
+CompletedHappyText = "I am flattered, Master."
+CompletedSadText = "Of course..."

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://bnoqbs7n60car"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_do1nk"]
+
+[resource]
+script = ExtResource("1_do1nk")
+Speaker = "James, son of Zebedee"
+StartingText = "Master, do you remember that Samaritan town that wouldn't welcome us?"
+InprogressText = "Should we call fire down upon them?"
+CompletedHappyText = "Forgive me, Master."
+CompletedSadText = "Woo! Fire!"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OptionData" load_steps=2 format=3 uid="uid://fkoku8xibdge"]
+
+[ext_resource type="Script" uid="uid://cbq18xciyraqx" path="res://Dialog/Options/OptionData.cs" id="1_6xonf"]
+
+[resource]
+script = ExtResource("1_6xonf")
+OptionTexts = PackedStringArray("You are the son of Joseph. I am the son of God.", "I don\'t know you.", "All of humanity are my brothers and sisters.")
+OptionsCorrectness = PackedInt32Array(0, 0, 1)
+NotorietyEffects = PackedInt32Array(5, 0, 5)
+ApprovalEffects = PackedInt32Array(-5, -10, 20)
