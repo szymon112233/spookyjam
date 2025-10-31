@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4fvj0icl8mhl"]
+
+[ext_resource type="Script" uid="uid://caxfttdmdxdww" path="res://addons/zylann.hterrain/hterrain.gd" id="1_lrib4"]
+[ext_resource type="Resource" uid="uid://bstyq7fsxnrus" path="res://terrain/data.hterrain" id="2_3x3u1"]
+[ext_resource type="Script" uid="uid://d2aaj70s8j2d2" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_st4do"]
+[ext_resource type="Texture2D" uid="uid://bnxh5prmtyrps" path="res://terrain/Mountains_slot0_albedo_bump.png" id="4_st4do"]
+[ext_resource type="Texture2D" uid="uid://dkf2k6ibqfrwc" path="res://terrain/Mountains_slot0_normal_roughness.png" id="5_l4n3o"]
+
+[sub_resource type="Resource" id="Resource_l4n3o"]
+script = ExtResource("3_st4do")
+mode = 0
+textures = [[ExtResource("4_st4do")], [ExtResource("5_l4n3o")]]
+
+[node name="Mountains" type="Node3D"]
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -526.013, 0, -487.646)
+script = ExtResource("1_lrib4")
+_terrain_data = ExtResource("2_3x3u1")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+physics_material = null
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_l4n3o")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
+shader_params/u_specular = 0.5
+metadata/_custom_type_script = "uid://caxfttdmdxdww"
