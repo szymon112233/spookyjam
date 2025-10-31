@@ -22,6 +22,15 @@ public partial class MainUI : Node
 	public Label EndingTextLabel;
 	
 	[Export]
+	public Control EndingScreenTrue;
+	[Export]
+	public Control EndingScreenBad;
+	[Export]
+	public Control EndingScreenJapanese;
+	[Export]
+	public Control EndingScreenGolden;
+	
+	[Export]
 	public Label TimeLabel;
 	
 	[Export]
@@ -72,21 +81,31 @@ public partial class MainUI : Node
 	
 	public void ShowEnding(GameManager.Ending ending)
 	{
+		EndingScreenTrue.Hide();
+		EndingScreenBad.Hide();
+		EndingScreenJapanese.Hide();
+		EndingScreenJapanese.Hide();
+		
+		
 		switch (ending)
 		{
 			case GameManager.Ending.TrueEnding:
+				EndingScreenTrue.Show();
 				EndingNameLabel.Text = GameManager.Instance.GameEndingsData.TrueEndingTitle;
 				EndingTextLabel.Text = GameManager.Instance.GameEndingsData.TrueEndingDescription;
 				break;
 			case GameManager.Ending.GoldenEnding:
+				EndingScreenGolden.Show();
 				EndingNameLabel.Text = GameManager.Instance.GameEndingsData.GoldenEndingTitle;
 				EndingTextLabel.Text = GameManager.Instance.GameEndingsData.GoldenEndingDescription;
 				break;
 			case GameManager.Ending.BadEnding:
+				EndingScreenBad.Show();
 				EndingNameLabel.Text = GameManager.Instance.GameEndingsData.BadEndingTitle;
 				EndingTextLabel.Text = GameManager.Instance.GameEndingsData.BadEndingDescription;
 				break;
 			case GameManager.Ending.JapaneseEnding:
+				EndingScreenJapanese.Show();
 				EndingNameLabel.Text = GameManager.Instance.GameEndingsData.JapaneseEndingTitle;
 				EndingTextLabel.Text = GameManager.Instance.GameEndingsData.JapaneseEndingDescription;
 				break;
