@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://c5hjvp7cogtr3"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_pn5yq"]
+
+[resource]
+script = ExtResource("1_pn5yq")
+Speaker = "Rich Guy"
+StartingText = "I have a problem."
+InprogressText = "I follow all the commandments, but I feel like I need to do more to go to Heaven."
+CompletedHappyText = "But I own so much..."
+CompletedSadText = "Oh, that's a relief."
