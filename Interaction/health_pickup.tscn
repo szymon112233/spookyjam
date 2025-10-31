@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dov5fxgwtif68"]
+
+[ext_resource type="Script" uid="uid://debcpe8evdail" path="res://Interaction/HealthPickup.cs" id="1_r3gtx"]
+[ext_resource type="Material" uid="uid://bf7wxxubyd70l" path="res://materials/6.tres" id="2_a2c6h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ynq6h"]
+material = ExtResource("2_a2c6h")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qe1yt"]
+radius = 1.413
+
+[node name="HealthPickup" type="Area3D"]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_r3gtx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7071067, -0.49497473, 0, 0.7071067, 0.49497467, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_ynq6h")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.70710665, 0.4949747, 0, -0.70710665, 0.4949747, 0, 0, 0, 1, 0.27870178, 0, 0)
+mesh = SubResource("CapsuleMesh_ynq6h")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qe1yt")
