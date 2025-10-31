@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="AudioStream" uid="uid://botfiuam2ddnp" path="res://Sound/HealShortened.wav" id="2_3cqij"]
-[ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
+[ext_resource type="PackedScene" path="res://player/spells/Heal.tscn" id="2_og8fv"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
 [ext_resource type="AudioStream" uid="uid://dj15a1e5jnh1o" path="res://Sound/FireballShortened.wav" id="3_8ttvn"]
 [ext_resource type="PackedScene" uid="uid://dcffn1fdbskyq" path="res://player/spells/Fireball.tscn" id="3_35ted"]
@@ -48,9 +48,6 @@ max_polyphony = 32
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="Sitting" parent="Model" instance=ExtResource("5_hwx4i")]
-transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, -0.0063455347, -0.23, -0.022)
-
 [node name="Donkey" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(-0.12072437, 0, -2.340435e-08, 0, 0.155, 0, 1.8228874e-08, 0, -0.155, 0, -0.9962832, 0)
 mesh = ExtResource("4_35ted")
@@ -75,6 +72,12 @@ transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0,
 
 [node name="ShootingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
+
+[node name="SittingPivot" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Sitting" parent="Model/SittingPivot" instance=ExtResource("5_hwx4i")]
+transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t6uh6")
