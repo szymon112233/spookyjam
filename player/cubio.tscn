@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
-[ext_resource type="PackedScene" uid="uid://dnv8mmo7agdr1" path="res://player/spells/Heal.tscn" id="2_og8fv"]
+[ext_resource type="PackedScene" path="res://player/spells/Heal.tscn" id="2_og8fv"]
 [ext_resource type="Material" uid="uid://bfj7gdrhhulyh" path="res://materials/PlayerCapsuleMaterial.tres" id="2_orvbd"]
 [ext_resource type="PackedScene" uid="uid://dcffn1fdbskyq" path="res://player/spells/Fireball.tscn" id="3_35ted"]
 [ext_resource type="ArrayMesh" uid="uid://1c12vtu552jd" path="res://models/ass/Donkey.obj" id="4_35ted"]
@@ -23,7 +23,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_ubpxq"]
 material = ExtResource("10_52rpc")
 
-[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "body", "ShootingPoint", "PlayerDialogOptionHandler")]
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "body", "ShootingPoint", "PlayerDialogOptionHandler", "rockedObject")]
 collision_layer = 16
 collision_mask = 39
 script = ExtResource("1_orvbd")
@@ -33,11 +33,14 @@ ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
 MAX_SPEED = 7.0
 spells = Array[PackedScene]([ExtResource("2_og8fv"), ExtResource("3_35ted"), ExtResource("4_u5r6g")])
 PlayerDialogOptionHandler = NodePath("CameraPivot/PlayerOptionRoot")
+rockedObject = NodePath("Model/Donkey")
+rockingAmplitude = 10.0
+rockingSpeed = 0.5
 
 [node name="Model" type="Node3D" parent="."]
 
 [node name="Sitting" parent="Model" instance=ExtResource("5_hwx4i")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.8931736e-09, -0.23045397, -0.02165541)
+transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, -0.0063455347, -0.23, -0.022)
 
 [node name="Donkey" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(-0.12072437, 0, -2.340435e-08, 0, 0.155, 0, 1.8228874e-08, 0, -0.155, 0, -0.9962832, 0)
