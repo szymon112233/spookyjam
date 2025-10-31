@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw604mrdafbc6"
-path="res://.godot/imported/GameJam-House1.png-9a959ee098a8da2fdd1d590390fc9511.ctex"
+uid="uid://bo60vnj070ge"
+path.s3tc="res://.godot/imported/GameJam-House5.png-6f7f6c1ac145fe789e5eb5005f3d9c15.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://models/Hoese/GameJam-House1.png"
-dest_files=["res://.godot/imported/GameJam-House1.png-9a959ee098a8da2fdd1d590390fc9511.ctex"]
+source_file="res://models/Hoese/Assets/GameJam-House5.png"
+dest_files=["res://.godot/imported/GameJam-House5.png-6f7f6c1ac145fe789e5eb5005f3d9c15.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=true
+compress/mode=2
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

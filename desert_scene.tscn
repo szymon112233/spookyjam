@@ -85,7 +85,6 @@ material = ExtResource("2_1nrcf")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ktymu"]
 
 [node name="DesertScene" type="NavigationRegion3D" node_paths=PackedStringArray("PointsOfInterest")]
-transform = Transform3D(1.1905935, 0, 0, 0, 1.1905935, 0, 0, 0, 1.1905935, 2.2086296, -0.7885971, -4.7788277)
 navigation_mesh = SubResource("NavigationMesh_bjslr")
 script = ExtResource("1_uvdaf")
 PointsOfInterest = [NodePath("SoldierPOIs/Point 1"), NodePath("SoldierPOIs/Point 2"), NodePath("SoldierPOIs/Point 3"), NodePath("SoldierPOIs/Point 4"), NodePath("SoldierPOIs/Point 5"), NodePath("SoldierPOIs/Point 1"), NodePath("SoldierPOIs/Point 2"), NodePath("SoldierPOIs/Point 3"), NodePath("SoldierPOIs/Point 4"), NodePath("SoldierPOIs/Point 5"), NodePath("SoldierPOIs/Point 6"), NodePath("SoldierPOIs/Point 7"), NodePath("SoldierPOIs/Point 8"), NodePath("SoldierPOIs/Point 9"), NodePath("SoldierPOIs/Point 10"), NodePath("SoldierPOIs/Point 11"), NodePath("SoldierPOIs/Point 12"), NodePath("SoldierPOIs/Point 13"), NodePath("SoldierPOIs/Point 14"), NodePath("SoldierPOIs/Point 15"), NodePath("SoldierPOIs/Point 16"), NodePath("SoldierPOIs/Point 17"), NodePath("SoldierPOIs/Point 18"), NodePath("SoldierPOIs/Point 19"), NodePath("SoldierPOIs/Point 20"), NodePath("SoldierPOIs/Point 21"), NodePath("SoldierPOIs/Point 22"), NodePath("SoldierPOIs/Point 23"), NodePath("SoldierPOIs/Point 24"), NodePath("SoldierPOIs/Point 25"), NodePath("SoldierPOIs/Point 26"), NodePath("SoldierPOIs/Point 27"), NodePath("SoldierPOIs/Point 28"), NodePath("SoldierPOIs/Point 29"), NodePath("SoldierPOIs/Point 30"), NodePath("SoldierPOIs/Point 31"), NodePath("SoldierPOIs/Point 32"), NodePath("SoldierPOIs/Point 33"), NodePath("SoldierPOIs/Point 34")]
@@ -116,8 +115,8 @@ directional_shadow_mode = 0
 directional_shadow_split_1 = 0.05
 directional_shadow_split_2 = 0.1
 directional_shadow_split_3 = 0.2
-directional_shadow_fade_start = 1.0
-directional_shadow_max_distance = 24.0
+directional_shadow_fade_start = 0.9
+directional_shadow_max_distance = 128.0
 
 [node name="dialogues" type="Node3D" parent="."]
 
