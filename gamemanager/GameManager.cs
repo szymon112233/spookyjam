@@ -132,6 +132,7 @@ public partial class GameManager : Node
 
 	public Ending CalculateEnding()
 	{
+		GetTree().Paused = true;
 		if (isCrucified && DivineApproval >= DivineApprovalEndingTreshold)
 		{
 			return Ending.TrueEnding;

@@ -252,10 +252,6 @@ public override void _PhysicsProcess(double delta)
 			
 			if(spellIndex == 2)
 			{
-				// if (DustParticlesPtr != null)
-				// {
-				// 	;
-				// }
 
 				DustParticlesPtr = DustParticles.Instantiate() as GpuParticles3D;
 				DustParticlesPtr.Finished += DustParticlesPtr.QueueFree;

@@ -5,9 +5,13 @@ public partial class MainUI : Node
 	[Export]
 	public Label DivinieApprovalLabel;
 	[Export]
+	public Label DivinieApprovalIncreaseLabel;
+	[Export]
 	public Label ManalLabel;
 	[Export]
 	public Label NotorietyLabel;
+	[Export]
+	public Label NotorietyIncreaseLabel;
 	
 	
 	[Export]
@@ -16,6 +20,9 @@ public partial class MainUI : Node
 	public Label EndingNameLabel;
 	[Export]
 	public Label EndingTextLabel;
+	
+	[Export]
+	public Label TimeLabel;
 	
 	[Export]
 	public Control[] LivesIcons;
@@ -39,6 +46,11 @@ public partial class MainUI : Node
 		OnLivesChanged(gameManager.Lives, true);
 		
 		EndingScreenRoot.Hide();
+	}
+
+	public override void _Process(double delta)
+	{
+		UpdateTimer(GameManager.Instance.GetNode<Timer>("Timer").TimeLeft);
 	}
 
 	private void OnLivesChanged(int newValue, bool isPositive)
@@ -88,12 +100,31 @@ public partial class MainUI : Node
 	{
 		NotorietyLabel.Text = $"Notoriety: {newValue}";
 		
+		NotorietyIncreaseLabel.Text = isPositive ? "+++" : "---";
+		
+		Tween tweenchange = GetTree().CreateTween();
+		if (isPositive)
+		{
+			tweenchange.TweenProperty(NotorietyIncreaseLabel, "theme_override_colors/font_color", Colors.LimeGreen, 0.1f);
+		}
+		else
+		{
+			tweenchange.TweenProperty(NotorietyIncreaseLabel, "theme_override_colors/font_color", Colors.DarkRed, 0.1f);
+		}
+		
+		tweenchange.TweenProperty(NotorietyIncreaseLabel, "theme_override_colors/font_color", Color.FromHtml("ffffff00"), 1.5f);
+		
+		
 		Tween tween = GetTree().CreateTween();
-		tween.TweenProperty(NotorietyLabel, "theme_override_colors/font_color", Colors.Yellow, 0.1f);
-		tween.TweenProperty(NotorietyLabel, "theme_override_font_sizes/font_size", 33.0f, 0.1f);
-		tween.SetParallel();
+		if (isPositive)
+		{
+			tween.TweenProperty(NotorietyLabel, "theme_override_colors/font_color", Colors.LimeGreen, 0.1f);
+		}
+		else
+		{
+			tween.TweenProperty(NotorietyLabel, "theme_override_colors/font_color", Colors.DarkRed, 0.1f);
+		}
 		tween.TweenProperty(NotorietyLabel, "theme_override_colors/font_color", Colors.White, 1.5f);
-		tween.TweenProperty(NotorietyLabel, "theme_override_font_sizes/font_size", 31.0f, 1.0f);
 	}
 
 	private void OnManaChanged(int newValue, bool isPositive)
@@ -112,12 +143,40 @@ public partial class MainUI : Node
 	private void OnDivineApprovalChanged(int newValue, bool isPositive)
 	{
 		DivinieApprovalLabel.Text = $"Divine Approval: {newValue}";
+
+		DivinieApprovalIncreaseLabel.Text = isPositive ? "+++" : "---";
+		
+		Tween tweenchange = GetTree().CreateTween();
+		if (isPositive)
+		{
+			tweenchange.TweenProperty(DivinieApprovalIncreaseLabel, "theme_override_colors/font_color", Colors.LimeGreen, 0.1f);
+		}
+		else
+		{
+			tweenchange.TweenProperty(DivinieApprovalIncreaseLabel, "theme_override_colors/font_color", Colors.DarkRed, 0.1f);
+		}
+		
+		tweenchange.TweenProperty(DivinieApprovalIncreaseLabel, "theme_override_colors/font_color", Color.FromHtml("ffffff00"), 1.5f);
+		
 		
 		Tween tween = GetTree().CreateTween();
-		tween.TweenProperty(DivinieApprovalLabel, "theme_override_colors/font_color", Colors.Yellow, 0.1f);
-		// tween.TweenProperty(DivinieApprovalLabel, "theme_override_font_sizes/font_size", 20.0f, 0.1f);
-		// tween.SetParallel(true);
+		if (isPositive)
+		{
+			tween.TweenProperty(DivinieApprovalLabel, "theme_override_colors/font_color", Colors.LimeGreen, 0.1f);
+		}
+		else
+		{
+			tween.TweenProperty(DivinieApprovalLabel, "theme_override_colors/font_color", Colors.DarkRed, 0.1f);
+		}
 		tween.TweenProperty(DivinieApprovalLabel, "theme_override_colors/font_color", Colors.White, 1.5f);
-		// tween.Parallel().TweenProperty(DivinieApprovalLabel, "theme_override_font_sizes/font_size", 10.0f, 1.0f);
+	}
+
+	private void UpdateTimer(double timeLeftInSeconds)
+	{
+		
+		int minutes = (int)(timeLeftInSeconds / 60);
+		int seconds = (int)(timeLeftInSeconds % 60);
+
+		TimeLabel.Text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
 	}
 }

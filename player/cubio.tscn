@@ -35,7 +35,7 @@ script = ExtResource("1_orvbd")
 cameraPivot = NodePath("CameraPivot")
 body = NodePath("Model")
 ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
-DustParticlesRoot = NodePath("Model/Dust Particle root")
+DustParticlesRoot = NodePath("Model/Dust Particle Root")
 DustParticles = ExtResource("12_8ttvn")
 MAX_SPEED = 7.0
 audioStreamPlayer = NodePath("AudioStreamPlayer")
@@ -50,9 +50,6 @@ rockingSpeed = 0.5
 max_polyphony = 32
 
 [node name="Model" type="Node3D" parent="."]
-
-[node name="Sitting" parent="Model" instance=ExtResource("5_hwx4i")]
-transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, -0.0063455347, -0.23, -0.022)
 
 [node name="Donkey" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(-0.12072437, 0, -2.340435e-08, 0, 0.155, 0, 1.8228874e-08, 0, -0.155, 0, -0.9962832, 0)
@@ -79,8 +76,14 @@ transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0,
 [node name="ShootingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
 
-[node name="Dust Particle root" type="Node3D" parent="Model"]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1.0000001, 0, -1.0000001, 0, -4.3711392e-08, 0, 0, -1.4930769)
+[node name="SittingPivot" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Sitting" parent="Model/SittingPivot" instance=ExtResource("5_hwx4i")]
+transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, 0, 0, 0)
+
+[node name="Dust Particle Root" type="Node3D" parent="Model"]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, -1.6716897)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t6uh6")
