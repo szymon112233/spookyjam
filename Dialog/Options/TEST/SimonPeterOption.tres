@@ -6,5 +6,5 @@
 script = ExtResource("1_ivdhq")
 OptionTexts = PackedStringArray("Peter means \"rock\", and you are the rock on which I will build my church.", "Peter Parker is the name of a superhero who will be created in the future.", "I saw a bowl of peas, and then I saw someone crying. Pea-tear.")
 OptionsCorrectness = PackedInt32Array(1, 0, 0)
-NotorietyEffects = PackedInt32Array(5, 5, 5)
-ApprovalEffects = PackedInt32Array(20, 0, 0)
+NotorietyEffects = PackedInt32Array(0, 0, 0)
+ApprovalEffects = PackedInt32Array(10, 0, 0)
