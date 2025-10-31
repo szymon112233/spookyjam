@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://ddfrla0niav7c"]
+[gd_scene load_steps=99 format=3 uid="uid://ddfrla0niav7c"]
 
 [ext_resource type="Script" uid="uid://d2seov0uv14x7" path="res://Map/Map.cs" id="1_uvdaf"]
 [ext_resource type="PackedScene" uid="uid://c1j6vfe3s2bq8" path="res://player/cubio.tscn" id="1_x2qou"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://crglnyjkdymh5" path="res://NPC/Roman/soldier.tscn" id="8_bjslr"]
 [ext_resource type="Resource" uid="uid://2gl4fh4kta5f" path="res://Dialog/Data/DrugDealerDialogue.tres" id="9_0shv6"]
 [ext_resource type="Resource" uid="uid://cwufkp6q8iuqo" path="res://Dialog/Data/Judas.tres" id="9_6fjt0"]
-[ext_resource type="Resource" uid="uid://c1bnhn5irr6rr" path="res://Dialog/Soldiers/Soldier1.tres" id="9_uvdaf"]
 [ext_resource type="Material" uid="uid://cko1imbruweoh" path="res://materials/14.tres" id="10_5myj6"]
 [ext_resource type="PackedScene" uid="uid://bhsbdwa2w45g7" path="res://Interaction/spell_trigger.tscn" id="10_wb7md"]
 [ext_resource type="PackedScene" uid="uid://botnclf4tvwq6" path="res://Dialog/Options/option_dialog.tscn" id="10_y5u4b"]
@@ -166,20 +165,6 @@ directional_shadow_fade_start = 0.9
 directional_shadow_max_distance = 128.0
 
 [node name="dialogues" type="Node3D" parent="."]
-
-[node name="DialogInteraction" parent="dialogues" instance=ExtResource("8_31pye")]
-transform = Transform3D(1.5823267, 0, 0, 0, 1.5621723, 0, 0, 0, 1.3737533, 0.88903755, 4.7683716e-07, 4.42396)
-HandledDialog = ExtResource("9_6fjt0")
-
-[node name="CollisionShape3D" parent="dialogues/DialogInteraction" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1.0000095, 0, 0, 0, 1.0000095, 0.13153839, 0.53824776, 0.06570339)
-
-[node name="TextBox" parent="dialogues/DialogInteraction" index="1"]
-transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0.27137882, 2.1945212, -0.09157079)
-
-[node name="DialogInteraction2" parent="dialogues" instance=ExtResource("8_31pye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.760308, 0, 4.6406755)
-HandledDialog = ExtResource("9_uvdaf")
 
 [node name="DialogInteraction3" parent="dialogues" instance=ExtResource("8_31pye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9448228, 0, 11.763197)
@@ -3159,7 +3144,6 @@ environment = SubResource("Environment_bptat")
 [connection signal="CorrectSpellHit" from="ppl2/drug dealer/SpellTrigger" to="ppl2/drug dealer/SpellTrigger/Props" method="queue_free"]
 [connection signal="CorrectSpellHit" from="ppl2/drug dealer/SpellTrigger" to="ppl2/drug dealer/DrugdealerDialogInteraction4" method="Complete" binds= [true]]
 
-[editable path="dialogues/DialogInteraction"]
 [editable path="dialogues/TutorialDialogInteraction2"]
 [editable path="dialogues/TootorialDialogInteraction"]
 [editable path="dialogues/Tutorial Action Interaction"]
