@@ -14,6 +14,10 @@ public partial class PlayerController : CharacterBody3D
 	public Node3D body;
 	[Export]
 	public Node3D ShootingPoint;
+	[Export]
+	public Node3D DustParticlesRoot;
+	[Export]
+	public PackedScene DustParticles;
 
 	public static Action<int> ChangedSpell;
     
@@ -56,6 +60,7 @@ public partial class PlayerController : CharacterBody3D
 	private float rockingSineWave = 0.0f;
 
 	protected Vector3 KnockbackForce;
+	protected GpuParticles3D DustParticlesPtr;
 
 	//var camera;
 	// Called when the node enters the scene tree for the first time.
@@ -243,7 +248,16 @@ public override void _PhysicsProcess(double delta)
             GD.Print("IBase yes");
             Transform3D trans = cameraPivot.GlobalTransform;
             trans.Origin = Transform.Origin;
-            ispell.SetInitialState(trans);
+			ispell.SetInitialState(trans);
+			
+			if(spellIndex == 2)
+			{
+
+				DustParticlesPtr = DustParticles.Instantiate() as GpuParticles3D;
+				DustParticlesPtr.Finished += DustParticlesPtr.QueueFree;
+				DustParticlesRoot.AddChild(DustParticlesPtr);
+				DustParticlesPtr.Emitting = true;
+            }
         }
         else
         {

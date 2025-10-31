@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1j6vfe3s2bq8"]
+[gd_scene load_steps=22 format=3 uid="uid://c1j6vfe3s2bq8"]
 
 [ext_resource type="Script" uid="uid://ds8emxtbi26sj" path="res://player/PlayerController.cs" id="1_orvbd"]
 [ext_resource type="AudioStream" uid="uid://botfiuam2ddnp" path="res://Sound/HealShortened.wav" id="2_3cqij"]
@@ -15,7 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bi6i1imtfpxd1" path="res://models/Bartosz/Jesus/Jesus.tscn" id="5_hwx4i"]
 [ext_resource type="Script" uid="uid://12eyse56rte6" path="res://Dialog/Options/Player UI/OptionNode.cs" id="5_rg78b"]
 [ext_resource type="Script" uid="uid://cfuopw4tdh0tx" path="res://player/SimpleCameraPivot.cs" id="7_ubpxq"]
-[ext_resource type="Material" uid="uid://cs1e4pam06sno" path="res://materials/29.tres" id="10_52rpc"]
+[ext_resource type="Material" path="res://materials/29.tres" id="10_52rpc"]
+[ext_resource type="PackedScene" uid="uid://77u6w4ih36bn" path="res://Prefabs/dust_particle.tscn" id="12_8ttvn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hb27q"]
 
@@ -26,7 +27,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_ubpxq"]
 material = ExtResource("10_52rpc")
 
-[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "body", "ShootingPoint", "audioStreamPlayer", "PlayerDialogOptionHandler", "rockedObject")]
+[node name="Cubio" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "body", "ShootingPoint", "DustParticlesRoot", "audioStreamPlayer", "PlayerDialogOptionHandler", "rockedObject")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12340021, -2.21706, 1.1812489)
 collision_layer = 16
 collision_mask = 39
@@ -34,6 +35,8 @@ script = ExtResource("1_orvbd")
 cameraPivot = NodePath("CameraPivot")
 body = NodePath("Model")
 ShootingPoint = NodePath("Model/Donkey/BodyCapsuleMesh/ShootingPointMarker3D")
+DustParticlesRoot = NodePath("Model/Dust Particle Root")
+DustParticles = ExtResource("12_8ttvn")
 MAX_SPEED = 7.0
 audioStreamPlayer = NodePath("AudioStreamPlayer")
 spellSounds = Array[AudioStream]([ExtResource("2_3cqij"), ExtResource("3_8ttvn"), ExtResource("4_6crar")])
@@ -47,9 +50,6 @@ rockingSpeed = 0.5
 max_polyphony = 32
 
 [node name="Model" type="Node3D" parent="."]
-
-[node name="Sitting" parent="Model" instance=ExtResource("5_hwx4i")]
-transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, -0.0063455347, -0.23, -0.022)
 
 [node name="Donkey" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(-0.12072437, 0, -2.340435e-08, 0, 0.155, 0, 1.8228874e-08, 0, -0.155, 0, -0.9962832, 0)
@@ -75,6 +75,15 @@ transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0,
 
 [node name="ShootingPointMarker3D" type="Marker3D" parent="Model/Donkey/BodyCapsuleMesh"]
 transform = Transform3D(1.1111112, 0, 0, 0, 1.1111112, 0, 0, 0, 1.1111112, 0, 0, -0.8486346)
+
+[node name="SittingPivot" type="Node3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="Sitting" parent="Model/SittingPivot" instance=ExtResource("5_hwx4i")]
+transform = Transform3D(-0.99473697, 0, -0.1024627, 0, 1, 0, 0.1024627, 0, -0.99473697, 0, 0, 0)
+
+[node name="Dust Particle Root" type="Node3D" parent="Model"]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, -1.6716897)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t6uh6")

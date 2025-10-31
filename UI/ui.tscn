@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6m03isargpxu"]
+[gd_scene load_steps=17 format=3 uid="uid://b6m03isargpxu"]
 
 [ext_resource type="Script" uid="uid://30o3qaqoq1wb" path="res://UI/MainUI.cs" id="1_2fwl4"]
 [ext_resource type="Texture2D" uid="uid://mviyg1ju6jlg" path="res://UI/Icons/divineapproval.png" id="2_cbfhl"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://becna7kjxinh6" path="res://UI/Icons/fusrodah.png" id="5_c7tqi"]
 [ext_resource type="Texture2D" uid="uid://bbldoprgqc40m" path="res://UI/Icons/heart.png" id="6_nm1m0"]
 [ext_resource type="Texture2D" uid="uid://bshc0te5obv5x" path="res://Dialog/Options/cloud box.png" id="7_c7tqi"]
+[ext_resource type="Texture2D" uid="uid://ba04r2i2lgdph" path="res://UI/Endings/badending.png" id="10_o2jkc"]
+[ext_resource type="Texture2D" uid="uid://deynsgvkcm82y" path="res://UI/Endings/goldenending.png" id="11_2qbci"]
+[ext_resource type="Texture2D" uid="uid://by1t4dlg0lq0g" path="res://UI/Endings/japanending.png" id="12_ow1yt"]
+[ext_resource type="Texture2D" uid="uid://cbpxktjgybb8y" path="res://UI/Endings/trueending.png" id="13_o2t6a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr8d8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,7 +22,7 @@ font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fwl4"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("DivinieApprovalLabel", "ManalLabel", "NotorietyLabel", "EndingScreenRoot", "EndingNameLabel", "EndingTextLabel", "TimeLabel", "LivesIcons")]
+[node name="UI" type="Control" node_paths=PackedStringArray("DivinieApprovalLabel", "DivinieApprovalIncreaseLabel", "ManalLabel", "NotorietyLabel", "NotorietyIncreaseLabel", "EndingScreenRoot", "EndingNameLabel", "EndingTextLabel", "EndingScreenTrue", "EndingScreenBad", "EndingScreenJapanese", "EndingScreenGolden", "TimeLabel", "LivesIcons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,11 +32,17 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2fwl4")
 DivinieApprovalLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer/DALabel")
+DivinieApprovalIncreaseLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer/DAIncreaseLabel")
 ManalLabel = NodePath("Panel/StatsVBoxContainer/ManaLabel")
 NotorietyLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer2/NotLabel")
+NotorietyIncreaseLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer2/NotIncreaseLabel")
 EndingScreenRoot = NodePath("EndingPanel")
 EndingNameLabel = NodePath("EndingPanel/VBoxContainer/EndingTitleLabel")
 EndingTextLabel = NodePath("EndingPanel/VBoxContainer/MarginContainer/TextLabel")
+EndingScreenTrue = NodePath("EndingPanel/TrueEndingTextureRect4")
+EndingScreenBad = NodePath("EndingPanel/BadEndingTextureRect")
+EndingScreenJapanese = NodePath("EndingPanel/JapaneseeTextureRect3")
+EndingScreenGolden = NodePath("EndingPanel/GoldenEndingTextureRect2")
 TimeLabel = NodePath("Panel/timeLabel")
 LivesIcons = [NodePath("Panel/LivesHBoxContainer/Heart"), NodePath("Panel/LivesHBoxContainer/Heart2"), NodePath("Panel/LivesHBoxContainer/Heart3"), NodePath("Panel/LivesHBoxContainer/Heart4"), NodePath("Panel/LivesHBoxContainer/Heart5")]
 
@@ -75,6 +85,12 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Divine"
 
+[node name="DAIncreaseLabel" type="Label" parent="Panel/StatsVBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 31
+text = "+0"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/StatsVBoxContainer"]
 layout_mode = 2
 
@@ -89,6 +105,12 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Not"
+
+[node name="NotIncreaseLabel" type="Label" parent="Panel/StatsVBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 31
+text = "----"
 
 [node name="CurrentSpell" type="TextureRect" parent="Panel"]
 custom_minimum_size = Vector2(128, 128)
@@ -219,3 +241,67 @@ text = "If you see this run. The game is broken and nothing can be done. Authori
 SGUgaXMgd2F0Y2hpbmcNCg=="
 label_settings = SubResource("LabelSettings_2fwl4")
 autowrap_mode = 2
+
+[node name="BadEndingTextureRect" type="TextureRect" parent="EndingPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -225.0
+offset_right = 450.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_o2jkc")
+
+[node name="GoldenEndingTextureRect2" type="TextureRect" parent="EndingPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -225.0
+offset_right = 450.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_2qbci")
+
+[node name="JapaneseeTextureRect3" type="TextureRect" parent="EndingPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -225.0
+offset_right = 450.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ow1yt")
+
+[node name="TrueEndingTextureRect4" type="TextureRect" parent="EndingPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -225.0
+offset_right = 450.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_o2t6a")
