@@ -18,7 +18,7 @@ font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fwl4"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("DivinieApprovalLabel", "ManalLabel", "NotorietyLabel", "EndingScreenRoot", "EndingNameLabel", "EndingTextLabel", "TimeLabel", "LivesIcons")]
+[node name="UI" type="Control" node_paths=PackedStringArray("DivinieApprovalLabel", "DivinieApprovalIncreaseLabel", "ManalLabel", "NotorietyLabel", "NotorietyIncreaseLabel", "EndingScreenRoot", "EndingNameLabel", "EndingTextLabel", "TimeLabel", "LivesIcons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,8 +28,10 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2fwl4")
 DivinieApprovalLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer/DALabel")
+DivinieApprovalIncreaseLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer/DAIncreaseLabel")
 ManalLabel = NodePath("Panel/StatsVBoxContainer/ManaLabel")
 NotorietyLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer2/NotLabel")
+NotorietyIncreaseLabel = NodePath("Panel/StatsVBoxContainer/HBoxContainer2/NotIncreaseLabel")
 EndingScreenRoot = NodePath("EndingPanel")
 EndingNameLabel = NodePath("EndingPanel/VBoxContainer/EndingTitleLabel")
 EndingTextLabel = NodePath("EndingPanel/VBoxContainer/MarginContainer/TextLabel")
@@ -75,6 +77,12 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Divine"
 
+[node name="DAIncreaseLabel" type="Label" parent="Panel/StatsVBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 31
+text = "+0"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/StatsVBoxContainer"]
 layout_mode = 2
 
@@ -89,6 +97,12 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 31
 text = "Not"
+
+[node name="NotIncreaseLabel" type="Label" parent="Panel/StatsVBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/font_size = 31
+text = "----"
 
 [node name="CurrentSpell" type="TextureRect" parent="Panel"]
 custom_minimum_size = Vector2(128, 128)
