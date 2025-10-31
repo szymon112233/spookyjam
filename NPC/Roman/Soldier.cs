@@ -55,7 +55,7 @@ public partial class Soldier : NPC
         
         base._PhysicsProcess(delta);
 
-        if(_healthStatus == HealthStatus.Healthy)
+        if(_healthStatus == HealthStatus.Healthy && !isRagdolling)
         {
             int tier = GameManager.Instance.Notoriety / NotorietyThreshold;
 
