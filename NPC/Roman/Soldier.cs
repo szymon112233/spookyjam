@@ -44,27 +44,30 @@ public partial class Soldier : NPC
     {
         base._PhysicsProcess(delta);
 
-        int tier = GameManager.Instance.Notoriety / NotorietyThreshold;
-
-        PlayerCast.Enabled = GameManager.Instance.Notoriety > NotorietyThreshold;
-        
-        PlayerCastShape.Radius = detectorRadius + detectorRadius * tier * NotorietyMulti;
-        PlayerCastShape.Height = detectorLength + detectorLength * tier * NotorietyMulti;
-        var castPos = PlayerCast.Position;
-        castPos.Z = detectorZPos + (detectorLength * tier * NotorietyMulti) / 2;
-        PlayerCast.Position = castPos;
-
-        if (PlayerCast.IsColliding())
+        if(_healthStatus == HealthStatus.Healthy)
         {
-            var obj = PlayerCast.GetCollider(0);
-            PlayerController playerNode = obj as PlayerController;
+            int tier = GameManager.Instance.Notoriety / NotorietyThreshold;
 
-            TargetPlayer(playerNode);
-            ChasePlayer(delta);
-        }
-        else if (FoundPlayer != null)
-        {
-            ChasePlayer(delta);
+            PlayerCast.Enabled = GameManager.Instance.Notoriety > NotorietyThreshold;
+            
+            PlayerCastShape.Radius = detectorRadius + detectorRadius * tier * NotorietyMulti;
+            PlayerCastShape.Height = detectorLength + detectorLength * tier * NotorietyMulti;
+            var castPos = PlayerCast.Position;
+            castPos.Z = detectorZPos + (detectorLength * tier * NotorietyMulti) / 2;
+            PlayerCast.Position = castPos;
+
+            if (PlayerCast.IsColliding())
+            {
+                var obj = PlayerCast.GetCollider(0);
+                PlayerController playerNode = obj as PlayerController;
+
+                TargetPlayer(playerNode);
+                ChasePlayer(delta);
+            }
+            else if (FoundPlayer != null)
+            {
+                ChasePlayer(delta);
+            }
         }
     }
 

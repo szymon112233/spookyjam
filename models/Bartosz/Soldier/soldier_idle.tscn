@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dosgd5q3bu63r"]
+[gd_scene load_steps=14 format=3 uid="uid://dosgd5q3bu63r"]
 
 [ext_resource type="PackedScene" uid="uid://dk5s7e7pjhwjr" path="res://models/Bartosz/Soldier/SoldierIdle.fbx" id="1_kde4o"]
 [ext_resource type="Script" uid="uid://dm7qti2fai4ji" path="res://models/Bartosz/DefaultAnimationPlayer.cs" id="2_a8cfa"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://qnipsdce1lfs" path="res://materials/8.tres" id="7_wo5ac"]
 [ext_resource type="Material" uid="uid://nbtabwi4c0lq" path="res://materials/7.tres" id="8_88atl"]
 [ext_resource type="PackedScene" uid="uid://bcwvu2v6ncfr2" path="res://models/Bartosz/Soldier/gladius.tscn" id="9_qcxqq"]
+[ext_resource type="PackedScene" uid="uid://ba7ws4v6b84qd" path="res://models/Bartosz/NPC/physical_bone_simulator_3d_new.tscn" id="10_wo5ac"]
 
 [sub_resource type="Animation" id="Animation_hskxd"]
 resource_name = "mixamo_com"
@@ -442,6 +443,8 @@ bone_idx = 30
 
 [node name="Gladius" parent="GeneralSkeleton/HandBoneAttachment3D/HandContainer" index="0" instance=ExtResource("9_qcxqq")]
 transform = Transform3D(-0.048107803, 0.3749352, 0.92580175, 0.9986313, -0.0009672502, 0.052284032, 0.020498425, 0.9270506, -0.37437582, 0.01668489, 0.13798898, 0.023463726)
+
+[node name="PhysicalBoneSimulator3DNew" parent="GeneralSkeleton" index="6" instance=ExtResource("10_wo5ac")]
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
