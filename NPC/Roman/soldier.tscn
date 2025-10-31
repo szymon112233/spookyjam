@@ -26,7 +26,7 @@ stream_1/stream = ExtResource("8_7yg00")
 stream_2/stream = ExtResource("9_iiw3d")
 stream_3/stream = ExtResource("10_snmic")
 
-[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("HitEffectAudioPlayer", "NavAgent3D", "PlayerCast", "AnimationPlayer")]
+[node name="Soldier" type="CharacterBody3D" node_paths=PackedStringArray("HitEffectAudioPlayer", "NavAgent3D", "PlayerCast", "AnimationPlayer", "Ragdoll", "mainCollider")]
 script = ExtResource("1_dka42")
 MinimumIdelTime = 2.0
 MaximumIdleTime = 15.0
@@ -39,6 +39,8 @@ PlayerCast = NodePath("Player Detector")
 AnimationPlayer = NodePath("SoldierIdle")
 MoveSpeed = 3.0
 RunSpeed = 6.0
+Ragdoll = NodePath("SoldierIdle/GeneralSkeleton/PhysicalBoneSimulator3DNew")
+mainCollider = NodePath("CollisionShape3D")
 DeathResult = ExtResource("2_gy2eb")
 HealResult = ExtResource("3_756kp")
 ResurectResult = ExtResource("4_j3pl7")
@@ -69,3 +71,5 @@ DefaultAnimation = "Idle"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_gy2eb")
+
+[editable path="SoldierIdle"]
