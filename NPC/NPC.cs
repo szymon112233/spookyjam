@@ -192,19 +192,12 @@ public partial class NPC : CharacterBody3D
 		}
 	}
 
-	public void FusRohDah(Vector3 direction)
-	{
-		_ragdolledThisFrame = true;
-		ragdollDirection = direction;
-		// Velocity = direction * 100;
-		// MoveAndSlide();
-	}
+
 
 	public void AddForceAndActivateRagdoll(Vector3 direction)
 	{
 		ragdollDirection = direction;
 		_ragdolledThisFrame = true;
-		// ActivateRagdoll(Vector3.Zero, direction);
 	}
 	
 	

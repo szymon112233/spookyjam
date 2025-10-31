@@ -49,7 +49,7 @@ public partial class SimpleDialogInteraction : Area3D
         {
             TextLabel.Text = HandledDialog.StartingText;
         }
-                if (GetParent() is NPC npc)
+        if (GetParent() is NPC npc)
         {
             npcParent = npc;
             npcParent.OnRagdoll += () => {SetEnabled(false);

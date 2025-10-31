@@ -35,13 +35,13 @@ public partial class OptionDialog : SimpleDialogInteraction
     
     public override void _Ready()
     {
-
+        base._Ready();
         if (GetParent() is NPC npc)
         {
             npc.OnRagdoll += () => { GD.Print("Yeah ragdoll"); QuestionIndication?.Hide(); };
             npc.OnCharacterControlBack += () => { QuestionIndication?.Show();};
         }
-        base._Ready();
+        
     }
 
     public override void _PhysicsProcess(double delta)
