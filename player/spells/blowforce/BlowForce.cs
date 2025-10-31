@@ -55,7 +55,17 @@ public partial class BlowForce : ShapeCast3D, IBaseSpell
                 {
                     GD.Print("Was NPC");
                     // npc.ChangeHealthStatus(NPC.HealthStatus.Dead);
-                    npc.FusRohDah(-Transform.Basis.Y);
+                    npc.FusRohDah(Transform.Basis.Y);
+                }
+                else if (GetCollider(i) is PhysicalBone3D bone)
+                {
+                    if (bone.GetParent().GetParent().GetParent().GetParent() is NPC npc2)
+                    {
+
+                        {
+                            npc2.AddForceAndActivateRagdoll(Transform.Basis.Y);
+                        }
+                    }
                 }
             }
         }
