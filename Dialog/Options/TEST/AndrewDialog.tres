@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3 uid="uid://gwmryws3abaa"]
+
+[ext_resource type="Script" uid="uid://30swhaou3de0" path="res://Dialog/DialogData.cs" id="1_3dfnn"]
+
+[resource]
+script = ExtResource("1_3dfnn")
+Speaker = "Andrew"
+StartingText = "This isn't nearly enough..."
+InprogressText = "We only have five loaves of bread and two fish. How will we feed everyone?"
+CompletedHappyText = "Amazing!"
+CompletedSadText = "Hm..."

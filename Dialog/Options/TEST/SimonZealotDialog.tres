@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_5lvul")
-Speaker = "Pharisee"
-StartingText = "Tell me, Jesus..."
+Speaker = "Simon the Zealot"
+StartingText = "The Romans are oppressing us!"
 InprogressText = "Should we take up swords against the Romans?"
-CompletedHappyText = "Absolutely correct!"
-CompletedSadText = "You can't be serious."
+CompletedHappyText = "You have a point."
+CompletedSadText = "Hm..."
